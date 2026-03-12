@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://jte064jhvirl"]
+
+[ext_resource type="Texture2D" uid="uid://8k0eogrdk4cv" path="res://kenney_prototype-textures/PNG/Dark/texture_01.png" id="1_1lq03"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vprs"]
+albedo_texture = ExtResource("1_1lq03")
+uv1_triplanar = true
+
+[node name="Node3D" type="Node3D" unique_id=1041812665]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=754142512]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=687780459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038146973, 0, 0)
+size = Vector3(126.40051, 1, 128.6084)
+material = SubResource("StandardMaterial3D_5vprs")
