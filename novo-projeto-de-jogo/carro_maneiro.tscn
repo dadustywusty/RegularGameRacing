@@ -274,36 +274,41 @@ linear_damp = 5.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="monobola" unique_id=209698757]
 shape = SubResource("SphereShape3D_52r71")
 
-[node name="carrinho" type="Node3D" parent="monobola" unique_id=1460271298]
+[node name="carro" type="Node3D" parent="." unique_id=961409524]
+
+[node name="carrinho" type="Node3D" parent="carro" unique_id=1460271298]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, -1, 0)
 
-[node name="body" type="MeshInstance3D" parent="monobola/carrinho" unique_id=1509898735]
+[node name="body" type="MeshInstance3D" parent="carro/carrinho" unique_id=1509898735]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.4999998, -15.000001)
 mesh = SubResource("ArrayMesh_2gdxo")
 
-[node name="Circle" type="MeshInstance3D" parent="monobola/carrinho" unique_id=1309751551]
+[node name="Circle" type="MeshInstance3D" parent="carro/carrinho" unique_id=1309751551]
 transform = Transform3D(20.146591, 0, 0, 0, 20.146591, 0, 0, 0, 20.146591, 0, 16.84433, -81.52761)
 mesh = SubResource("ArrayMesh_babfa")
 
-[node name="peixe" type="MeshInstance3D" parent="monobola/carrinho" unique_id=1286673239]
+[node name="peixe" type="MeshInstance3D" parent="carro/carrinho" unique_id=1286673239]
 transform = Transform3D(-23.418278, -7.97085e-06, -5.0261087e-06, 7.970851e-06, -10.093674, -21.131336, 5.026109e-06, -21.131338, 10.093674, 0, -12.180269, -86.91795)
 mesh = SubResource("ArrayMesh_4q4ah")
 
-[node name="wheel-back-left" type="MeshInstance3D" parent="monobola/carrinho" unique_id=691803351]
+[node name="wheel-back-left" type="MeshInstance3D" parent="carro/carrinho" unique_id=691803351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.000002, -66, -30.000002)
 mesh = SubResource("ArrayMesh_vof0p")
 
-[node name="wheel-back-right" type="MeshInstance3D" parent="monobola/carrinho" unique_id=1652287281]
+[node name="wheel-back-right" type="MeshInstance3D" parent="carro/carrinho" unique_id=1652287281]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.000002, -66, -30.000002)
 mesh = SubResource("ArrayMesh_h26ae")
 
-[node name="wheel-front-left" type="MeshInstance3D" parent="monobola/carrinho" unique_id=1031953004]
+[node name="wheel-front-left" type="MeshInstance3D" parent="carro/carrinho" unique_id=1031953004]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.000002, 66, -30.000002)
 mesh = SubResource("ArrayMesh_hujjo")
 
-[node name="wheel-front-right" type="MeshInstance3D" parent="monobola/carrinho" unique_id=1934391773]
+[node name="wheel-front-right" type="MeshInstance3D" parent="carro/carrinho" unique_id=1934391773]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.000002, 66, -30.000002)
 mesh = SubResource("ArrayMesh_wnl6l")
 
-[node name="RayCast3D" type="RayCast3D" parent="monobola" unique_id=378353252]
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=378353252]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, -1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=423366782]
+transform = Transform3D(-1, 0, -8.742278e-08, -4.0556865e-09, 0.9989233, 0.046391647, 8.732865e-08, 0.046391647, -0.9989233, 0, 1.5574448, -4.5501914)
