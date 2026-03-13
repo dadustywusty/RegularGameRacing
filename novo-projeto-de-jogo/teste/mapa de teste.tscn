@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://jte064jhvirl"]
 
-[ext_resource type="PackedScene" uid="uid://eoashsmm3dga" path="res://carro_maneiro.tscn" id="1_7jhma"]
 [ext_resource type="Texture2D" uid="uid://8k0eogrdk4cv" path="res://kenney_prototype-textures/PNG/Dark/texture_01.png" id="1_nfy3r"]
+[ext_resource type="PackedScene" uid="uid://bbopapkbjoke6" path="res://jeitinho arti/gibus.tscn" id="2_7jhma"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l3rou"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -25,9 +25,6 @@ uv1_triplanar = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1817662258]
 environment = SubResource("Environment_i7wld")
 
-[node name="CarroManeiro" parent="." unique_id=2033382667 instance=ExtResource("1_7jhma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0667038, 0)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1121026959]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 23.205973, 0)
 light_energy = 1.3
@@ -46,3 +43,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038146973, 18.627281, 0)
 operation = 2
 size = Vector3(125.59082, 37.07373, 127.87671)
 material = SubResource("StandardMaterial3D_5vprs")
+
+[node name="CharacterBody3D" parent="." unique_id=818493968 instance=ExtResource("2_7jhma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3844395, 0.13622689, 0.40942574)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2059801997]
+transform = Transform3D(-0.036643688, 0.10445826, -0.993854, 0, 0.9945219, 0.104528464, 0.9993284, 0.0038303083, -0.03644295, -58.794758, 13.760578, 0)
+visible = false

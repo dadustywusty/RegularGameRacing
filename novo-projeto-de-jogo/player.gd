@@ -24,11 +24,11 @@ func _physics_process(_delta):
 func _process(_delta):
 	if not ground_ray.is_colliding():
 		return
-		velocidade = 0
-		velocidade += Input.get_action_strength("accelerate")
-		velocidade -= Input.get_action_strength("brake")
-		velocidade *= acelerassal
-		rotassao = 0 
-		rotassao += Input.get_action_strength("wheel-front-left")
-		rotassao -= Input.get_action_strength("wheel-front-right")
-		rotassao *= deg_to_rad(virada)
+	velocidade = 0
+	velocidade += Input.get_action_strength("accelerate")
+	velocidade -= Input.get_action_strength("brake")
+	velocidade *= acelerassal
+	rotassao = 0 
+	rotassao += Input.get_action_strength("wheel-front-left")
+	rotassao -= Input.get_action_strength("wheel-front-right")
+	rotassao *= deg_to_rad(virada)
