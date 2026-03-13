@@ -19,7 +19,7 @@ func _ready():
 
 func _physics_process(_delta):
 	car_mesh.transform.origin = ball.transform.origin + realocassao_bola
-	ball.add_central_force(-car_mesh.global_transform.basis.z * velocidade)
+	ball.apply_central_force(-car_mesh.global_transform.basis.z * velocidade)
 
 func _process(_delta):
 	if not ground_ray.is_colliding():
