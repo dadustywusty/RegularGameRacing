@@ -15,6 +15,15 @@ run/main_scene="uid://jte064jhvirl"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/Usuario/Documents/flip.avi"
+
+[global_group]
+
+"plano morte"=""
+"ponto respawn"=""
+
 [input]
 
 acelerar={

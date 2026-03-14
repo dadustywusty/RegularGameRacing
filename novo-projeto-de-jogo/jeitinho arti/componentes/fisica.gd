@@ -1,8 +1,8 @@
 extends Node
 class_name FisicaComponente
 
-@export var gravidade: float = 30
-@export var forca_pulo: float = 5.0
+@export var gravidade: float = 40
+@export var forca_pulo: float = 6.0
 
 var velocidade_vertical: float = 0.0
 var no_chao: bool = false
@@ -16,4 +16,4 @@ func tick(delta: float) -> void:
 		velocidade_vertical -= gravidade * delta
 
 func _input_pulo() -> bool:
-	return Input.is_action_just_pressed("ui_accept")
+	return Input.is_action_just_pressed("drift")

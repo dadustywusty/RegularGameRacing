@@ -3,8 +3,9 @@ extends CharacterBody3D
 @onready var input_componente: InputComponente = $InputComponente
 @onready var movimento_componente: MovimentoComponente = $MovimentoComponente
 @onready var drift_componente: DriftComponente = %DriftComponente
-@onready var fisica = $fisica
+@onready var fisica = %fisica
 @onready var camera: CameraComponente = $SpringArm3D
+@onready var rotacao_componente: RotacaoComponente = %RotacaoComponente
 
 func _physics_process(delta: float) -> void:
 	input_componente.update()
@@ -13,9 +14,14 @@ func _physics_process(delta: float) -> void:
 	fisica.no_chao = is_on_floor()
 	fisica.tick(delta) 
 	camera.tick(delta, velocity.length()) 
+	rotacao_componente.tick()
 	
-	movimento_componente.aceleracao = input_componente.aceleracao
-	movimento_componente.rotacao = input_componente.rotacao
+	if not is_on_floor():
+		movimento_componente.aceleracao = 0
+	else:
+		movimento_componente.aceleracao = input_componente.aceleracao
+	if not movimento_componente.aceleracao == 0 or drift_componente.drift:
+		movimento_componente.rotacao = input_componente.rotacao
 	
 	if input_componente.drift:
 		drift_componente.drift = true

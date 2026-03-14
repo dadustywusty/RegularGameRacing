@@ -9,7 +9,7 @@ var drift := false
 
 func _ready() -> void:
 	angulo_base = movimento_componente.angulo
-	angulo_drift = movimento_componente.angulo * 2
+	angulo_drift = movimento_componente.angulo * 1.2
 
 func tick() -> void:
 	if drift:

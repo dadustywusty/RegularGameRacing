@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cj46vy4outtpd" path="res://jeitinho arti/componentes/movimentocomponente.gd" id="3_vpbmn"]
 [ext_resource type="Script" uid="uid://hmf3mjrc6bxp" path="res://jeitinho arti/componentes/driftcomponente.gd" id="5_qsdoc"]
 [ext_resource type="Script" uid="uid://bhh2tnr8whyny" path="res://jeitinho arti/componentes/fisica.gd" id="6_045yo"]
+[ext_resource type="Script" uid="uid://1dn6kmrc06gw" path="res://jeitinho arti/componentes/respawncomponente.gd" id="8_8tgkw"]
+[ext_resource type="Script" uid="uid://l06107u601lk" path="res://jeitinho arti/componentes/rotacaocomponente.gd" id="8_eol6c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxa1w"]
 resource_name = "colormap.001"
@@ -266,7 +268,9 @@ shadow_mesh = SubResource("ArrayMesh_sblya")
 radius = 0.84716797
 height = 2.725586
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=818493968]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8tgkw"]
+
+[node name="gibus" type="CharacterBody3D" unique_id=818493968]
 script = ExtResource("1_wm3er")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=112645640]
@@ -330,4 +334,22 @@ script = ExtResource("5_qsdoc")
 metadata/_custom_type_script = "uid://hmf3mjrc6bxp"
 
 [node name="fisica" type="Node" parent="." unique_id=744622752]
+unique_name_in_owner = true
 script = ExtResource("6_045yo")
+
+[node name="RotacaoComponente" type="RayCast3D" parent="." unique_id=419432117 node_paths=PackedStringArray("corpo")]
+unique_name_in_owner = true
+script = ExtResource("8_eol6c")
+corpo = NodePath("..")
+
+[node name="RespawnComponente" type="Area3D" parent="." unique_id=1705178301 node_paths=PackedStringArray("corpo")]
+unique_name_in_owner = true
+script = ExtResource("8_8tgkw")
+corpo = NodePath("..")
+metadata/_custom_type_script = "uid://1dn6kmrc06gw"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnComponente" unique_id=255199768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6020409, 0)
+shape = SubResource("BoxShape3D_8tgkw")
+
+[connection signal="area_entered" from="RespawnComponente" to="RespawnComponente" method="_on_area_entered"]
