@@ -17,7 +17,7 @@ func tick(delta: float) -> void:
 	if corpo == null:
 		return
 	# move o carro pra frente
-	corpo.velocity = corpo.global_basis.z * (aceleracao * velocidade)
+	corpo.velocity = -corpo.global_basis.z * (aceleracao * velocidade)
 	# gira o carro
 	rotacao *= deg_to_rad(angulo)
 	# se vc descobrir como e por que esse codigo funciona e gira o carro pfv
@@ -26,6 +26,7 @@ func tick(delta: float) -> void:
 	# e copiar o tutorial.
 	# da pra perceber que eu to perdendo a cabeça?
 	# tipo assim o que CARALHOS é um slerp porra???????
+	# slerp — é basicamente uma interpolação suave entre duas rotações, é como o lerp mas para ângulos/bases
 	var base = corpo.global_basis.rotated(corpo.global_basis.y, rotacao)
 	corpo.global_basis = corpo.global_basis.slerp(base, angulo * delta)
 	corpo.global_basis = corpo.global_basis.orthonormalized()

@@ -3,8 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://dir48kvw04nui" path="res://teste/carro(1)_colormap.png" id="1_cjgle"]
 [ext_resource type="Script" uid="uid://bgep8theb7r85" path="res://jeitinho arti/gibus.gd" id="1_wm3er"]
 [ext_resource type="Script" uid="uid://cpamosiyhrbhc" path="res://jeitinho arti/componentes/inputcomponente.gd" id="2_64arw"]
+[ext_resource type="Script" uid="uid://bys73v3su27ko" path="res://jeitinho arti/componentes/camera.gd" id="3_2vwgx"]
 [ext_resource type="Script" uid="uid://cj46vy4outtpd" path="res://jeitinho arti/componentes/movimentocomponente.gd" id="3_vpbmn"]
 [ext_resource type="Script" uid="uid://hmf3mjrc6bxp" path="res://jeitinho arti/componentes/driftcomponente.gd" id="5_qsdoc"]
+[ext_resource type="Script" uid="uid://bhh2tnr8whyny" path="res://jeitinho arti/componentes/fisica.gd" id="6_045yo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxa1w"]
 resource_name = "colormap.001"
@@ -267,10 +269,17 @@ height = 2.725586
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=818493968]
 script = ExtResource("1_wm3er")
 
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=112645640]
+transform = Transform3D(1, 0, 0, 0, 0.93969274, 0.34202012, 0, -0.34202015, 0.9396926, 0, 0, 0)
+spring_length = 20.0
+script = ExtResource("3_2vwgx")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=935696114]
+
 [node name="carro(1)" type="Node3D" parent="." unique_id=340454854]
 
 [node name="sedan" type="Node3D" parent="carro(1)" unique_id=787835812]
-transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
+transform = Transform3D(-0.01, 1.5099579e-09, -6.600236e-17, 0, -4.3711387e-10, -0.01, -1.5099579e-09, -0.01, 4.3711387e-10, 0, 0, 0)
 
 [node name="body" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=1233983055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.4999998, -15.000001)
@@ -304,9 +313,6 @@ mesh = SubResource("ArrayMesh_86kxw")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.8, 0)
 shape = SubResource("CapsuleShape3D_64arw")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=935696114]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.5, -5)
-
 [node name="InputComponente" type="Node" parent="." unique_id=34086533]
 unique_name_in_owner = true
 script = ExtResource("2_64arw")
@@ -322,3 +328,6 @@ metadata/_custom_type_script = "uid://cj46vy4outtpd"
 unique_name_in_owner = true
 script = ExtResource("5_qsdoc")
 metadata/_custom_type_script = "uid://hmf3mjrc6bxp"
+
+[node name="fisica" type="Node" parent="." unique_id=744622752]
+script = ExtResource("6_045yo")

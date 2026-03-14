@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://eoashsmm3dga"]
 
-[ext_resource type="Script" uid="uid://c6fuxr8167y68" path="res://player.gd" id="1_au3bl"]
+[ext_resource type="Script" uid="uid://c6fuxr8167y68" path="res://preciso de terapia/player.gd" id="1_au3bl"]
 [ext_resource type="Texture2D" uid="uid://dir48kvw04nui" path="res://teste/carro(1)_colormap.png" id="2_qxrom"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aguer"]
