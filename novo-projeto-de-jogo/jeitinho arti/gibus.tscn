@@ -1,18 +1,15 @@
-[gd_scene format=4 uid="uid://eoashsmm3dga"]
+[gd_scene format=4 uid="uid://bbopapkbjoke6"]
 
-[ext_resource type="Script" uid="uid://c6fuxr8167y68" path="res://player.gd" id="1_au3bl"]
-[ext_resource type="Texture2D" uid="uid://dir48kvw04nui" path="res://teste/carro(1)_colormap.png" id="2_qxrom"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aguer"]
-bounce = 0.1
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_52r71"]
-radius = 1.0
+[ext_resource type="Texture2D" uid="uid://dir48kvw04nui" path="res://teste/carro(1)_colormap.png" id="1_cjgle"]
+[ext_resource type="Script" uid="uid://bgep8theb7r85" path="res://jeitinho arti/gibus.gd" id="1_wm3er"]
+[ext_resource type="Script" uid="uid://cpamosiyhrbhc" path="res://jeitinho arti/componentes/inputcomponente.gd" id="2_64arw"]
+[ext_resource type="Script" uid="uid://cj46vy4outtpd" path="res://jeitinho arti/componentes/movimentocomponente.gd" id="3_vpbmn"]
+[ext_resource type="Script" uid="uid://hmf3mjrc6bxp" path="res://jeitinho arti/componentes/driftcomponente.gd" id="5_qsdoc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxa1w"]
 resource_name = "colormap.001"
 cull_mode = 2
-albedo_texture = ExtResource("2_qxrom")
+albedo_texture = ExtResource("1_cjgle")
 roughness = 0.5527864
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_uqges"]
@@ -30,7 +27,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_2gdxo"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ctfda"]
 resource_name = "carro(1)_Scene_005"
 _surfaces = [{
 "aabb": AABB(-75, -127.5, -77.70501, 150, 255, 77.70501),
@@ -69,7 +66,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_babfa"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_e0sqt"]
 resource_name = "carro(1)_Circle"
 _surfaces = [{
 "aabb": AABB(-1, 0, -1, 2, 0.97648585, 2),
@@ -108,7 +105,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_4q4ah"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_pfp7i"]
 resource_name = "carro(1)_Cube_001"
 _surfaces = [{
 "aabb": AABB(-1.6093527, -1.1706812, -2.6113253, 3.2187054, 3.2354176, 5.419957),
@@ -142,7 +139,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_vof0p"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_fyyqa"]
 resource_name = "carro(1)_Scene_006"
 _surfaces = [{
 "aabb": AABB(-5, -30.000002, -30.000002, 35.000008, 60.000004, 60.000004),
@@ -176,7 +173,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_h26ae"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_xcc74"]
 resource_name = "carro(1)_Scene_007"
 _surfaces = [{
 "aabb": AABB(-30.00001, -30.000002, -30.000002, 35.000008, 60.000004, 60.000004),
@@ -210,7 +207,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_hujjo"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_2gvdu"]
 resource_name = "carro(1)_Scene_008"
 _surfaces = [{
 "aabb": AABB(-5, -30.000002, -30.000002, 35.000008, 60.000004, 60.000004),
@@ -244,7 +241,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_wnl6l"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_86kxw"]
 resource_name = "carro(1)_Scene_009"
 _surfaces = [{
 "aabb": AABB(-30.00001, -30.000002, -30.000002, 35.000008, 60.000004, 60.000004),
@@ -263,52 +260,65 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sblya")
 
-[node name="CarroManeiro" type="Node3D" unique_id=2033382667]
-script = ExtResource("1_au3bl")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_64arw"]
+radius = 0.84716797
+height = 2.725586
 
-[node name="monobola" type="RigidBody3D" parent="." unique_id=555137479]
-physics_material_override = SubResource("PhysicsMaterial_aguer")
-gravity_scale = 10.0
-linear_damp = 5.0
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=818493968]
+script = ExtResource("1_wm3er")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="monobola" unique_id=209698757]
-shape = SubResource("SphereShape3D_52r71")
+[node name="carro(1)" type="Node3D" parent="." unique_id=340454854]
 
-[node name="carro" type="Node3D" parent="." unique_id=961409524]
+[node name="sedan" type="Node3D" parent="carro(1)" unique_id=787835812]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
 
-[node name="carrinho" type="Node3D" parent="carro" unique_id=1460271298]
-transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, -1, 0)
-
-[node name="body" type="MeshInstance3D" parent="carro/carrinho" unique_id=1509898735]
+[node name="body" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=1233983055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.4999998, -15.000001)
-mesh = SubResource("ArrayMesh_2gdxo")
+mesh = SubResource("ArrayMesh_ctfda")
 
-[node name="Circle" type="MeshInstance3D" parent="carro/carrinho" unique_id=1309751551]
+[node name="Circle" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=1587784736]
 transform = Transform3D(20.146591, 0, 0, 0, 20.146591, 0, 0, 0, 20.146591, 0, 16.84433, -81.52761)
-mesh = SubResource("ArrayMesh_babfa")
+mesh = SubResource("ArrayMesh_e0sqt")
 
-[node name="peixe" type="MeshInstance3D" parent="carro/carrinho" unique_id=1286673239]
+[node name="peixe" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=988277418]
 transform = Transform3D(-23.418278, -7.97085e-06, -5.0261087e-06, 7.970851e-06, -10.093674, -21.131336, 5.026109e-06, -21.131338, 10.093674, 0, -12.180269, -86.91795)
-mesh = SubResource("ArrayMesh_4q4ah")
+mesh = SubResource("ArrayMesh_pfp7i")
 
-[node name="wheel-back-left" type="MeshInstance3D" parent="carro/carrinho" unique_id=691803351]
+[node name="wheel-back-left" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=1123642542]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.000002, -66, -30.000002)
-mesh = SubResource("ArrayMesh_vof0p")
+mesh = SubResource("ArrayMesh_fyyqa")
 
-[node name="wheel-back-right" type="MeshInstance3D" parent="carro/carrinho" unique_id=1652287281]
+[node name="wheel-back-right" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=517356161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.000002, -66, -30.000002)
-mesh = SubResource("ArrayMesh_h26ae")
+mesh = SubResource("ArrayMesh_xcc74")
 
-[node name="wheel-front-left" type="MeshInstance3D" parent="carro/carrinho" unique_id=1031953004]
+[node name="wheel-front-left" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=1552429526]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.000002, 66, -30.000002)
-mesh = SubResource("ArrayMesh_hujjo")
+mesh = SubResource("ArrayMesh_2gvdu")
 
-[node name="wheel-front-right" type="MeshInstance3D" parent="carro/carrinho" unique_id=1934391773]
+[node name="wheel-front-right" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=1636618891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.000002, 66, -30.000002)
-mesh = SubResource("ArrayMesh_wnl6l")
+mesh = SubResource("ArrayMesh_86kxw")
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=378353252]
-transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, -1, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=547204020]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_64arw")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=423366782]
-transform = Transform3D(-1, 0, -8.742278e-08, -4.0556865e-09, 0.9989233, 0.046391647, 8.732865e-08, 0.046391647, -0.9989233, 0, 1.5574448, -4.5501914)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=935696114]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.5, -5)
+
+[node name="InputComponente" type="Node" parent="." unique_id=34086533]
+unique_name_in_owner = true
+script = ExtResource("2_64arw")
+metadata/_custom_type_script = "uid://cpamosiyhrbhc"
+
+[node name="MovimentoComponente" type="Node" parent="." unique_id=1048050016 node_paths=PackedStringArray("corpo")]
+unique_name_in_owner = true
+script = ExtResource("3_vpbmn")
+corpo = NodePath("..")
+metadata/_custom_type_script = "uid://cj46vy4outtpd"
+
+[node name="DriftComponente" type="Node" parent="." unique_id=1623861506]
+unique_name_in_owner = true
+script = ExtResource("5_qsdoc")
+metadata/_custom_type_script = "uid://hmf3mjrc6bxp"
