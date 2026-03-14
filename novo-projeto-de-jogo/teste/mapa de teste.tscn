@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://jte064jhvirl"]
+
+[ext_resource type="PackedScene" uid="uid://eoashsmm3dga" path="res://carro_maneiro.tscn" id="1_7jhma"]
+[ext_resource type="Texture2D" uid="uid://8k0eogrdk4cv" path="res://kenney_prototype-textures/PNG/Dark/texture_01.png" id="1_nfy3r"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l3rou"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0c4pu"]
+sky_material = SubResource("ProceduralSkyMaterial_l3rou")
+
+[sub_resource type="Environment" id="Environment_i7wld"]
+background_mode = 2
+sky = SubResource("Sky_0c4pu")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vprs"]
+albedo_texture = ExtResource("1_nfy3r")
+uv1_triplanar = true
+
+[node name="Node3D" type="Node3D" unique_id=1041812665]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1817662258]
+environment = SubResource("Environment_i7wld")
+
+[node name="CarroManeiro" parent="." unique_id=2033382667 instance=ExtResource("1_7jhma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6096945, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1121026959]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 23.205973, 0)
+light_energy = 1.3
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=754142512]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=687780459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038146973, 5.2161865, 0)
+size = Vector3(126.40051, 11.432373, 128.6084)
+material = SubResource("StandardMaterial3D_5vprs")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1288884113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038146973, 18.627281, 0)
+operation = 2
+size = Vector3(125.59082, 37.07373, 127.87671)
+material = SubResource("StandardMaterial3D_5vprs")
