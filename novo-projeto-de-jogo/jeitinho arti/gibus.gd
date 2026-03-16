@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var fisica = %fisica
 @onready var camera: CameraComponente = $SpringArm3D
 @onready var rotacao_componente: RotacaoComponente = %RotacaoComponente
+@onready var turbo: TurboComponente = $turbo
 
 func _physics_process(delta: float) -> void:
 	input_componente.update()
@@ -15,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	fisica.tick(delta) 
 	camera.tick(delta, velocity.length()) 
 	rotacao_componente.tick()
+	turbo.tick(delta)
 	
 	if not is_on_floor():
 		movimento_componente.aceleracao = 0

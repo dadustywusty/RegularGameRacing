@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bhh2tnr8whyny" path="res://jeitinho arti/componentes/fisica.gd" id="6_045yo"]
 [ext_resource type="Script" uid="uid://1dn6kmrc06gw" path="res://jeitinho arti/componentes/respawncomponente.gd" id="8_8tgkw"]
 [ext_resource type="Script" uid="uid://l06107u601lk" path="res://jeitinho arti/componentes/rotacaocomponente.gd" id="8_eol6c"]
+[ext_resource type="Script" uid="uid://dh08wb8l76l35" path="res://jeitinho arti/componentes/turbo.gd" id="10_k3m2r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxa1w"]
 resource_name = "colormap.001"
@@ -264,6 +265,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sblya")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8tgkw"]
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_over_velocity_min = 0.29999998
+scale_over_velocity_max = 0.59999996
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_64arw"]
 radius = 0.84716797
 height = 2.725586
@@ -283,7 +293,7 @@ script = ExtResource("3_2vwgx")
 [node name="carro(1)" type="Node3D" parent="." unique_id=340454854]
 
 [node name="sedan" type="Node3D" parent="carro(1)" unique_id=787835812]
-transform = Transform3D(-0.01, 1.5099579e-09, -6.600236e-17, 0, -4.3711387e-10, -0.01, -1.5099579e-09, -0.01, 4.3711387e-10, 0, 0, 0)
+transform = Transform3D(-0.01, 1.5099579e-09, -6.600236e-17, 0, -4.3711387e-10, -0.01, -1.5099579e-09, -0.01, 4.3711387e-10, 0, -0.1, 0)
 
 [node name="body" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=1233983055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.4999998, -15.000001)
@@ -312,6 +322,20 @@ mesh = SubResource("ArrayMesh_2gvdu")
 [node name="wheel-front-right" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=1636618891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.000002, 66, -30.000002)
 mesh = SubResource("ArrayMesh_86kxw")
+
+[node name="FumacaEsquerda" type="GPUParticles3D" parent="carro(1)" unique_id=1689756520]
+visible = false
+emitting = false
+amount = 16
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_8tgkw")
+
+[node name="FumacaDireita" type="GPUParticles3D" parent="carro(1)" unique_id=1001019393]
+visible = false
+emitting = false
+amount = 16
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_8tgkw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=547204020]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.8, 0)
@@ -351,5 +375,8 @@ metadata/_custom_type_script = "uid://1dn6kmrc06gw"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnComponente" unique_id=255199768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6020409, 0)
 shape = SubResource("BoxShape3D_8tgkw")
+
+[node name="turbo" type="Node" parent="." unique_id=1573332801]
+script = ExtResource("10_k3m2r")
 
 [connection signal="area_entered" from="RespawnComponente" to="RespawnComponente" method="_on_area_entered"]
