@@ -2,7 +2,7 @@ extends SpringArm3D
 class_name CameraComponente
 
 # configurações ajustáveis pelo Inspector
-@export var suavidade: float = 20
+@export var suavidade: float = 30 #quanto maior menos suave
 @export var distancia_min: float = 7.7  # distância quando parado
 @export var distancia_max: float = 8.0  # distância máxima em alta velocidade
 @export var velocidade_max: float = 10.0  # velocidade de referência para os calculos

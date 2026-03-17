@@ -4,7 +4,7 @@ class_name DriftComponente
 @onready var movimento_componente: MovimentoComponente = %MovimentoComponente
 @onready var turbo: TurboComponente = $"../turbo"
 
-@export var tempo_para_turbo: float = 2.0
+@export var tempo_para_turbo: float = 0.75
 var _timer_drift: float = 0.0
 var turbo_carregado: bool = false
 
