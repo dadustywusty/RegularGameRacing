@@ -380,6 +380,11 @@ shape = SubResource("BoxShape3D_8tgkw")
 
 [node name="turbo" type="Node" parent="." unique_id=1573332801]
 script = ExtResource("10_k3m2r")
+tempo_nivel_2 = null
+tempo_nivel_3 = null
+pitch_nivel_1 = null
+pitch_nivel_2 = null
+pitch_nivel_3 = null
 
 [node name="SomDrift" type="AudioStreamPlayer3D" parent="." unique_id=1653422992]
 stream = ExtResource("11_ps1wu")

@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://iw1c02f8621n"
-path="res://.godot/imported/tu.wav-747ce16693f165904d7608444b52def1.sample"
+uid="uid://b6gpsgd3ubf8p"
+path="res://.godot/imported/tu.wav-bcd0c556dc600eaaffe334b3f8a5417a.sample"
 
 [deps]
 
-source_file="res://dusty folder/sound effects/tu.wav"
-dest_files=["res://.godot/imported/tu.wav-747ce16693f165904d7608444b52def1.sample"]
+source_file="res://preciso de terapia/tu.wav"
+dest_files=["res://.godot/imported/tu.wav-bcd0c556dc600eaaffe334b3f8a5417a.sample"]
 
 [params]
 

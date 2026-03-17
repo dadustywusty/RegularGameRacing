@@ -4,7 +4,7 @@ class_name TurboComponente
 @onready var movimento_componente: MovimentoComponente = %MovimentoComponente
 
 @export var forca_turbo: float = 80.0
-@export var duracao_turbo: float = 0.4
+@export var duracao_turbo: float = 0.3
 
 var _timer_turbo: float = 0.0
 var ativo: bool = false
