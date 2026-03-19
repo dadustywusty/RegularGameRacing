@@ -6,7 +6,7 @@ class_name MovimentoComponente
 @export var corpo : CharacterBody3D
 
 var velocidade := 30.0
-var angulo := 4
+var angulo := 10
 var velocidade_turbo: float = 0.0
 
 # esse parametro é o mesmo da aceleração do inputcomponente
@@ -26,7 +26,8 @@ func tick(delta: float) -> void:
 		corpo.velocity = corpo.velocity.lerp(velocidade_alvo, friccao * delta)
 	else:
 		corpo.velocity = corpo.velocity.lerp(Vector3.ZERO, friccao * delta)
-		rotacao *= deg_to_rad(angulo)
+		
+	rotacao *= deg_to_rad(angulo)
 	var base = corpo.global_basis.rotated(corpo.global_basis.y, rotacao)
 	corpo.global_basis = corpo.global_basis.slerp(base, angulo * delta)
 	corpo.global_basis = corpo.global_basis.orthonormalized()

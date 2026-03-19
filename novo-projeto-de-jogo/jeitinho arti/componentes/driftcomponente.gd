@@ -1,6 +1,7 @@
 extends Node
 class_name DriftComponente
 
+@export var corpo : CharacterBody3D
 @onready var movimento_componente: MovimentoComponente = %MovimentoComponente
 @onready var turbo: TurboComponente = $"../turbo"
 
@@ -14,31 +15,40 @@ class_name DriftComponente
 
 var _timer_drift: float = 0.0
 var _nivel_atual: int = 0  # 0 = sem drift, 1, 2 ou 3
-var angulo_base
-var angulo_drift
+var pegou_direcao := false
+var direcao : float
 var drift := false
 
-func _ready() -> void:
-	angulo_base = movimento_componente.angulo
-	angulo_drift = movimento_componente.angulo * 1.2
-
-func tick() -> void:
+func tick(delta) -> void:
 	if drift:
-		movimento_componente.angulo = angulo_drift
+		if not pegou_direcao:
+			# nao, eu nao faço ideia do por que esses valores tem que ser
+			# especificos desse jeito, so aceita que funciona
+			if movimento_componente.rotacao > 0:
+				direcao = 0.17453292519943
+			if movimento_componente.rotacao < 0:
+				direcao = -0.17453292519943
+			pegou_direcao = true
+		
+		var base = corpo.global_basis.rotated(corpo.global_basis.y, direcao)
+		corpo.global_basis = corpo.global_basis.slerp(base, 12 * delta)
+		corpo.global_basis = corpo.global_basis.orthonormalized()
+		
+		#movimento_componente.angulo = angulo_drift
 		_timer_drift += get_process_delta_time()
-
+		
 		# verifica mudança de nível
 		var nivel_novo = _calcular_nivel()
 		if nivel_novo != _nivel_atual:
 			_nivel_atual = nivel_novo
 			_tocar_som(_nivel_atual)
 	else:
-		movimento_componente.angulo = angulo_base
-
+		pegou_direcao = false
+		
 		# solta o turbo ao largar o drift
 		if _nivel_atual >= 1:
 			_ativar_turbo(_nivel_atual)
-
+		
 		_timer_drift = 0.0
 		_nivel_atual = 0
 
