@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cqb0dq7vi4uhn"]
+
+[ext_resource type="Script" uid="uid://ikwhyteaysoh" path="res://Corrida/cartest.gd" id="1_yjrfe"]
+[ext_resource type="PackedScene" uid="uid://buwppww6ff21i" path="res://carro(1).glb" id="2_kvuw6"]
+[ext_resource type="AudioStream" uid="uid://c0h6mv5blnaes" path="res://imagens legais/tu.wav" id="4_mtigy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mtigy"]
+bounce = 0.1
+
+[sub_resource type="GDScript" id="GDScript_kvuw6"]
+script/source = "extends RigidBody3D
+
+class_name Player
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5ws58"]
+radius = 0.1
+
+[node name="Car" type="Node3D"]
+top_level = true
+script = ExtResource("1_yjrfe")
+
+[node name="Ball" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032375455, 1.0583711, -0.00069212914)
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_mtigy")
+gravity_scale = 6.903
+lock_rotation = true
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 2
+linear_damp = 2.0
+angular_damp = 5.0
+script = SubResource("GDScript_kvuw6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("SphereShape3D_5ws58")
+
+[node name="DriftTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="BoostTimer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="Car" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032375455, -0.04186985, -0.00069212914)
+
+[node name="Model" parent="Car" instance=ExtResource("2_kvuw6")]
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 0.9747612, 0.2232501, 0, -0.2232501, 0.9747612, 0, 0.362, 0.601)
+
+[node name="DriftReadySound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_mtigy")
+
+[connection signal="timeout" from="DriftTimer" to="." method="_on_drift_timer_timeout"]
+[connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]

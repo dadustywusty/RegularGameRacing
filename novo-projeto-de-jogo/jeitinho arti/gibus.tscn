@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://cpamosiyhrbhc" path="res://jeitinho arti/componentes/inputcomponente.gd" id="2_64arw"]
 [ext_resource type="Script" uid="uid://bys73v3su27ko" path="res://jeitinho arti/componentes/camera.gd" id="3_2vwgx"]
 [ext_resource type="Script" uid="uid://cj46vy4outtpd" path="res://jeitinho arti/componentes/movimentocomponente.gd" id="3_vpbmn"]
+[ext_resource type="Texture2D" uid="uid://b4b142oqimyo8" path="res://rosto/olho.png" id="4_s7ypg"]
+[ext_resource type="Texture2D" uid="uid://cwiua0wljjll8" path="res://rosto/boca.png" id="5_l0ubc"]
 [ext_resource type="Script" uid="uid://hmf3mjrc6bxp" path="res://jeitinho arti/componentes/driftcomponente.gd" id="5_qsdoc"]
 [ext_resource type="Script" uid="uid://bhh2tnr8whyny" path="res://jeitinho arti/componentes/fisica.gd" id="6_045yo"]
 [ext_resource type="Script" uid="uid://1dn6kmrc06gw" path="res://jeitinho arti/componentes/respawncomponente.gd" id="8_8tgkw"]
@@ -267,6 +269,20 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sblya")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ekgj"]
+transparency = 1
+albedo_texture = ExtResource("4_s7ypg")
+
+[sub_resource type="QuadMesh" id="QuadMesh_y7ux3"]
+material = SubResource("StandardMaterial3D_2ekgj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_au0uo"]
+transparency = 1
+albedo_texture = ExtResource("5_l0ubc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5b3dn"]
+material = SubResource("StandardMaterial3D_au0uo")
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_64arw"]
 radius = 0.84716797
 height = 2.725586
@@ -348,6 +364,20 @@ mesh = SubResource("ArrayMesh_2gvdu")
 [node name="wheel-front-right" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=1636618891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.000002, 66, -30.000002)
 mesh = SubResource("ArrayMesh_86kxw")
+
+[node name="face" type="Node3D" parent="carro(1)/sedan" unique_id=207349454]
+
+[node name="olho" type="MeshInstance3D" parent="carro(1)/sedan/face" unique_id=2113345850]
+transform = Transform3D(-5.952838, 5.342862e-06, 22.216293, 3.4006516e-06, 23, -4.620136e-06, -22.216293, 2.0889981e-06, -5.952838, 12.336006, 12.771736, -107.3625)
+mesh = SubResource("QuadMesh_y7ux3")
+
+[node name="olho2" type="MeshInstance3D" parent="carro(1)/sedan/face" unique_id=864001410]
+transform = Transform3D(-5.952838, 0, -22.216293, 0, 23, 0, 22.216293, 0, -5.952838, -12.336, 12.772, -107.363)
+mesh = SubResource("QuadMesh_y7ux3")
+
+[node name="boca" type="MeshInstance3D" parent="carro(1)/sedan/face" unique_id=1684160153]
+transform = Transform3D(21.17, -3.1965824e-06, -1.3972706e-13, 0, -9.253701e-07, 21.17, -3.1965824e-06, -21.17, -9.253701e-07, 6.448817e-06, 42.70859, -110.80193)
+mesh = SubResource("QuadMesh_5b3dn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=547204020]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.8, 0)
