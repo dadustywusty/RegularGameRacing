@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://n281wkdmgwkx" path="res://coisa antiga/textura.png" id="4_cib6f"]
 [ext_resource type="ArrayMesh" uid="uid://tf1sy1egdc5l" path="res://dado/dado.obj" id="4_kdc0u"]
 [ext_resource type="Texture2D" uid="uid://dd57qx6bi0vn7" path="res://dado/que_que.png" id="5_qbkbv"]
+[ext_resource type="Script" uid="uid://d4gqansst4ffe" path="res://dado/dado.gd" id="6_csse1"]
+[ext_resource type="Texture2D" uid="uid://b23bfbtw8pgcx" path="res://dado/vrido.png" id="7_xadj1"]
 [ext_resource type="AudioStream" uid="uid://dcol37aatvpd2" path="res://coisa antiga/vidro/01-040683_breaking-glass-75142.wav" id="9_dja63"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fa4b8"]
@@ -27,6 +29,23 @@ detail_blend_mode = 1
 detail_albedo = ExtResource("2_cib6f")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0pstj"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qnk16"]
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+scale_min = 0.099999994
+scale_max = 0.29999998
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wucq"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("7_xadj1")
+
+[sub_resource type="QuadMesh" id="QuadMesh_y1v7q"]
+material = SubResource("StandardMaterial3D_8wucq")
 
 [sub_resource type="Animation" id="Animation_d7d2o"]
 length = 0.001
@@ -96,6 +115,7 @@ _data = {
 }
 
 [node name="Node3D" type="Node3D" unique_id=1665922199]
+script = ExtResource("6_csse1")
 
 [node name="Dado" type="MeshInstance3D" parent="." unique_id=628714641]
 transform = Transform3D(1.0000001, 0, 0, 0, 0.9999999, 0, 0, 0, 1.0000001, 0, 0, 0)
@@ -114,6 +134,15 @@ modulate = Color(1, 1, 1, 0.41568628)
 billboard = 1
 render_priority = 1
 texture = ExtResource("5_qbkbv")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Dado" unique_id=1333688296]
+emitting = false
+amount = 30
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qnk16")
+draw_pass_1 = SubResource("QuadMesh_y1v7q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Dado" unique_id=2069345780]
 libraries/ = SubResource("AnimationLibrary_0pstj")

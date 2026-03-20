@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b23bfbtw8pgcx"
-path.s3tc="res://.godot/imported/vrido.png-7b6942fcf43f9b73a777fee3fdb509a2.s3tc.ctex"
+path.s3tc="res://.godot/imported/vrido.png-2360ba552a29cb0bd2ced533ff1915c5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://coisa antiga/vidro/vrido.png"
-dest_files=["res://.godot/imported/vrido.png-7b6942fcf43f9b73a777fee3fdb509a2.s3tc.ctex"]
+source_file="res://dado/vrido.png"
+dest_files=["res://.godot/imported/vrido.png-2360ba552a29cb0bd2ced533ff1915c5.s3tc.ctex"]
 
 [params]
 

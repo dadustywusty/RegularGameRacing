@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dt4hnoyttw2ii"
+path="res://.godot/imported/sons de dado.wav-1cd17d97ac42f147a2eb992d758e97b0.sample"
+
+[deps]
+
+source_file="res://preciso de terapia/sons de dado.wav"
+dest_files=["res://.godot/imported/sons de dado.wav-1cd17d97ac42f147a2eb992d758e97b0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
