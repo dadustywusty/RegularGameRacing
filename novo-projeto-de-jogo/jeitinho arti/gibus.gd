@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var particula_drift_r: GPUParticles3D = $ParticulaDriftR
 
 var pegou_direcao_particula := false
+var direcao_particula : float
 
 func receber_item(item: String) -> void:
 	print("pix recebeido", item)
@@ -34,9 +35,9 @@ func _physics_process(delta: float) -> void:
 		movimento_componente.rotacao = input_componente.rotacao
 	
 	if input_componente.drift:
-		drift_componente.drift = true
+		drift_componente.comecar_drift()
 	else: 
-		drift_componente.drift = false
+		drift_componente.terminar_drift()
 	
 	velocity.y = fisica.velocidade_vertical
 	move_and_slide()
@@ -45,21 +46,27 @@ func _physics_process(delta: float) -> void:
 	# codigo pras particulas
 	if is_on_floor() and input_componente.drift:
 		if pegou_direcao_particula == false:
-			particula_drift_l.process_material.direction.x = input_componente.rotacao
+			direcao_particula = input_componente.rotacao
 			pegou_direcao_particula = true
+		particula_drift_l.process_material.direction.x = direcao_particula
+		particula_drift_r.process_material.direction.x = direcao_particula
 		particula_drift_l.emitting = true
 		particula_drift_r.emitting = true
 		
 	else:
 		particula_drift_l.emitting = false
 		particula_drift_r.emitting = false
-		particula_drift_l.process_material.color_ramp.gradient = preload("uid://dics5v6my3q6")
+		particula_drift_l.process_material = preload("uid://dics5v6my3q6")
+		particula_drift_r.process_material = preload("uid://dics5v6my3q6")
 		pegou_direcao_particula = false
 	
 	
 	if drift_componente._nivel_atual == 1:
-		particula_drift_l.process_material.color_ramp.gradient = preload("uid://737ou2jibrqe")
+		particula_drift_l.process_material = preload("uid://737ou2jibrqe")
+		particula_drift_r.process_material = preload("uid://737ou2jibrqe")
 	elif drift_componente._nivel_atual == 2:
-		particula_drift_l.process_material.color_ramp.gradient = preload("uid://vd1jfxuxby30")
+		particula_drift_l.process_material = preload("uid://vd1jfxuxby30")
+		particula_drift_r.process_material = preload("uid://vd1jfxuxby30")
 	elif drift_componente._nivel_atual == 3:
-		particula_drift_l.process_material.color_ramp.gradient = preload("uid://grmdou6sd7u2")
+		particula_drift_l.process_material = preload("uid://grmdou6sd7u2")
+		particula_drift_r.process_material = preload("uid://grmdou6sd7u2")
