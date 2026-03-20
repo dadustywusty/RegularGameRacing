@@ -13,6 +13,9 @@ extends CharacterBody3D
 
 var pegou_direcao_particula := false
 
+func receber_item(item: String) -> void:
+	print("pix recebeido", item)
+
 func _physics_process(delta: float) -> void:
 	input_componente.update()
 	movimento_componente.tick(delta)

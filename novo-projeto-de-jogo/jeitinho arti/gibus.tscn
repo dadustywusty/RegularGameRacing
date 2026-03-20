@@ -133,6 +133,20 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mgmk7")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ekgj"]
+transparency = 1
+albedo_texture = ExtResource("4_s7ypg")
+
+[sub_resource type="QuadMesh" id="QuadMesh_y7ux3"]
+material = SubResource("StandardMaterial3D_2ekgj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_au0uo"]
+transparency = 1
+albedo_texture = ExtResource("5_l0ubc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5b3dn"]
+material = SubResource("StandardMaterial3D_au0uo")
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_6vg2f"]
 _surfaces = [{
 "aabb": AABB(-5, -30.000002, -30.000002, 35.000008, 60.000004, 60.000004),
@@ -269,20 +283,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sblya")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ekgj"]
-transparency = 1
-albedo_texture = ExtResource("4_s7ypg")
-
-[sub_resource type="QuadMesh" id="QuadMesh_y7ux3"]
-material = SubResource("StandardMaterial3D_2ekgj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_au0uo"]
-transparency = 1
-albedo_texture = ExtResource("5_l0ubc")
-
-[sub_resource type="QuadMesh" id="QuadMesh_5b3dn"]
-material = SubResource("StandardMaterial3D_au0uo")
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_64arw"]
 radius = 0.84716797
 height = 2.725586
@@ -346,8 +346,23 @@ transform = Transform3D(20.146591, 0, 0, 0, 20.146591, 0, 0, 0, 20.146591, 0, 16
 mesh = SubResource("ArrayMesh_e0sqt")
 
 [node name="peixe" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=988277418]
-transform = Transform3D(-23.418278, -7.97085e-06, -5.0261087e-06, 7.970851e-06, -10.093674, -21.131336, 5.026109e-06, -21.131338, 10.093674, 0, -12.180269, -86.91795)
+transform = Transform3D(-23.418274, -7.75093e-06, -5.1221286e-06, 7.6197475e-06, -8.637222, -21.767263, 5.3153185e-06, -21.767271, 8.637223, -1.9530046e-07, -13.473683, -99.65886)
 mesh = SubResource("ArrayMesh_pfp7i")
+
+[node name="face" type="Node3D" parent="carro(1)/sedan/peixe" unique_id=207349454]
+transform = Transform3D(-0.042701688, 1.4534319e-08, 9.164778e-09, -1.4534318e-08, -0.01840515, -0.0385316, -9.164783e-09, -0.03853161, 0.018405147, 9.736156e-07, -3.573267, 1.1304122)
+
+[node name="olho" type="MeshInstance3D" parent="carro(1)/sedan/peixe/face" unique_id=2113345850]
+transform = Transform3D(-5.952838, 5.342862e-06, 22.216293, 3.4006516e-06, 23, -4.620136e-06, -22.216293, 2.0889981e-06, -5.952838, 12.336006, 12.771736, -107.3625)
+mesh = SubResource("QuadMesh_y7ux3")
+
+[node name="olho2" type="MeshInstance3D" parent="carro(1)/sedan/peixe/face" unique_id=864001410]
+transform = Transform3D(-5.952838, 0, -22.216293, 0, 23, 0, 22.216293, 0, -5.952838, -12.336, 12.772, -107.363)
+mesh = SubResource("QuadMesh_y7ux3")
+
+[node name="boca" type="MeshInstance3D" parent="carro(1)/sedan/peixe/face" unique_id=1684160153]
+transform = Transform3D(21.17, -3.1965824e-06, -1.3972706e-13, 0, -9.253701e-07, 21.17, -3.1965824e-06, -21.17, -9.253701e-07, 6.448817e-06, 42.70859, -110.80193)
+mesh = SubResource("QuadMesh_5b3dn")
 
 [node name="wheel-back-left" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=1123642542]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.000002, -66, -30.000002)
@@ -364,20 +379,6 @@ mesh = SubResource("ArrayMesh_2gvdu")
 [node name="wheel-front-right" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=1636618891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.000002, 66, -30.000002)
 mesh = SubResource("ArrayMesh_86kxw")
-
-[node name="face" type="Node3D" parent="carro(1)/sedan" unique_id=207349454]
-
-[node name="olho" type="MeshInstance3D" parent="carro(1)/sedan/face" unique_id=2113345850]
-transform = Transform3D(-5.952838, 5.342862e-06, 22.216293, 3.4006516e-06, 23, -4.620136e-06, -22.216293, 2.0889981e-06, -5.952838, 12.336006, 12.771736, -107.3625)
-mesh = SubResource("QuadMesh_y7ux3")
-
-[node name="olho2" type="MeshInstance3D" parent="carro(1)/sedan/face" unique_id=864001410]
-transform = Transform3D(-5.952838, 0, -22.216293, 0, 23, 0, 22.216293, 0, -5.952838, -12.336, 12.772, -107.363)
-mesh = SubResource("QuadMesh_y7ux3")
-
-[node name="boca" type="MeshInstance3D" parent="carro(1)/sedan/face" unique_id=1684160153]
-transform = Transform3D(21.17, -3.1965824e-06, -1.3972706e-13, 0, -9.253701e-07, 21.17, -3.1965824e-06, -21.17, -9.253701e-07, 6.448817e-06, 42.70859, -110.80193)
-mesh = SubResource("QuadMesh_5b3dn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=547204020]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.8, 0)
