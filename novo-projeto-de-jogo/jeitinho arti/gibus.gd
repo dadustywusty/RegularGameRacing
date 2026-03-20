@@ -46,6 +46,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	som_motor.pitch_scale = remap(velocity.length(), 0, 100, 1.0, 3.0)
 	
+	if Input.is_action_pressed("retrovisor"):
+		camera.retrovisor = true
+	else:
+		camera.retrovisor = false
+	
 	# codigo pras particulas
 	if is_on_floor() and drift_componente.drift:
 		if pegou_direcao_particula == false:
