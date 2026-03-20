@@ -37,8 +37,6 @@ func tick(delta) -> void:
 			_nivel_atual = nivel_novo
 			_tocar_som(_nivel_atual)
 
-
-
 func comecar_drift() -> void:
 	if not pegou_direcao:
 		if movimento_componente.rotacao > 0:
@@ -70,7 +68,6 @@ func cancelar_drift_sem_turbo() -> void:
 	pegou_direcao = false
 	_timer_drift = 0.0
 	_nivel_atual = 0
-
 
 func _calcular_nivel() -> int:
 	if _timer_drift >= tempo_nivel_3:

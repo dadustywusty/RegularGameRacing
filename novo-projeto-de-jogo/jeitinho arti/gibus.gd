@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 		movimento_componente.aceleracao = 0
 	else:
 		movimento_componente.aceleracao = input_componente.aceleracao
+	
 	if not movimento_componente.aceleracao == 0 or drift_componente.drift:
 		movimento_componente.rotacao = input_componente.rotacao
 	
@@ -43,7 +44,7 @@ func _physics_process(delta: float) -> void:
 		drift_componente.terminar_drift()
 	
 	velocity.y = fisica.velocidade_vertical
-	move_and_slide()
+	
 	som_motor.pitch_scale = remap(velocity.length(), 0, 100, 1.0, 3.0)
 	
 	if Input.is_action_pressed("retrovisor"):
