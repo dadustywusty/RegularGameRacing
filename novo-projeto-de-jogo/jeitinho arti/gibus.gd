@@ -11,6 +11,8 @@ extends CharacterBody3D
 @onready var particula_drift_l: GPUParticles3D = $ParticulaDriftL
 @onready var particula_drift_r: GPUParticles3D = $ParticulaDriftR
 
+@export var velocidade_minima_drift := 1.0
+
 var pegou_direcao_particula := false
 var direcao_particula : float
 
@@ -32,7 +34,8 @@ func _physics_process(delta: float) -> void:
 		movimento_componente.rotacao = input_componente.rotacao
 	
 	if input_componente.drift:
-		drift_componente.comecar_drift()
+		if -global_basis.z.dot(velocity) > velocidade_minima_drift:
+			drift_componente.comecar_drift()
 	else: 
 		drift_componente.terminar_drift()
 	
@@ -41,9 +44,12 @@ func _physics_process(delta: float) -> void:
 	som_motor.pitch_scale = remap(velocity.length(), 0, 100, 1.0, 3.0)
 	
 	# codigo pras particulas
-	if is_on_floor() and input_componente.drift:
+	if is_on_floor() and drift_componente.drift:
 		if pegou_direcao_particula == false:
-			direcao_particula = input_componente.rotacao
+			if drift_componente.direcao > 0:
+				direcao_particula = 1.0
+			elif drift_componente.direcao < 0:
+				direcao_particula = -1.0
 			pegou_direcao_particula = true
 		particula_drift_l.process_material.direction.x = direcao_particula
 		particula_drift_r.process_material.direction.x = direcao_particula

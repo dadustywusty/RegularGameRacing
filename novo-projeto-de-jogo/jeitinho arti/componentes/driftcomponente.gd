@@ -21,11 +21,15 @@ var drift := false
 
 func tick(delta) -> void:
 	if drift:
+		if corpo.velocity.length() < 0.5:
+			cancelar_drift_sem_turbo()
+			return
+		
 		var base = corpo.global_basis.rotated(corpo.global_basis.y, direcao)
 		corpo.global_basis = corpo.global_basis.slerp(base, 12 * delta)
 		corpo.global_basis = corpo.global_basis.orthonormalized()
 		
-		_timer_drift += get_process_delta_time()
+		_timer_drift += delta
 		
 		# verifica mudança de nível
 		var nivel_novo = _calcular_nivel()
@@ -39,22 +43,33 @@ func comecar_drift() -> void:
 	if not pegou_direcao:
 		if movimento_componente.rotacao > 0:
 			direcao = 0.17453292519943
-		if movimento_componente.rotacao < 0:
+			pegou_direcao = true
+			drift = true
+		elif movimento_componente.rotacao < 0:
 			direcao = -0.17453292519943
-		pegou_direcao = true
-	drift = true
+			pegou_direcao = true
+			drift = true
+		else:
+			drift = false
+			pegou_direcao = true
 
 func terminar_drift() -> void:
+	# aplica turbo
+	if drift:
+		if _nivel_atual >= 1:
+			_ativar_turbo(_nivel_atual)
+			_timer_drift = 0.0
+			_nivel_atual = 0
 	drift = false
 	pegou_direcao = false
-	# aplica turbo
-	if _nivel_atual >= 1:
-		_ativar_turbo(_nivel_atual)
-		_timer_drift = 0.0
-		_nivel_atual = 0
+	_timer_drift = 0.0
+	_nivel_atual = 0
 
-
-
+func cancelar_drift_sem_turbo() -> void:
+	drift = false
+	pegou_direcao = false
+	_timer_drift = 0.0
+	_nivel_atual = 0
 
 
 func _calcular_nivel() -> int:
