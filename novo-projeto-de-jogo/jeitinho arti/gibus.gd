@@ -10,51 +10,62 @@ extends CharacterBody3D
 @onready var som_motor: AudioStreamPlayer3D = $SomMotor
 @onready var particula_drift_l: GPUParticles3D = $ParticulaDriftL
 @onready var particula_drift_r: GPUParticles3D = $ParticulaDriftR
+@onready var trick_componente: TrickComponente = $TrickComponente
+@onready var raio_chao: RayCast3D = $RaioChao
+
 
 @export var velocidade_minima_drift := 1.0
 
 var pegou_direcao_particula := false
-var direcao_particula : float
+var direcao_particula: float
+
+func no_chao() -> bool:
+	return raio_chao.is_colliding()
 
 func receber_item(item: String) -> void:
 	print("pix recebeido", item)
 
 func _physics_process(delta: float) -> void:
 	input_componente.update()
+	movimento_componente.em_drift = drift_componente.drift
 	movimento_componente.tick(delta)
 	drift_componente.tick(delta)
-	fisica.no_chao = is_on_floor()
-	fisica.tick(delta) 
-	camera.tick(delta, velocity.length()) 
+	fisica.no_chao = no_chao()
+	fisica.tick(delta)
+	camera.tick(delta, velocity.length())
 	rotacao_componente.tick()
 	turbo.tick(delta)
-	
-	if not is_on_floor():
+	trick_componente.tick(delta)
+
+	if not no_chao():
 		movimento_componente.aceleracao = 0
 	else:
 		movimento_componente.aceleracao = input_componente.aceleracao
-	
+
 	if not movimento_componente.aceleracao == 0 or drift_componente.drift:
 		movimento_componente.rotacao = input_componente.rotacao
-	
+
 	if input_componente.drift:
-		if -global_basis.z.dot(velocity) > velocidade_minima_drift:
+		if not no_chao():
+			trick_componente.comecar_trick()
+		elif -global_basis.z.dot(velocity) > velocidade_minima_drift:
 			drift_componente.comecar_drift()
-	else: 
+	else:
 		drift_componente.terminar_drift()
-	
+		trick_componente.parar_trick()
+
 	velocity.y = fisica.velocidade_vertical
-	
+
 	som_motor.pitch_scale = remap(velocity.length(), 0, 100, 1.0, 3.0)
-	
+
 	if Input.is_action_pressed("retrovisor"):
 		camera.retrovisor = true
 	else:
 		camera.retrovisor = false
-	
-	# codigo pras particulas
-	if is_on_floor() and drift_componente.drift:
-		if pegou_direcao_particula == false:
+
+	# particulas de drift
+	if no_chao() and drift_componente.drift:
+		if not pegou_direcao_particula:
 			if drift_componente.direcao > 0:
 				direcao_particula = 1.0
 			elif drift_componente.direcao < 0:
@@ -64,15 +75,13 @@ func _physics_process(delta: float) -> void:
 		particula_drift_r.process_material.direction.x = direcao_particula
 		particula_drift_l.emitting = true
 		particula_drift_r.emitting = true
-		
 	else:
 		particula_drift_l.emitting = false
 		particula_drift_r.emitting = false
 		particula_drift_l.process_material = preload("uid://dics5v6my3q6")
 		particula_drift_r.process_material = preload("uid://dics5v6my3q6")
 		pegou_direcao_particula = false
-	
-	
+
 	if drift_componente._nivel_atual == 1:
 		particula_drift_l.process_material = preload("uid://737ou2jibrqe")
 		particula_drift_r.process_material = preload("uid://737ou2jibrqe")

@@ -311,6 +311,7 @@ rings = 2
 
 [node name="gibus" type="CharacterBody3D" unique_id=818493968]
 script = ExtResource("1_wm3er")
+velocidade_minima_drift = null
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=112645640]
 transform = Transform3D(1, 0, 0, 0, 0.93969274, 0.34202012, 0, -0.34202015, 0.9396926, 0, 0, 0)
@@ -443,13 +444,8 @@ draw_pass_1 = SubResource("SphereMesh_l0ubc")
 
 [node name="RaioChao" type="RayCast3D" parent="." unique_id=1240383131]
 
-[node name="TrickComponente" type="Node" parent="." unique_id=897126736 node_paths=PackedStringArray("corpo", "modelo")]
+[node name="TrickComponente" type="Node" parent="." unique_id=897126736]
 script = ExtResource("15_l0ubc")
-corpo = NodePath("..")
-modelo = NodePath("../carro(1)/sedan")
-tempo_janela = null
-tempo_animacao = null
-tempo_minimo_ar = null
 metadata/_custom_type_script = "uid://u0q8331c3pb1"
 
 [connection signal="area_entered" from="RespawnComponente" to="RespawnComponente" method="_on_area_entered"]

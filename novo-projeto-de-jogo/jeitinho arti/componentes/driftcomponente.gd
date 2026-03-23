@@ -1,37 +1,37 @@
 extends Node
 class_name DriftComponente
 
-@export var corpo : CharacterBody3D
+@export var corpo: CharacterBody3D
 @onready var movimento_componente: MovimentoComponente = %MovimentoComponente
 @onready var turbo: TurboComponente = $"../turbo"
 
-@export var tempo_nivel_1: float = 1.5  # tempo para atingir nível 1
-@export var tempo_nivel_2: float = 2.5  # tempo para atingir nível 2
-@export var tempo_nivel_3: float = 4.0  # tempo para atingir nível 3
+@export var tempo_nivel_1: float = 1.5
+@export var tempo_nivel_2: float = 2.5
+@export var tempo_nivel_3: float = 4.0
 @export var som_drift: AudioStreamPlayer3D
-@export var pitch_nivel_1: float = 0.5   # grave
-@export var pitch_nivel_2: float = 1.0   # normal
-@export var pitch_nivel_3: float = 1.5   # agudo
+@export var pitch_nivel_1: float = 0.5
+@export var pitch_nivel_2: float = 1.0
+@export var pitch_nivel_3: float = 1.5
 
 var _timer_drift: float = 0.0
-var _nivel_atual: int = 0  # 0 = sem drift, 1, 2 ou 3
+var _nivel_atual: int = 0
 var pegou_direcao := false
-var direcao : float
+var direcao: float
 var drift := false
 
-func tick(delta) -> void:
+func tick(delta: float) -> void:
 	if drift:
 		if corpo.velocity.length() < 0.5:
 			cancelar_drift_sem_turbo()
 			return
-		
+
+		# só gira a frente do carro, o momentum fica para trás
 		var base = corpo.global_basis.rotated(corpo.global_basis.y, direcao)
-		corpo.global_basis = corpo.global_basis.slerp(base, 12 * delta)
+		corpo.global_basis = corpo.global_basis.slerp(base, 10 * delta)
 		corpo.global_basis = corpo.global_basis.orthonormalized()
-		
+
 		_timer_drift += delta
-		
-		# verifica mudança de nível
+
 		var nivel_novo = _calcular_nivel()
 		if nivel_novo != _nivel_atual:
 			_nivel_atual = nivel_novo
@@ -52,12 +52,9 @@ func comecar_drift() -> void:
 			pegou_direcao = true
 
 func terminar_drift() -> void:
-	# aplica turbo
 	if drift:
 		if _nivel_atual >= 1:
 			_ativar_turbo(_nivel_atual)
-			_timer_drift = 0.0
-			_nivel_atual = 0
 	drift = false
 	pegou_direcao = false
 	_timer_drift = 0.0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6l2ayt1kcgtw"
+path="res://.godot/imported/sons-de-dado_BSQkWkkm.wav-660a18a65f048498f44bedb2d07ced65.sample"
+
+[deps]
+
+source_file="res://preciso de terapia/SONS DE DADO/sons-de-dado_BSQkWkkm.wav"
+dest_files=["res://.godot/imported/sons-de-dado_BSQkWkkm.wav-660a18a65f048498f44bedb2d07ced65.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
