@@ -30,29 +30,37 @@ func _physics_process(delta: float) -> void:
 	rotacao_componente.tick()
 	turbo.tick(delta)
 	
+	# acelera o player
 	if not is_on_floor():
 		movimento_componente.aceleracao = 0
 	else:
 		movimento_componente.aceleracao = input_componente.aceleracao
 	
+	# gira o player
 	if not movimento_componente.aceleracao == 0 or drift_componente.drift:
 		movimento_componente.rotacao = input_componente.rotacao
 	
+	# começa e termina drift
 	if input_componente.drift:
 		if -global_basis.z.dot(velocity) > velocidade_minima_drift:
 			drift_componente.comecar_drift()
 	else: 
 		drift_componente.terminar_drift()
+	drift_componente.input_direcao = input_componente.rotacao
 	
+	# gravidade
 	velocity.y = fisica.velocidade_vertical
 	
+	# faz trick
 	if trick_componente.pode_trick and Input.is_action_just_pressed("drift"):
 		trick_componente.fez_trick = true
 		trick_componente.trick()
 		trick_componente.pode_trick = false
 	
+	# mexe o som do motor
 	som_motor.pitch_scale = remap(velocity.length(), 0, 100, 1.0, 3.0)
 	
+	# aciona o retrovisor
 	if Input.is_action_pressed("retrovisor"):
 		camera.retrovisor = true
 	else:

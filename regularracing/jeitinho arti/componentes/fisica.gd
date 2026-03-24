@@ -4,7 +4,7 @@ class_name FisicaComponente
 @export var corpo: CharacterBody3D
 
 @export var gravidade: float = 70
-@export var forca_pulo: float = 9.0
+@export var forca_pulo: float = 11.0
 
 var velocidade_vertical: float = 0.0
 var no_chao: bool = false

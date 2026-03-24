@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="gameracing.com"
+config/name="regularracing.com"
 run/main_scene="uid://jte064jhvirl"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
@@ -23,6 +23,7 @@ movie_writer/movie_file="C:/Users/Usuario/Documents/flip.avi"
 
 "plano morte"=""
 "ponto respawn"=""
+checkpoint=""
 
 [input]
 

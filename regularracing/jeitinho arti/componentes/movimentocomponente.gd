@@ -5,8 +5,8 @@ class_name MovimentoComponente
 
 @export var corpo : CharacterBody3D
 
-var velocidade := 30.0
-var angulo := 10
+var velocidade := 50.0
+var angulo := 8
 var velocidade_turbo: float = 0.0
 
 # esse parametro é o mesmo da aceleração do inputcomponente

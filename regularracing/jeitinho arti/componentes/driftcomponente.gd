@@ -2,12 +2,11 @@ extends Node
 class_name DriftComponente
 
 @export var corpo : CharacterBody3D
-@onready var movimento_componente: MovimentoComponente = %MovimentoComponente
 @onready var turbo: TurboComponente = $"../turbo"
 
-@export var tempo_nivel_1: float = 1.5  # tempo para atingir nível 1
-@export var tempo_nivel_2: float = 2.5  # tempo para atingir nível 2
-@export var tempo_nivel_3: float = 4.0  # tempo para atingir nível 3
+@export var tempo_nivel_1: float = 1.0  # tempo para atingir nível 1
+@export var tempo_nivel_2: float = 1.7  # tempo para atingir nível 2
+@export var tempo_nivel_3: float = 3.0  # tempo para atingir nível 3
 @export var som_drift: AudioStreamPlayer3D
 @export var pitch_nivel_1: float = 0.5   # grave
 @export var pitch_nivel_2: float = 1.0   # normal
@@ -19,6 +18,9 @@ var pegou_direcao := false
 var direcao : float
 var drift := false
 
+var timer_velocidade := 1.0
+var input_direcao : float
+
 func tick(delta) -> void:
 	if drift:
 		if corpo.velocity.length() < 0.5:
@@ -26,10 +28,15 @@ func tick(delta) -> void:
 			return
 		
 		var base = corpo.global_basis.rotated(corpo.global_basis.y, direcao)
-		corpo.global_basis = corpo.global_basis.slerp(base, 12 * delta)
+		corpo.global_basis = corpo.global_basis.slerp(base, 10 * delta)
 		corpo.global_basis = corpo.global_basis.orthonormalized()
 		
-		_timer_drift += delta
+		if sign(input_direcao) == sign(direcao):
+			timer_velocidade = 1.0
+		else:
+			timer_velocidade = 0.5
+		
+		_timer_drift += delta * timer_velocidade
 		
 		# verifica mudança de nível
 		var nivel_novo = _calcular_nivel()
@@ -39,11 +46,11 @@ func tick(delta) -> void:
 
 func comecar_drift() -> void:
 	if not pegou_direcao:
-		if movimento_componente.rotacao > 0:
+		if input_direcao > 0:
 			direcao = 0.17453292519943
 			pegou_direcao = true
 			drift = true
-		elif movimento_componente.rotacao < 0:
+		elif input_direcao < 0:
 			direcao = -0.17453292519943
 			pegou_direcao = true
 			drift = true
