@@ -16,7 +16,9 @@ var _timer_drift: float = 0.0
 var _nivel_atual: int = 0  # 0 = sem drift, 1, 2 ou 3
 var pegou_direcao := false
 var direcao : float
+var angulo := 11
 var drift := false
+var grip := 8.0
 
 var timer_velocidade := 1.0
 var input_direcao : float
@@ -28,8 +30,12 @@ func tick(delta) -> void:
 			return
 		
 		var base = corpo.global_basis.rotated(corpo.global_basis.y, direcao)
-		corpo.global_basis = corpo.global_basis.slerp(base, 10 * delta)
+		corpo.global_basis = corpo.global_basis.slerp(base, angulo * delta)
 		corpo.global_basis = corpo.global_basis.orthonormalized()
+		
+		var cima = corpo.get_floor_normal() if corpo.is_on_floor() else Vector3.UP
+		var direita = corpo.global_basis.x.project(cima).normalized()
+		corpo.velocity += direita * direcao * 5.0
 		
 		if sign(input_direcao) == sign(direcao):
 			timer_velocidade = 1.0
@@ -50,10 +56,12 @@ func comecar_drift() -> void:
 			direcao = 0.17453292519943
 			pegou_direcao = true
 			drift = true
+			grip = 2.5
 		elif input_direcao < 0:
 			direcao = -0.17453292519943
 			pegou_direcao = true
 			drift = true
+			grip = 2.5
 		else:
 			drift = false
 			pegou_direcao = true
@@ -69,12 +77,14 @@ func terminar_drift() -> void:
 	pegou_direcao = false
 	_timer_drift = 0.0
 	_nivel_atual = 0
+	grip = 8.0
 
 func cancelar_drift_sem_turbo() -> void:
 	drift = false
 	pegou_direcao = false
 	_timer_drift = 0.0
 	_nivel_atual = 0
+	grip = 8.0
 
 func _calcular_nivel() -> int:
 	if _timer_drift >= tempo_nivel_3:

@@ -3,19 +3,17 @@ class_name RotacaoComponente
 
 @export var corpo : CharacterBody3D
 
-func tick() -> void:
+func tick(delta) -> void:
 	if not is_colliding():
 		return
 	
-	# pega o cima do chao atual
 	var n = get_collision_normal()
-	# mantem a direçao lateral
-	var x_axis = corpo.global_transform.basis.x
-	# calcula a frente nova cruzando o lado e o "cima" novo
-	var z_axis = x_axis.cross(n).normalized()
-	# calcula o x dnv pra deixar tudo perpendicular perfeitamente
-	x_axis = n.cross(z_axis).normalized()
-	# aplica a rotaçao
-	var base = Basis(x_axis, n, z_axis)
-	corpo.global_transform.basis = corpo.global_transform.basis.slerp(base, 0.2)
+	var xform = alinhar(corpo.global_transform, n.normalized())
+	corpo.global_transform = corpo.global_transform.interpolate_with(xform, 10 * delta)
 	
+
+func alinhar(xform, novo_y):
+	xform.basis.y = novo_y
+	xform.basis.x = -xform.basis.z.cross(novo_y)
+	xform.basis = xform.basis.orthonormalized()
+	return xform

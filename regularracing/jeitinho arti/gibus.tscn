@@ -360,7 +360,9 @@ _data = {
 }
 
 [node name="gibus" type="CharacterBody3D" unique_id=818493968]
+floor_snap_length = 0.5
 script = ExtResource("1_wm3er")
+velocidade_minima_drift = null
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=112645640]
 transform = Transform3D(1, 0, 0, 0, 0.93969274, 0.34202012, 0, -0.34202015, 0.9396926, 0, 0, 0)

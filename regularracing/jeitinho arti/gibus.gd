@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	fisica.no_chao = is_on_floor()
 	fisica.tick(delta) 
 	camera.tick(delta, velocity.length()) 
-	rotacao_componente.tick()
+	rotacao_componente.tick(delta)
 	turbo.tick(delta)
 	
 	# acelera o player
@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 	else: 
 		drift_componente.terminar_drift()
 	drift_componente.input_direcao = input_componente.rotacao
+	movimento_componente.grip = drift_componente.grip
 	
 	# gravidade
 	velocity.y = fisica.velocidade_vertical
@@ -96,3 +97,5 @@ func _physics_process(delta: float) -> void:
 	elif drift_componente._nivel_atual == 3:
 		particula_drift_l.process_material = preload("uid://grmdou6sd7u2")
 		particula_drift_r.process_material = preload("uid://grmdou6sd7u2")
+	
+	move_and_slide()
