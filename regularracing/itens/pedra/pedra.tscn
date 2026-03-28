@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://7uk04ilajpgx"]
+
+[ext_resource type="PackedScene" uid="uid://b5jxsv4grrv4f" path="res://itens/pedra/preda.fbx" id="1_k3hjm"]
+[ext_resource type="Animation" uid="uid://dji3qfkusr7s6" path="res://itens/pedra/pedraanimacao.res" id="2_oxbnw"]
+
+[sub_resource type="Animation" id="Animation_oxbnw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("preda:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4mljj"]
+_data = {
+&"RESET": SubResource("Animation_oxbnw"),
+&"pedra": ExtResource("2_oxbnw")
+}
+
+[node name="pedra" type="Node3D" unique_id=319458104]
+
+[node name="preda" parent="." unique_id=1199580918 instance=ExtResource("1_k3hjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1760809488]
+libraries/ = SubResource("AnimationLibrary_4mljj")

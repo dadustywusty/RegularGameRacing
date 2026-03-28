@@ -6,19 +6,24 @@ extends CharacterBody3D
 @onready var fisica = %fisica
 @onready var camera: CameraComponente = $SpringArm3D
 @onready var rotacao_componente: RotacaoComponente = %RotacaoComponente
-@onready var turbo: TurboComponente = $turbo
+@onready var turbo: TurboComponente = %turbo
 @onready var som_motor: AudioStreamPlayer3D = $SomMotor
 @onready var particula_drift_l: GPUParticles3D = $"carro(1)/ParticulaDriftL"
 @onready var particula_drift_r: GPUParticles3D = $"carro(1)/ParticulaDriftR"
 @onready var trick_componente: TrickComponente = %TrickComponente
+@onready var item_componente: ItemComponente = %ItemComponente
 
 @export var velocidade_minima_drift := 1.0
 
+var tem_item := false
 var pegou_direcao_particula := false
 var direcao_particula : float
 
-func receber_item(item: String) -> void:
-	print("pix recebeido", item)
+func receber_item(item) -> void:
+	add_child(item)
+	item.configurar(self)
+	item_componente.tem_item = true
+	item_componente.item_atual = item
 
 func _physics_process(delta: float) -> void:
 	input_componente.update()
@@ -29,6 +34,7 @@ func _physics_process(delta: float) -> void:
 	camera.tick(delta, velocity.length()) 
 	rotacao_componente.tick(delta)
 	turbo.tick(delta)
+	item_componente.tick()
 	
 	# acelera o player
 	if not is_on_floor():
@@ -47,10 +53,12 @@ func _physics_process(delta: float) -> void:
 	else: 
 		drift_componente.terminar_drift()
 	drift_componente.input_direcao = input_componente.rotacao
-	movimento_componente.grip = drift_componente.grip
 	
 	# gravidade
 	velocity.y = fisica.velocidade_vertical
+	
+	# lida com os itens
+	tem_item = item_componente.tem_item
 	
 	# faz trick
 	if trick_componente.pode_trick and Input.is_action_just_pressed("drift"):

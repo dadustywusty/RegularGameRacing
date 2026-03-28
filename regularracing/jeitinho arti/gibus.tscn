@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bhh2tnr8whyny" path="res://jeitinho arti/componentes/fisica.gd" id="6_045yo"]
 [ext_resource type="Script" uid="uid://1dn6kmrc06gw" path="res://jeitinho arti/componentes/respawncomponente.gd" id="8_8tgkw"]
 [ext_resource type="Script" uid="uid://l06107u601lk" path="res://jeitinho arti/componentes/rotacaocomponente.gd" id="8_eol6c"]
+[ext_resource type="Script" uid="uid://c1g85g4ip5hmx" path="res://jeitinho arti/componentes/itemcomponente.gd" id="10_2ekgj"]
 [ext_resource type="Script" uid="uid://dh08wb8l76l35" path="res://jeitinho arti/componentes/turbo.gd" id="10_k3m2r"]
 [ext_resource type="Script" uid="uid://r3go3f8v2idd" path="res://jeitinho arti/componentes/trickcomponente.gd" id="11_l0ubc"]
 [ext_resource type="AudioStream" uid="uid://b6gpsgd3ubf8p" path="res://preciso de terapia/tu.wav" id="11_ps1wu"]
@@ -362,7 +363,6 @@ _data = {
 [node name="gibus" type="CharacterBody3D" unique_id=818493968]
 floor_snap_length = 0.5
 script = ExtResource("1_wm3er")
-velocidade_minima_drift = null
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=112645640]
 transform = Transform3D(1, 0, 0, 0, 0.93969274, 0.34202012, 0, -0.34202015, 0.9396926, 0, 0, 0)
@@ -466,6 +466,16 @@ unique_name_in_owner = true
 script = ExtResource("6_045yo")
 corpo = NodePath("..")
 
+[node name="turbo" type="Node" parent="." unique_id=1573332801]
+unique_name_in_owner = true
+script = ExtResource("10_k3m2r")
+
+[node name="ItemComponente" type="Node3D" parent="." unique_id=986230591]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 2)
+script = ExtResource("10_2ekgj")
+metadata/_custom_type_script = "uid://c1g85g4ip5hmx"
+
 [node name="RotacaoComponente" type="RayCast3D" parent="." unique_id=419432117 node_paths=PackedStringArray("corpo")]
 unique_name_in_owner = true
 script = ExtResource("8_eol6c")
@@ -485,9 +495,6 @@ metadata/_custom_type_script = "uid://1dn6kmrc06gw"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnComponente" unique_id=255199768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6020409, 0)
 shape = SubResource("BoxShape3D_8tgkw")
-
-[node name="turbo" type="Node" parent="." unique_id=1573332801]
-script = ExtResource("10_k3m2r")
 
 [node name="SomDrift" type="AudioStreamPlayer3D" parent="." unique_id=1653422992]
 stream = ExtResource("11_ps1wu")

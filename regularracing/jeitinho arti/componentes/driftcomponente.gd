@@ -18,7 +18,6 @@ var pegou_direcao := false
 var direcao : float
 var angulo := 11
 var drift := false
-var grip := 8.0
 
 var timer_velocidade := 1.0
 var input_direcao : float
@@ -56,12 +55,10 @@ func comecar_drift() -> void:
 			direcao = 0.17453292519943
 			pegou_direcao = true
 			drift = true
-			grip = 2.5
 		elif input_direcao < 0:
 			direcao = -0.17453292519943
 			pegou_direcao = true
 			drift = true
-			grip = 2.5
 		else:
 			drift = false
 			pegou_direcao = true
@@ -77,14 +74,12 @@ func terminar_drift() -> void:
 	pegou_direcao = false
 	_timer_drift = 0.0
 	_nivel_atual = 0
-	grip = 8.0
 
 func cancelar_drift_sem_turbo() -> void:
 	drift = false
 	pegou_direcao = false
 	_timer_drift = 0.0
 	_nivel_atual = 0
-	grip = 8.0
 
 func _calcular_nivel() -> int:
 	if _timer_drift >= tempo_nivel_3:

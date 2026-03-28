@@ -5,7 +5,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cgxyxm475sgfk" path="res://preciso de terapia/pistas(1).obj" id="2_l3rou"]
 [ext_resource type="Texture2D" uid="uid://w0p3u7g0tg71" path="res://kenney_prototype-textures/PNG/Green/texture_01.png" id="4_0c4pu"]
 [ext_resource type="Texture2D" uid="uid://noqfofnqu4sr" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="5_i7wld"]
-[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://dado/dado.tscn" id="6_lcd4u"]
+[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://itens/dado/dado.tscn" id="6_lcd4u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l3rou"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -57,7 +57,7 @@ size = Vector3(711, 5.4380827, 1222)
 material = SubResource("StandardMaterial3D_5vprs")
 
 [node name="gibus" parent="." unique_id=818493968 instance=ExtResource("2_7jhma")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -89.5054, 13.4291725, 569.392)
+transform = Transform3D(0.99665594, 0, -0.08171248, 0, 1, 0, 0.08171248, 0, 0.99665594, 154.96991, 13.4291725, 376.34784)
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="." unique_id=1181342661]
 use_collision = true
