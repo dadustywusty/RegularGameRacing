@@ -3,6 +3,7 @@ class_name TrickComponente
 
 @onready var trick_animaçoes: AnimationPlayer = %TrickAnimaçoes
 @onready var turbo: TurboComponente = $"../turbo"
+@onready var som_trick: AudioStreamPlayer3D = $"../Trick"
 
 var pode_trick := false
 var fez_trick := false
@@ -25,7 +26,10 @@ func _process(_delta: float) -> void:
 
 func trick() -> void:
 	pode_trick = false
+	som_trick.pitch_scale = randf_range(0.8, 1.2)
+	som_trick.play()
 	tocar_animacoes()
+	
 
 func tocar_animacoes() -> void:
 	var anim = randi() % 2

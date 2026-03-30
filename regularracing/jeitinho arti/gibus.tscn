@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://r3go3f8v2idd" path="res://jeitinho arti/componentes/trickcomponente.gd" id="11_l0ubc"]
 [ext_resource type="AudioStream" uid="uid://b6gpsgd3ubf8p" path="res://preciso de terapia/tu.wav" id="11_ps1wu"]
 [ext_resource type="Material" uid="uid://grmdou6sd7u2" path="res://dusty folder/texturas/drift3gradiente.tres" id="14_s7ypg"]
+[ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_y7ux3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxa1w"]
 resource_name = "colormap.001"
@@ -300,8 +301,6 @@ rings = 2
 radius = 0.84716797
 height = 2.725586
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8tgkw"]
-
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_ps1wu"]
 data = PackedByteArray("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")
 loop = true
@@ -323,7 +322,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_2ekgj"]
 resource_name = "trick 1"
-length = 0.3
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -385,7 +384,7 @@ transform = Transform3D(20.146591, 0, 0, 0, 20.146591, 0, 0, 0, 20.146591, 0, 16
 mesh = SubResource("ArrayMesh_e0sqt")
 
 [node name="peixe" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=988277418]
-transform = Transform3D(-23.418274, -7.75093e-06, -5.1221286e-06, 7.6197475e-06, -8.637222, -21.767263, 5.3153185e-06, -21.767271, 8.637223, -1.9530046e-07, -13.473683, -99.65886)
+transform = Transform3D(-23.418274, -7.7509285e-06, -5.1221277e-06, 7.6197466e-06, -8.637222, -21.767263, 5.3153185e-06, -21.767271, 8.637223, 7.356712e-20, -4.3104865e-06, -98.61246)
 mesh = SubResource("ArrayMesh_pfp7i")
 
 [node name="face" type="Node3D" parent="carro(1)/sedan/peixe" unique_id=207349454]
@@ -492,20 +491,19 @@ script = ExtResource("8_8tgkw")
 corpo = NodePath("..")
 metadata/_custom_type_script = "uid://1dn6kmrc06gw"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnComponente" unique_id=255199768]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6020409, 0)
-shape = SubResource("BoxShape3D_8tgkw")
-
 [node name="SomDrift" type="AudioStreamPlayer3D" parent="." unique_id=1653422992]
 stream = ExtResource("11_ps1wu")
 
 [node name="SomMotor" type="AudioStreamPlayer3D" parent="." unique_id=1573738736]
 stream = SubResource("AudioStreamMP3_ps1wu")
-volume_db = -10.467
+volume_db = -15.34
 autoplay = true
 
 [node name="TrickAnimaçoes" type="AnimationPlayer" parent="." unique_id=14989763]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_y7ux3")
+
+[node name="Trick" type="AudioStreamPlayer3D" parent="." unique_id=1679501583]
+stream = ExtResource("17_y7ux3")
 
 [connection signal="area_entered" from="RespawnComponente" to="RespawnComponente" method="_on_area_entered"]
