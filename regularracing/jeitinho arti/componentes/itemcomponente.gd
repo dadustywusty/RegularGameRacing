@@ -6,7 +6,6 @@ var tem_item := false
 
 func tick() -> void:
 	if item_atual:
-		print(item_atual.usos)
 		item_atual.global_transform = global_transform
 		if item_atual.usos == 0:
 			tem_item = false
