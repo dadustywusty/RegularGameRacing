@@ -5,8 +5,8 @@ class_name DriftComponente
 @onready var turbo: TurboComponente = $"../turbo"
 
 @export var tempo_nivel_1: float = 1.0  # tempo para atingir nível 1
-@export var tempo_nivel_2: float = 1.7  # tempo para atingir nível 2
-@export var tempo_nivel_3: float = 3.0  # tempo para atingir nível 3
+@export var tempo_nivel_2: float = 2.0  # tempo para atingir nível 2
+@export var tempo_nivel_3: float = 4.0  # tempo para atingir nível 3
 @export var som_drift: AudioStreamPlayer3D
 @export var pitch_nivel_1: float = 0.5   # grave
 @export var pitch_nivel_2: float = 1.0   # normal
@@ -16,7 +16,7 @@ var _timer_drift: float = 0.0
 var _nivel_atual: int = 0  # 0 = sem drift, 1, 2 ou 3
 var pegou_direcao := false
 var direcao : float
-var angulo := 11
+var angulo := 10
 var drift := false
 
 var timer_velocidade := 1.0
@@ -32,9 +32,9 @@ func tick(delta) -> void:
 		corpo.global_basis = corpo.global_basis.slerp(base, angulo * delta)
 		corpo.global_basis = corpo.global_basis.orthonormalized()
 		
-		var cima = corpo.get_floor_normal() if corpo.is_on_floor() else Vector3.UP
-		var direita = corpo.global_basis.x.project(cima).normalized()
-		corpo.velocity += direita * direcao * 5.0
+		var direita = corpo.global_basis.x
+		var intensidade = corpo.velocity.length() * 15 * delta
+		corpo.velocity += direita * direcao * intensidade
 		
 		if sign(input_direcao) == sign(direcao):
 			timer_velocidade = 1.0
