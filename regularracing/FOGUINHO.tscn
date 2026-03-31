@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://l71jb0ibeyew"]
+
+[ext_resource type="Texture2D" uid="uid://1cgwqryegy6k" path="res://dusty folder/fumaca/TEXTURA.png" id="1_wnm48"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vm0r"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_wnm48")
+albedo_texture_force_srgb = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_wnm48"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.4655627, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0vm0r"]
+curve = SubResource("Curve_wnm48")
+
+[sub_resource type="Gradient" id="Gradient_rybmo"]
+colors = PackedColorArray(1, 1, 1, 1, 2.3146918, 0, 0.5328614, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fhlh0"]
+gradient = SubResource("Gradient_rybmo")
+
+[sub_resource type="Curve" id="Curve_rybmo"]
+_data = [Vector2(0, 0.87426406), 0.0, 1.6400344, 0, 0, Vector2(1e-05, 0.87426406), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fhlh0"]
+curve = SubResource("Curve_rybmo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fea86"]
+lifetime_randomness = 0.09
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.01
+inherit_velocity_ratio = 2.065
+direction = Vector3(0, 1, 0)
+spread = 0.0
+flatness = 0.004
+angular_velocity_min = -180.00002
+angular_velocity_max = 179.99998
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 0.49997765
+gravity = Vector3(0, 1, 0)
+scale_min = 0.9
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_fhlh0")
+color = Color(0.85930616, 0.64873713, 1.3266667, 1)
+color_ramp = SubResource("GradientTexture1D_fhlh0")
+alpha_curve = SubResource("CurveTexture_0vm0r")
+
+[sub_resource type="QuadMesh" id="QuadMesh_bsje1"]
+
+[node name="Node3D" type="Node3D" unique_id=865249187]
+
+[node name="fogo" type="GPUParticles3D" parent="." unique_id=1804650711]
+material_override = SubResource("StandardMaterial3D_0vm0r")
+amount = 100
+amount_ratio = 0.3104
+lifetime = 0.01
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_fea86")
+draw_pass_1 = SubResource("QuadMesh_bsje1")

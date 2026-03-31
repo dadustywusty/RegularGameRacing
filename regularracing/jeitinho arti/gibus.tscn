@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://dh08wb8l76l35" path="res://jeitinho arti/componentes/turbo.gd" id="10_k3m2r"]
 [ext_resource type="Script" uid="uid://r3go3f8v2idd" path="res://jeitinho arti/componentes/trickcomponente.gd" id="11_l0ubc"]
 [ext_resource type="AudioStream" uid="uid://b6gpsgd3ubf8p" path="res://preciso de terapia/tu.wav" id="11_ps1wu"]
+[ext_resource type="PackedScene" uid="uid://l71jb0ibeyew" path="res://FOGUINHO.tscn" id="12_au0uo"]
 [ext_resource type="Material" uid="uid://grmdou6sd7u2" path="res://dusty folder/texturas/drift3gradiente.tres" id="14_s7ypg"]
 [ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_y7ux3"]
 
@@ -464,6 +465,9 @@ metadata/_custom_type_script = "uid://hmf3mjrc6bxp"
 unique_name_in_owner = true
 script = ExtResource("6_045yo")
 corpo = NodePath("..")
+
+[node name="Node3D" parent="." unique_id=865249187 instance=ExtResource("12_au0uo")]
+transform = Transform3D(-0.01, 1.9852336e-23, 1.5099579e-09, 2.4745051e-11, 0.009998657, 0.00016387907, -1.5097552e-09, 0.00016387907, -0.009998657, 0.32286182, 0.19287878, 1.3702984)
 
 [node name="turbo" type="Node" parent="." unique_id=1573332801]
 unique_name_in_owner = true
