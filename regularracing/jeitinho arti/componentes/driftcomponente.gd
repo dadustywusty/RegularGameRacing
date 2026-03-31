@@ -32,10 +32,6 @@ func tick(delta) -> void:
 		corpo.global_basis = corpo.global_basis.slerp(base, angulo * delta)
 		corpo.global_basis = corpo.global_basis.orthonormalized()
 		
-		var direita = corpo.global_basis.x
-		var intensidade = corpo.velocity.length() * 15 * delta
-		corpo.velocity += direita * direcao * intensidade
-		
 		if sign(input_direcao) == sign(direcao):
 			timer_velocidade = 1.0
 		else:

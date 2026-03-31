@@ -24,17 +24,12 @@ func tick(delta: float) -> void:
 	var direcao_alvo := -corpo.global_basis.z
 	var forca_atual := (aceleracao * velocidade) + velocidade_turbo
 	var velocidade_alvo := direcao_alvo * forca_atual
-	var horizontal := corpo.velocity
-	horizontal.y = 0
 	
 	if aceleracao != 0 or velocidade_turbo != 0:
-		horizontal = horizontal.lerp(velocidade_alvo, friccao * delta)
+		corpo.velocity = corpo.velocity.lerp(velocidade_alvo, friccao * delta)
 	else:
 		var nova_friccao = friccao if corpo.is_on_floor() else 0.5
-		horizontal = horizontal.lerp(Vector3.ZERO, nova_friccao * delta)
-	
-	corpo.velocity.x = horizontal.x
-	corpo.velocity.z = horizontal.z
+		corpo.velocity = corpo.velocity.lerp(Vector3.ZERO, nova_friccao * delta)
 	
 	rotacao *= deg_to_rad(angulo)
 	var base = corpo.global_basis.rotated(corpo.global_basis.y, rotacao)
