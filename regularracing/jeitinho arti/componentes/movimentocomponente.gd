@@ -5,7 +5,7 @@ class_name MovimentoComponente
 
 @export var corpo : CharacterBody3D
 
-var velocidade := 50.0
+var velocidade := 30.0
 var angulo := 8
 var velocidade_turbo: float = 0.0
 

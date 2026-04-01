@@ -404,7 +404,7 @@ transform = Transform3D(20.146591, 0, 0, 0, 20.146591, 0, 0, 0, 20.146591, 0, 16
 mesh = SubResource("ArrayMesh_e0sqt")
 
 [node name="peixe" type="MeshInstance3D" parent="carro(1)/sedan" unique_id=988277418]
-transform = Transform3D(-23.418274, -7.7509285e-06, -5.1221277e-06, 7.6197466e-06, -8.637222, -21.767263, 5.3153185e-06, -21.767271, 8.637223, 7.356712e-20, -4.3104865e-06, -98.61246)
+transform = Transform3D(-23.397148, -0.92443246, 0.36680463, 7.836377e-06, -8.637219, -21.767263, 0.9945452, -21.747633, 8.629425, 1.0744562e-19, -4.3104847e-06, -98.61246)
 mesh = SubResource("ArrayMesh_pfp7i")
 
 [node name="face" type="Node3D" parent="carro(1)/sedan/peixe" unique_id=207349454]

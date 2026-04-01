@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://w0p3u7g0tg71" path="res://kenney_prototype-textures/PNG/Green/texture_01.png" id="4_0c4pu"]
 [ext_resource type="Texture2D" uid="uid://noqfofnqu4sr" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="5_i7wld"]
 [ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://itens/dado/dado.tscn" id="6_lcd4u"]
-[ext_resource type="PackedScene" uid="uid://l71jb0ibeyew" path="res://FOGUINHO.tscn" id="7_36yuk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l3rou"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -91,8 +90,14 @@ visible = false
 visible = false
 shape = SubResource("ConcavePolygonShape3D_0c4pu")
 
-[node name="Node3D" parent="." unique_id=1982633509 instance=ExtResource("6_lcd4u")]
+[node name="Dado" parent="." unique_id=1982633509 instance=ExtResource("6_lcd4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.05826, 11.6173315, 329.7218)
 
-[node name="Node3D2" parent="." unique_id=865249187 instance=ExtResource("7_36yuk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.156784, 11.293039, 150.03625)
+[node name="Dado2" parent="." unique_id=1665922199 instance=ExtResource("6_lcd4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.058, 11.617, 329.801)
+
+[node name="Dado3" parent="." unique_id=316346975 instance=ExtResource("6_lcd4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.058, 11.617, 329.648)
+
+[node name="Dado4" parent="." unique_id=249737501 instance=ExtResource("6_lcd4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.058, 11.617, 329.727)

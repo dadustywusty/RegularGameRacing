@@ -12,12 +12,23 @@ extends CharacterBody3D
 @onready var particula_drift_r: GPUParticles3D = $"carro(1)/ParticulaDriftR"
 @onready var trick_componente: TrickComponente = %TrickComponente
 @onready var item_componente: ItemComponente = %ItemComponente
+@onready var peixe: Node3D = $"carro(1)/sedan/peixe"
+@export var inclinacao_max: float = 12.0
+@export var velocidade_inclinacao: float = 8.0
+
 
 @export var velocidade_minima_drift := 1.0
+
+
 
 var tem_item := false
 var pegou_direcao_particula := false
 var direcao_particula : float
+var _rotacao_base_peixe: Vector3
+
+func _ready() -> void:
+	_rotacao_base_peixe = peixe.rotation
+
 
 func receber_item(item) -> void:
 	add_child(item)
@@ -36,6 +47,8 @@ func _physics_process(delta: float) -> void:
 	turbo.tick(delta)
 	item_componente.tick()
 	
+	var inclinacao_alvo = input_componente.rotacao * deg_to_rad(inclinacao_max)
+	peixe.rotation.z = lerp(peixe.rotation.z, _rotacao_base_peixe.z + inclinacao_alvo, velocidade_inclinacao * delta)
 	# acelera o player
 	if not is_on_floor():
 		movimento_componente.aceleracao = 0
