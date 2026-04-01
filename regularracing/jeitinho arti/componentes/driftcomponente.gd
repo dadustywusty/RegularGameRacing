@@ -1,8 +1,8 @@
 extends Node
 class_name DriftComponente
 
-@export var corpo: CharacterBody3D
-@onready var turbo: TurboComponente = $"../turbo"
+@export var corpo : RigidBody3D
+@onready var turbo : TurboComponente = $"../turbo"
 
 @export var tempo_nivel_1: float = 1.0
 @export var tempo_nivel_2: float = 2.0
@@ -23,7 +23,7 @@ var input_direcao: float  # input atual do jogador
 
 func tick(delta: float) -> void:
 	if drift:
-		if corpo.velocity.length() < 0.5:
+		if corpo.angular_velocity.length() < 0.5:
 			cancelar_drift_sem_turbo()
 			return
 		

@@ -1,10 +1,11 @@
-extends CharacterBody3D
+extends RigidBody3D
 
-@onready var input_componente: InputComponente = $InputComponente
-@onready var movimento_componente: MovimentoComponente = $MovimentoComponente
+@onready var carro: Node3D = $"carro(1)"
+@onready var input_componente: InputComponente = %InputComponente
+@onready var movimento_componente: MovimentoComponente = %MovimentoComponente
 @onready var drift_componente: DriftComponente = %DriftComponente
 @onready var fisica = %fisica
-@onready var camera: CameraComponente = $SpringArm3D
+@onready var camera: CameraComponente = $"carro(1)/SpringArm3D"
 @onready var rotacao_componente: RotacaoComponente = %RotacaoComponente
 @onready var turbo: TurboComponente = %turbo
 @onready var som_motor: AudioStreamPlayer3D = $SomMotor
@@ -18,7 +19,7 @@ extends CharacterBody3D
 @export var velocidade_minima_drift := 1.0
 
 
-
+var no_chao : bool
 var tem_item := false
 var pegou_direcao_particula := false
 var direcao_particula : float
@@ -35,12 +36,14 @@ func receber_item(item) -> void:
 	item_componente.item_atual = item
 
 func _physics_process(delta: float) -> void:
+	carro.global_position = global_position + Vector3.DOWN
+	
 	input_componente.update()
 	movimento_componente.tick(delta)
 	drift_componente.tick(delta)
-	fisica.no_chao = is_on_floor()
-	fisica.tick(delta) 
-	camera.tick(delta, velocity.length()) 
+	no_chao = fisica.no_chao
+	fisica.tick() 
+	camera.tick(delta, angular_velocity.length()) 
 	rotacao_componente.tick(delta)
 	turbo.tick(delta)
 	item_componente.tick()
@@ -48,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	var inclinacao_alvo = input_componente.rotacao * deg_to_rad(inclinacao_max)
 	peixe.rotation.z = lerp(peixe.rotation.z, _rotacao_base_peixe.z + inclinacao_alvo, velocidade_inclinacao * delta)
 	# acelera o player
-	if not is_on_floor():
+	if not no_chao:
 		movimento_componente.aceleracao = 0
 	else:
 		movimento_componente.aceleracao = input_componente.aceleracao
@@ -59,14 +62,14 @@ func _physics_process(delta: float) -> void:
 	
 	# começa e termina drift
 	if input_componente.drift:
-		if -global_basis.z.dot(velocity) > velocidade_minima_drift:
+		if -global_basis.z.dot(angular_velocity) > velocidade_minima_drift:
 			drift_componente.comecar_drift()
 	else: 
 		drift_componente.terminar_drift()
 	drift_componente.input_direcao = input_componente.rotacao
 	
 	# gravidade
-	velocity.y = fisica.velocidade_vertical
+	#velocity.y = fisica.velocidade_vertical
 	
 	# lida com os itens
 	tem_item = item_componente.tem_item
@@ -78,7 +81,7 @@ func _physics_process(delta: float) -> void:
 		trick_componente.pode_trick = false
 	
 	# mexe o som do motor
-	som_motor.pitch_scale = remap(velocity.length(), 0, 100, 1.0, 3.0)
+	som_motor.pitch_scale = remap(angular_velocity.length(), 0, 100, 1.0, 3.0)
 	
 	# aciona o retrovisor
 	if Input.is_action_pressed("retrovisor"):
@@ -87,7 +90,7 @@ func _physics_process(delta: float) -> void:
 		camera.retrovisor = false
 	
 	# codigo pras particulas
-	if is_on_floor() and drift_componente.drift:
+	if no_chao and drift_componente.drift:
 		if pegou_direcao_particula == false:
 			if drift_componente.direcao > 0:
 				direcao_particula = 1.0
@@ -116,5 +119,3 @@ func _physics_process(delta: float) -> void:
 	elif drift_componente._nivel_atual == 3:
 		particula_drift_l.process_material = preload("uid://grmdou6sd7u2")
 		particula_drift_r.process_material = preload("uid://grmdou6sd7u2")
-	
-	move_and_slide()
