@@ -15,8 +15,6 @@ extends CharacterBody3D
 @onready var peixe: Node3D = $"carro(1)/sedan/peixe"
 @export var inclinacao_max: float = 12.0
 @export var velocidade_inclinacao: float = 8.0
-
-
 @export var velocidade_minima_drift := 1.0
 
 
