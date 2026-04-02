@@ -6,35 +6,39 @@ class_name DriftComponente
 @export var modelo: Node3D
 @onready var turbo: TurboComponente = $"../turbo"
 
-# ─── Som ───────────────────────────────────────────────────
-@export var som_drift: AudioStreamPlayer3D
-@export var pitch_nivel_1: float = 0.5
-@export var pitch_nivel_2: float = 1.0
-@export var pitch_nivel_3: float = 1.5
+# ─── Física de Deslize (Tração/Sabão) ──────────────────────
+@export_group("Física de Tração")
+@export var tracao_normal: float = 10.0  # Resposta rápida (asfalto)
+@export var tracao_drift: float = 1.5    # Efeito "sabão" (quanto menor, mais escorrega)
+var tracao_atual: float = 10.0
 
-# ─── Níveis ────────────────────────────────────────────────
-@export var tempo_nivel_1: float = 1.0
-@export var tempo_nivel_2: float = 2.0
-@export var tempo_nivel_3: float = 4.0
+# ─── Som ───────────────────────────────────────────────────
+@export_group("Áudio")
+@export var som_drift: AudioStreamPlayer3D
+@export var pitch_nivel_1: float = 0.8
+@export var pitch_nivel_2: float = 1.1
+@export var pitch_nivel_3: float = 1.4
+
+# ─── Níveis de Turbo ───────────────────────────────────────
+@export_group("Níveis de Mini-Turbo")
+@export var tempo_nivel_1: float = 0.8
+@export var tempo_nivel_2: float = 1.6
+@export var tempo_nivel_3: float = 3.0
 
 # ─── Curva do drift ────────────────────────────────────────
-@export var angulo_fechado: float = 0.14  # input na mesma direção
-@export var angulo_base: float = 0.08     # sem input
-@export var angulo_aberto: float = 0.1671550420   # input oposto — FIXO, nunca passa disso, se passar quebra o drift
+@export_group("Ângulos de Curva")
+@export var angulo_fechado: float = 0.2  # Analógico p/ o mesmo lado
+@export var angulo_base: float = 0.08     # Sem input lateral
+@export var angulo_aberto: float = 0.1675042069 # Analógico p/ o lado oposto (Counter-steer)
 @export var velocidade_curva: float = 3.0
 
-# ─── Modelo ────────────────────────────────────────────────
-@export var inclinacao_drift: float = 12.0     # graus de inclinação no drift
-@export var inclinacao_direcao: float = 6.0    # graus extras ao pressionar direção
-@export var velocidade_inclinacao: float = 6.0
-
-# ─── Estado interno ────────────────────────────────────────
+# ─── Estado Interno ────────────────────────────────────────
 var _timer_drift: float = 0.0
 var _nivel_atual: int = 0
 var _rotacao_base_modelo: Vector3
 
 var pegou_direcao: bool = false
-var direcao: float = 0.0
+var direcao: float = 0.0       # 1 p/ Direita, -1 p/ Esquerda
 var angulo_atual: float = 0.0
 var drift: bool = false
 var input_direcao: float = 0.0
@@ -48,25 +52,35 @@ func _ready() -> void:
 func tick(delta: float) -> void:
 	if not drift:
 		return
-	if corpo.velocity.length() < 0.5:
+	
+	# Cancela drift se o carro parar (bater na parede)
+	if corpo.velocity.length() < 1.0:
 		cancelar_drift_sem_turbo()
 		return
+		
 	_atualizar_angulo(delta)
-	_atualizar_modelo(delta)
+	
 	_aplicar_rotacao(delta)
 	_atualizar_timer(delta)
 
+## Esta função deve ser chamada pelo script do Carro ANTES do move_and_slide
+func calcular_velocidade_drift(velocidade_atual: Vector3, forward_vector: Vector3, velocidade_alvo: float, delta: float) -> Vector3:
+	tracao_atual = tracao_drift if drift else tracao_normal
+	
+	# O LERP cria a inércia: a velocidade demora a seguir o nariz do carro
+	var direcao_desejada = forward_vector * velocidade_alvo
+	var nova_velocidade = velocidade_atual.lerp(direcao_desejada, tracao_atual * delta)
+	
+	nova_velocidade.y = velocidade_atual.y # Mantém gravidade
+	return nova_velocidade
+
 func comecar_drift() -> void:
-	if pegou_direcao:
+	if pegou_direcao or abs(input_direcao) < 0.1:
 		return
-	if input_direcao > 0:
-		direcao = 1.0
-		angulo_atual = angulo_base
-		drift = true
-	elif input_direcao < 0:
-		direcao = -1.0
-		angulo_atual = -angulo_base
-		drift = true
+		
+	direcao = sign(input_direcao)
+	angulo_atual = angulo_base * direcao
+	drift = true
 	pegou_direcao = true
 
 func terminar_drift() -> void:
@@ -77,54 +91,31 @@ func terminar_drift() -> void:
 func cancelar_drift_sem_turbo() -> void:
 	_resetar()
 
-# ─── Privadas ──────────────────────────────────────────────
+# ─── Lógica Privada ────────────────────────────────────────
 
 func _atualizar_angulo(delta: float) -> void:
 	var angulo_alvo: float
+	
 	if input_direcao == 0.0:
-		angulo_alvo = angulo_base * sign(direcao)
-	elif sign(input_direcao) == sign(direcao):
-		angulo_alvo = angulo_fechado * sign(direcao)
+		angulo_alvo = angulo_base * direcao
+	elif sign(input_direcao) == direcao:
+		angulo_alvo = angulo_fechado * direcao # Curva fechada (carrega turbo rápido)
 	else:
-		# direção oposta: vai para angulo_aberto e PARA — não passa disso
-		angulo_alvo = angulo_aberto * sign(direcao)
+		angulo_alvo = angulo_aberto * direcao  # Curva aberta (carrega turbo devagar)
 
 	angulo_atual = lerp(angulo_atual, angulo_alvo, velocidade_curva * delta)
 
-	# clamp rígido — nunca ultrapassa o aberto nem o fechado
-	if direcao > 0:
-		angulo_atual = clamp(angulo_atual, angulo_aberto, angulo_fechado)
-	else:
-		angulo_atual = clamp(angulo_atual, -angulo_fechado, -angulo_aberto)
 
-func _atualizar_modelo(delta: float) -> void:
-	if not modelo:
-		return
-
-	# inclinação base do drift + extra dependendo do input
-	var inclinacao_alvo = _rotacao_base_modelo.z
 	
-	if drift:
-		# inclina para o lado do drift
-		var extra = 0.0
-		if sign(input_direcao) == sign(direcao):
-			# mesma direção: inclina mais
-			extra = deg_to_rad(inclinacao_direcao)
-		elif input_direcao != 0.0:
-			# direção oposta: inclina menos
-			extra = -deg_to_rad(inclinacao_direcao * 0.5)
-
-		inclinacao_alvo = _rotacao_base_modelo.z + deg_to_rad(-sign(direcao) * inclinacao_drift) + extra * -sign(direcao)
-
-	modelo.rotation.z = lerp(modelo.rotation.z, inclinacao_alvo, velocidade_inclinacao * delta)
 
 func _aplicar_rotacao(delta: float) -> void:
-	var base = corpo.global_basis.rotated(corpo.global_basis.y, angulo_atual)
-	corpo.global_basis = corpo.global_basis.slerp(base, 10 * delta)
-	corpo.global_basis = corpo.global_basis.orthonormalized()
+	# Gira a base do CharacterBody3D no eixo Y
+	var base_nova = corpo.global_basis.rotated(corpo.global_basis.y, angulo_atual)
+	corpo.global_basis = corpo.global_basis.slerp(base_nova, 10 * delta).orthonormalized()
 
 func _atualizar_timer(delta: float) -> void:
-	var fator_curva = clamp(abs(angulo_atual) / angulo_fechado, 0.0, 1.0)
+	# "Soft Drift": Quanto mais fechada a curva, mais rápido o turbo carrega
+	var fator_curva = clamp(abs(angulo_atual) / angulo_fechado, 0.3, 1.5)
 	_timer_drift += delta * fator_curva
 
 	var nivel_novo = _calcular_nivel()
@@ -140,31 +131,23 @@ func _resetar() -> void:
 	angulo_atual = 0.0
 	if modelo:
 		var tween = modelo.create_tween()
-		tween.tween_property(modelo, "rotation:z", _rotacao_base_modelo.z, 0.3)\
-			.set_ease(Tween.EASE_OUT)\
-			.set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(modelo, "rotation:z", _rotacao_base_modelo.z, 0.3).set_trans(Tween.TRANS_CUBIC)
 
 func _calcular_nivel() -> int:
-	if _timer_drift >= tempo_nivel_3:
-		return 3
-	elif _timer_drift >= tempo_nivel_2:
-		return 2
-	elif _timer_drift >= tempo_nivel_1:
-		return 1
+	if _timer_drift >= tempo_nivel_3: return 3
+	if _timer_drift >= tempo_nivel_2: return 2
+	if _timer_drift >= tempo_nivel_1: return 1
 	return 0
 
 func _tocar_som(nivel: int) -> void:
-	if som_drift == null:
-		return
-	match nivel:
-		1: som_drift.pitch_scale = pitch_nivel_1
-		2: som_drift.pitch_scale = pitch_nivel_2
-		3: som_drift.pitch_scale = pitch_nivel_3
-	som_drift.play()
+	if som_drift and nivel > 0:
+		som_drift.pitch_scale = [0, pitch_nivel_1, pitch_nivel_2, pitch_nivel_3][nivel]
+		som_drift.play()
 
 func _ativar_turbo(nivel: int) -> void:
+	# Valores baseados na sua lógica de TurboComponente
 	match nivel:
-		1: turbo.forca_turbo = 30; turbo.duracao_turbo = 0.2
-		2: turbo.forca_turbo = 70; turbo.duracao_turbo = 0.4
-		3: turbo.forca_turbo = 100; turbo.duracao_turbo = 0.5
+		1: turbo.forca_turbo = 35; turbo.duracao_turbo = 0.3
+		2: turbo.forca_turbo = 75; turbo.duracao_turbo = 0.6
+		3: turbo.forca_turbo = 110; turbo.duracao_turbo = 1.0
 	turbo.ativar()

@@ -7,7 +7,7 @@ func configurar(player: CharacterBody3D) -> void:
 	turbo = player.turbo
 
 func usar() -> void:
-	turbo.forca_turbo = 180
+	turbo.forca_turbo = 100
 	turbo.duracao_turbo = 1.0
 	turbo.ativar()
 	if usos == 3:

@@ -127,7 +127,7 @@ albedo_texture = ExtResource("7_xadj1")
 material = SubResource("StandardMaterial3D_8wucq")
 size = Vector2(3, 3)
 
-[node name="Node3D" type="Node3D" unique_id=1665922199]
+[node name="Dado" type="Node3D" unique_id=1665922199]
 script = ExtResource("6_csse1")
 
 [node name="Dado" type="MeshInstance3D" parent="." unique_id=628714641]

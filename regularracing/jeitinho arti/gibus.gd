@@ -13,7 +13,7 @@ extends CharacterBody3D
 @onready var trick_componente: TrickComponente = %TrickComponente
 @onready var item_componente: ItemComponente = %ItemComponente
 @onready var peixe: Node3D = $"carro(1)/sedan/peixe"
-@export var inclinacao_max: float = 12.0
+@export var inclinacao_max: float = 16.0
 @export var velocidade_inclinacao: float = 8.0
 
 
@@ -46,6 +46,7 @@ func _physics_process(delta: float) -> void:
 	rotacao_componente.tick(delta)
 	turbo.tick(delta)
 	item_componente.tick()
+	
 	
 	var inclinacao_alvo = input_componente.rotacao * deg_to_rad(inclinacao_max)
 	peixe.rotation.z = lerp(peixe.rotation.z, _rotacao_base_peixe.z + inclinacao_alvo, velocidade_inclinacao * delta)
@@ -118,5 +119,15 @@ func _physics_process(delta: float) -> void:
 	elif drift_componente._nivel_atual == 3:
 		particula_drift_l.process_material = preload("uid://grmdou6sd7u2")
 		particula_drift_r.process_material = preload("uid://grmdou6sd7u2")
+	
+	velocity.y = fisica.velocidade_vertical
+	var direcao_frente = -global_transform.basis.z
+	
+	velocity = drift_componente.calcular_velocidade_drift(
+		velocity, 
+		direcao_frente, 
+		velocity.length(), 
+		delta
+	)
 	
 	move_and_slide()

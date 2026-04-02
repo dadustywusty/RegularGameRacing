@@ -56,6 +56,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038146973, 7.9347286, 0)
 size = Vector3(711, 5.4380827, 1222)
 material = SubResource("StandardMaterial3D_5vprs")
 
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=878586872]
+transform = Transform3D(1, 0, 0, 0, 0.25881898, 0.9659258, 0, -0.9659258, 0.25881898, -37.74585, 8.430339, -248.47392)
+size = Vector3(20.92456, 40.72735, 2.186798)
+material = SubResource("StandardMaterial3D_5vprs")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1322358552]
+transform = Transform3D(1, 0, 0, 0, 0.25881898, 0.9659258, 0, -0.9659258, 0.25881898, -37.74585, 8.430339, -320.47394)
+size = Vector3(20.92456, 40.72735, 2.186798)
+material = SubResource("StandardMaterial3D_5vprs")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=969328822]
+transform = Transform3D(-1.0000001, -1.0430813e-07, 2.2351742e-08, 0, 0.25881898, 0.9659258, -8.940697e-08, 0.9659258, -0.25881898, 24.254154, 8.430339, -344.47397)
+size = Vector3(20.92456, 40.72735, 2.186798)
+material = SubResource("StandardMaterial3D_5vprs")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1451247081]
+transform = Transform3D(-1.0000001, -1.0430813e-07, 2.2351742e-08, 0, 0.25881898, 0.9659258, -8.940697e-08, 0.9659258, -0.25881898, 24.254147, 8.430339, -272.47394)
+size = Vector3(20.92456, 40.72735, 2.186798)
+material = SubResource("StandardMaterial3D_5vprs")
+
 [node name="gibus" parent="." unique_id=818493968 instance=ExtResource("2_7jhma")]
 transform = Transform3D(0.99665594, 0, -0.08171248, 0, 1, 0, 0.08171248, 0, 0.99665594, 154.96991, 13.4291725, 376.34784)
 
@@ -94,10 +114,13 @@ shape = SubResource("ConcavePolygonShape3D_0c4pu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.05826, 11.6173315, 329.7218)
 
 [node name="Dado2" parent="." unique_id=1665922199 instance=ExtResource("6_lcd4u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.058, 11.617, 329.801)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.058, 11.617, -189.4047)
 
 [node name="Dado3" parent="." unique_id=316346975 instance=ExtResource("6_lcd4u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.058, 11.617, 329.648)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -248.66075, 11.617, 329.648)
 
 [node name="Dado4" parent="." unique_id=249737501 instance=ExtResource("6_lcd4u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.058, 11.617, 329.727)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.010635, 11.617, -152.11978)
+
+[node name="Dado5" parent="." unique_id=1187864355 instance=ExtResource("6_lcd4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.189625, 15.157292, -341.9135)
