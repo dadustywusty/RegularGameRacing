@@ -1,7 +1,7 @@
 extends RayCast3D
 class_name RotacaoComponente
 
-@export var corpo : CharacterBody3D
+@export var corpo : RigidBody3D
 
 func tick(delta) -> void:
 	if not is_colliding():

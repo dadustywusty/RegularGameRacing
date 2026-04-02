@@ -1,7 +1,7 @@
 extends Area3D
 class_name RespawnComponente
 
-@export var corpo : CharacterBody3D
+@export var corpo : RigidBody3D
 var checkpoint_atual : Area3D
 var respawn : Node3D
 

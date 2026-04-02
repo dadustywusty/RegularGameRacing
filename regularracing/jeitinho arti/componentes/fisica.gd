@@ -1,21 +1,20 @@
-extends Node
+extends RayCast3D
 class_name FisicaComponente
 
-@export var corpo: CharacterBody3D
+@export var corpo: RigidBody3D
 
-@export var gravidade: float = 90
 @export var forca_pulo: float = 11.0
 
 var velocidade_vertical: float = 0.0
-var no_chao: bool = false
+var no_chao : bool
 
-func tick(delta: float) -> void:
+func tick() -> void:
+	no_chao = is_colliding()
+	print(no_chao)
 	if no_chao:
 		velocidade_vertical = 0.0
 		if _input_pulo():
 			velocidade_vertical = forca_pulo
-	else:
-		velocidade_vertical -= gravidade * delta
 
 func _input_pulo() -> bool:
 	return Input.is_action_just_pressed("drift")

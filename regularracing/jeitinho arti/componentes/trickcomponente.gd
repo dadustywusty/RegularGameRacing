@@ -4,8 +4,8 @@ class_name TrickComponente
 signal trick_pulo
 
 @onready var trick_animaçoes: AnimationPlayer = %TrickAnimaçoes
-@onready var turbo: TurboComponente = $"../turbo"
-@onready var som_trick: AudioStreamPlayer3D = $"../Trick"
+@onready var turbo: TurboComponente = %turbo
+@onready var som_trick: AudioStreamPlayer3D = $"../../Trick"
 
 var animacoes := [
 	"trick 1",
