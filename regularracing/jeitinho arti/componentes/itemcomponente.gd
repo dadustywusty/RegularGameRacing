@@ -9,7 +9,5 @@ func tick() -> void:
 		item_atual.global_transform = global_transform
 		if item_atual.usos == 0:
 			tem_item = false
-			item_atual.queue_free()
 	if tem_item and Input.is_action_just_pressed("item"):
 		item_atual.usar()
-		item_atual.usos -= 1

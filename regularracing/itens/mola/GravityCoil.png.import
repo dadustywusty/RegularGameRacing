@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1bsnaxgduf0e"
-path.s3tc="res://.godot/imported/texture_01.png-2ea3fe42ca8e9b922b43cf82efca0feb.s3tc.ctex"
+uid="uid://cpm7g0kml4bo5"
+path.s3tc="res://.godot/imported/GravityCoil.png-8587e7408b8e13268b1b499539e41dc1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://kenney_prototype-textures/PNG/Purple/texture_01.png"
-dest_files=["res://.godot/imported/texture_01.png-2ea3fe42ca8e9b922b43cf82efca0feb.s3tc.ctex"]
+source_file="res://itens/mola/GravityCoil.png"
+dest_files=["res://.godot/imported/GravityCoil.png-8587e7408b8e13268b1b499539e41dc1.s3tc.ctex"]
 
 [params]
 

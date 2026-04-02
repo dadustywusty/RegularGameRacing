@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bbopapkbjoke6" path="res://jeitinho arti/gibus.tscn" id="2_7jhma"]
 [ext_resource type="ArrayMesh" uid="uid://cgxyxm475sgfk" path="res://preciso de terapia/pistas(1).obj" id="2_l3rou"]
 [ext_resource type="Texture2D" uid="uid://w0p3u7g0tg71" path="res://kenney_prototype-textures/PNG/Green/texture_01.png" id="4_0c4pu"]
+[ext_resource type="Texture2D" uid="uid://c1bsnaxgduf0e" path="res://kenney_prototype-textures/PNG/Purple/texture_01.png" id="4_36yuk"]
 [ext_resource type="Texture2D" uid="uid://noqfofnqu4sr" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="5_i7wld"]
 [ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://itens/dado/dado.tscn" id="6_lcd4u"]
 
@@ -27,6 +28,10 @@ uv1_triplanar = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7wld"]
 albedo_texture = ExtResource("4_0c4pu")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn0op"]
+albedo_texture = ExtResource("4_36yuk")
+uv1_triplanar = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcd4u"]
 albedo_texture = ExtResource("5_i7wld")
 
@@ -42,6 +47,9 @@ environment = SubResource("Environment_i7wld")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 23.205973, 0)
 light_energy = 1.3
 shadow_enabled = true
+
+[node name="gibus" parent="." unique_id=818493968 instance=ExtResource("2_7jhma")]
+transform = Transform3D(0.99665594, 0, -0.08171248, 0, 1, 0, 0.08171248, 0, 0.99665594, 154.96991, 13.4291725, 376.34784)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=754142512]
 use_collision = true
@@ -76,8 +84,15 @@ transform = Transform3D(-1.0000001, -1.0430813e-07, 2.2351742e-08, 0, 0.25881898
 size = Vector3(20.92456, 40.72735, 2.186798)
 material = SubResource("StandardMaterial3D_5vprs")
 
-[node name="gibus" parent="." unique_id=818493968 instance=ExtResource("2_7jhma")]
-transform = Transform3D(0.99665594, 0, -0.08171248, 0, 1, 0, 0.08171248, 0, 0.99665594, 154.96991, 13.4291725, 376.34784)
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1493906146]
+transform = Transform3D(1, 0, 0, 0, 0.25881898, 0.9659258, 0, -0.9659258, 0.25881898, 220.3344, -7.8728685, 155.94768)
+size = Vector3(31.830078, 77.280304, 57.19574)
+material = SubResource("StandardMaterial3D_5vprs")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D" unique_id=199860877]
+transform = Transform3D(1, 0, 0, 0, 0.25881898, 0.9659258, 0, -0.9659258, 0.25881898, 220.3344, -7.8728685, -104.43422)
+size = Vector3(31.830078, 77.280304, 57.19574)
+material = SubResource("StandardMaterial3D_5vprs")
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="." unique_id=1181342661]
 use_collision = true
@@ -97,6 +112,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.439507, 0)
 size = Vector3(12, 22, 12)
 material = SubResource("StandardMaterial3D_i7wld")
 
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D2" unique_id=351747645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.10287, 21.709904, -7.018936)
+size = Vector3(12, 22, 12)
+material = SubResource("StandardMaterial3D_i7wld")
+
+[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="." unique_id=1136820549]
+use_collision = true
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D3" unique_id=817872759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214.28548, 17.176064, -7.558343)
+inner_radius = 128.52112
+outer_radius = 150.81056
+material = SubResource("StandardMaterial3D_rn0op")
+
 [node name="Pistas(1)2" type="MeshInstance3D" parent="." unique_id=861948517]
 transform = Transform3D(44.395, 0, 0, 0, 44.395, 0, 0, 0, 44.395, -130.56932, 10.561363, 641.62305)
 visible = false
@@ -114,7 +143,7 @@ shape = SubResource("ConcavePolygonShape3D_0c4pu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.05826, 11.6173315, 329.7218)
 
 [node name="Dado2" parent="." unique_id=1665922199 instance=ExtResource("6_lcd4u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.058, 11.617, -189.4047)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.058, 11.617, 42.718475)
 
 [node name="Dado3" parent="." unique_id=316346975 instance=ExtResource("6_lcd4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -248.66075, 11.617, 329.648)

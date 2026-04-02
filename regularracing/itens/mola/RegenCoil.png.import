@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1bsnaxgduf0e"
-path.s3tc="res://.godot/imported/texture_01.png-2ea3fe42ca8e9b922b43cf82efca0feb.s3tc.ctex"
+uid="uid://cjcun0eb6hkjj"
+path.s3tc="res://.godot/imported/RegenCoil.png-8bd5978a4b83b652a5628562cf592123.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://kenney_prototype-textures/PNG/Purple/texture_01.png"
-dest_files=["res://.godot/imported/texture_01.png-2ea3fe42ca8e9b922b43cf82efca0feb.s3tc.ctex"]
+source_file="res://itens/mola/RegenCoil.png"
+dest_files=["res://.godot/imported/RegenCoil.png-8bd5978a4b83b652a5628562cf592123.s3tc.ctex"]
 
 [params]
 
