@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bpspel1hunwcc"]
+
+[ext_resource type="Script" uid="uid://dwaxowf22x1j8" path="res://itens/mola/molinha.gd" id="1_vykvj"]
+[ext_resource type="ArrayMesh" uid="uid://drp7al5ltqkgd" path="res://itens/mola/GravityCoil.obj" id="2_3qx4v"]
+[ext_resource type="AudioStream" uid="uid://c5ycqivwahail" path="res://itens/mola/boing_lmke36X.mp3" id="3_3qx4v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vykvj"]
+albedo_color = Color(0.09019608, 0.8666667, 0.18431373, 1)
+
+[node name="Molinha" type="Node3D" unique_id=2144473217]
+script = ExtResource("1_vykvj")
+
+[node name="GravityCoil" type="MeshInstance3D" parent="." unique_id=736896600]
+transform = Transform3D(0.52, 0, 0, 0, -2.2729921e-08, 0.52, 0, -0.52, -2.2729921e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vykvj")
+mesh = ExtResource("2_3qx4v")
+
+[node name="som" type="AudioStreamPlayer3D" parent="GravityCoil" unique_id=1243028158]
+stream = ExtResource("3_3qx4v")
+volume_db = -5.981

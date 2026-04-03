@@ -9,9 +9,10 @@ extends Node3D
 @onready var particula: GPUParticles3D = $GPUParticles3D
 @onready var som: AudioStreamPlayer2D = $BreakingBad
 
-var itens : Dictionary = {
-	"latinha" : preload("uid://buu6imckneitw"),
-	"latinhas triplas" : preload("uid://jhdftpvqvih3")
+var itens: Dictionary = {
+	#"latinha": preload("uid://buu6imckneitw"),
+	#"latinhas triplas": preload("uid://jhdftpvqvih3"),
+	"molinha": preload("res://itens/mola/molinha.tscn")
 }
 
 var _quebrado: bool = false
