@@ -1,0 +1,251 @@
+[gd_scene format=3 uid="uid://bmcw46axmxgb6"]
+
+[ext_resource type="PackedScene" uid="uid://dkr85b7y25ba6" path="res://jeitinho arti/gibusbot.tscn" id="1_3c2wv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3c2wv"]
+sky_top_color = Color(0.81, 0.2511, 0.44671497, 1)
+sky_horizon_color = Color(0.64116573, 0.51944655, 0.61389446, 1)
+ground_bottom_color = Color(0.055800002, 0.12782332, 0.31, 1)
+ground_horizon_color = Color(0.64116573, 0.51944655, 0.61389446, 1)
+
+[sub_resource type="Sky" id="Sky_mugri"]
+sky_material = SubResource("ProceduralSkyMaterial_3c2wv")
+
+[sub_resource type="Environment" id="Environment_dav28"]
+background_mode = 2
+sky = SubResource("Sky_mugri")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_mugri"]
+vertices = PackedVector3Array(0.5, 0.5, -119.5, -0.5, 0.5, -119.5, -11.25, 0.5, -114.75, -0.75, 0.5, -86.25, 0.75, 0.5, -86.25, 11.5, 0.5, -114.75, 10.75, 0.5, -82, -10.75, 0.5, -82, -16.25, 0.5, -86.5, -11.5, 0.5, -81.75, -16.75, 0.5, -112.5, 11.5, 0.5, -81.75, 16.25, 0.5, -86.5, 17, 0.5, -112.5, -35, 0.5, -105.25, -42.5, 0.5, -87, 42.5, 0.5, -86.75, 35.25, 0.5, -105, -12, 0.5, -81, -44.75, 0.5, -81.5, 12, 0.5, -81, 44.75, 0.5, -81.25, -12, 0.5, 80.75, -15.75, 0.5, 71.25, -16.5, 0.5, 71, -44.75, 0.5, 81.25, -16.5, 0.5, -71, -15.75, 0.5, -71.25, -49.5, 0.5, -70.5, -49.5, 0.5, 70.5, 16.5, 0.5, 71, 15.75, 0.5, 71.25, 12, 0.5, 80.75, 44.75, 0.5, 81.25, 15.75, 0.5, -71.25, 16.5, 0.5, -71, 49.5, 0.5, 70.5, 49.5, 0.5, -70.5, -16.25, 0.5, 86.25, -11.5, 0.5, 81.75, -42.5, 0.5, 86.75, 11.75, 0.5, 81.5, 16.5, 0.5, 86.25, 42.5, 0.5, 86.75, 11, 0.5, 82, 11.5, 0.5, 114.75, 17, 0.5, 112.5, -10.75, 0.5, 82, -17, 0.5, 112.5, -11.5, 0.5, 114.75, -0.5, 0.5, 119.5, 0.5, 0.5, 119.5, 0.75, 0.5, 86.25, -0.75, 0.5, 86.25, -35.25, 0.5, 105, 35.25, 0.5, 105)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 5), PackedInt32Array(2, 5, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(5, 6, 4), PackedInt32Array(3, 7, 2), PackedInt32Array(9, 8, 7), PackedInt32Array(7, 8, 10), PackedInt32Array(7, 10, 2), PackedInt32Array(11, 6, 12), PackedInt32Array(12, 6, 13), PackedInt32Array(13, 6, 5), PackedInt32Array(10, 8, 14), PackedInt32Array(14, 8, 15), PackedInt32Array(13, 17, 12), PackedInt32Array(12, 17, 16), PackedInt32Array(9, 18, 8), PackedInt32Array(8, 18, 15), PackedInt32Array(15, 18, 19), PackedInt32Array(11, 12, 20), PackedInt32Array(20, 12, 16), PackedInt32Array(20, 16, 21), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(27, 26, 18), PackedInt32Array(18, 26, 19), PackedInt32Array(25, 29, 24), PackedInt32Array(24, 29, 28), PackedInt32Array(24, 28, 19), PackedInt32Array(24, 19, 26), PackedInt32Array(31, 30, 32), PackedInt32Array(32, 30, 33), PackedInt32Array(34, 20, 35), PackedInt32Array(35, 20, 21), PackedInt32Array(21, 37, 35), PackedInt32Array(35, 37, 36), PackedInt32Array(35, 36, 33), PackedInt32Array(35, 33, 30), PackedInt32Array(39, 38, 22), PackedInt32Array(22, 38, 40), PackedInt32Array(22, 40, 25), PackedInt32Array(41, 32, 42), PackedInt32Array(42, 32, 43), PackedInt32Array(43, 32, 33), PackedInt32Array(41, 42, 44), PackedInt32Array(44, 42, 46), PackedInt32Array(44, 46, 45), PackedInt32Array(39, 47, 38), PackedInt32Array(38, 47, 48), PackedInt32Array(48, 47, 49), PackedInt32Array(50, 49, 51), PackedInt32Array(51, 49, 45), PackedInt32Array(45, 49, 53), PackedInt32Array(45, 53, 52), PackedInt32Array(49, 47, 53), PackedInt32Array(52, 44, 45), PackedInt32Array(40, 38, 54), PackedInt32Array(54, 38, 48), PackedInt32Array(43, 55, 42), PackedInt32Array(42, 55, 46)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mugri"]
+size = Vector3(42.27539, 18.098145, 23.484253)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3c2wv"]
+size = Vector3(35.666016, 18.427612, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dav28"]
+size = Vector3(297.15454, 1, 402.031)
+
+[node name="tipo baby park" type="Node3D" unique_id=1079742833]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2099654264]
+transform = Transform3D(0.10279248, -0.017359957, 0.99455136, 0, 0.9998477, 0.017452406, -0.9947028, -0.0017939761, 0.102776825, 0, 0, 0)
+light_color = Color(1, 0.82433337, 0.38, 1)
+light_energy = 6.4
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=81744955]
+environment = SubResource("Environment_dav28")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1291769180]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1221059357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+use_collision = true
+size = Vector3(50, 2, 70)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D2" unique_id=325005901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -35)
+radius = 25.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D2/CSGCylinder3D2" unique_id=226202696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5666504, 0)
+operation = 2
+radius = 24.0
+height = 7.133301
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D2" unique_id=2026709460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03125, 35)
+radius = 25.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D2/CSGCylinder3D" unique_id=2002564134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1567383, 0)
+operation = 2
+radius = 24.0
+height = 6.3134766
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D2" unique_id=1976965605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8327837, 0)
+operation = 2
+size = Vector3(48, 16.174355, 70.959)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=299969710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+use_collision = true
+size = Vector3(18, 2, 70)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D3" unique_id=1649494793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -35)
+radius = 9.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D3/CSGCylinder3D2" unique_id=1788853220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5666504, 0)
+operation = 2
+radius = 8.0
+height = 7.133301
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D3" unique_id=841488482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03125, 35)
+radius = 9.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D3/CSGCylinder3D" unique_id=477684725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1567383, 0)
+operation = 2
+radius = 8.0
+height = 6.3134766
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D3" unique_id=652862779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8327837, 0)
+operation = 2
+size = Vector3(16, 16.174, 70.959)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=783358268]
+navigation_mesh = SubResource("NavigationMesh_mugri")
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="NavigationRegion3D" unique_id=565311537]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D2" unique_id=1863258359]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
+use_collision = true
+size = Vector3(50, 1, 70)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D2/CSGBox3D" unique_id=1676417447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -35)
+radius = 25.0
+height = 1.5
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D2/CSGBox3D/CSGCylinder3D2" unique_id=1875823759]
+operation = 2
+radius = 8.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D2/CSGBox3D" unique_id=511261202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 35)
+radius = 25.0
+height = 1.5
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D2/CSGBox3D/CSGCylinder3D" unique_id=776932866]
+operation = 2
+radius = 8.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D2/CSGBox3D" unique_id=1386592710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.709961, 0)
+operation = 2
+size = Vector3(16, 10.419922, 70.959)
+
+[node name="checkpoints" type="Node" parent="." unique_id=2005999455]
+
+[node name="checkpoint 1" type="Area3D" parent="checkpoints" unique_id=1769222261 groups=["checkpoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.18015, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 1" unique_id=509654205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9632721, 5.550537, 11.242126)
+shape = SubResource("BoxShape3D_mugri")
+
+[node name="Node3D" type="Node3D" parent="checkpoints/checkpoint 1" unique_id=268139869 groups=["ponto respawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="checkpoint 2" type="Area3D" parent="checkpoints" unique_id=1363934540 groups=["checkpoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.18015, 0, -57.489742)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 2" unique_id=455522692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9632721, 6.763489, 11.242126)
+shape = SubResource("BoxShape3D_3c2wv")
+
+[node name="Node3D" type="Node3D" parent="checkpoints/checkpoint 2" unique_id=505643109 groups=["ponto respawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="checkpoint 3" type="Area3D" parent="checkpoints" unique_id=780225212 groups=["checkpoint"]]
+transform = Transform3D(0.3957859, 0, -0.91834277, 0, 1, 0, 0.91834277, 0, 0.3957859, -2.8113499, 0, -103.729324)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 3" unique_id=2102405351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9632721, 6.763489, 11.242126)
+shape = SubResource("BoxShape3D_3c2wv")
+
+[node name="Node3D" type="Node3D" parent="checkpoints/checkpoint 3" unique_id=180443321 groups=["ponto respawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="checkpoint 4" type="Area3D" parent="checkpoints" unique_id=871508785 groups=["checkpoint"]]
+transform = Transform3D(-0.62347037, 0, -0.78184706, 0, 1, 0, 0.78184706, 0, -0.62347037, 23.612741, 0, -90.84952)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 4" unique_id=1526192518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9632721, 6.763489, 11.242126)
+shape = SubResource("BoxShape3D_3c2wv")
+
+[node name="Node3D" type="Node3D" parent="checkpoints/checkpoint 4" unique_id=535675832 groups=["ponto respawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="checkpoint 5" type="Area3D" parent="checkpoints" unique_id=807176324 groups=["checkpoint"]]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 29.844467, 0, -57.489742)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 5" unique_id=1364888540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9632721, 6.763489, 11.242126)
+shape = SubResource("BoxShape3D_3c2wv")
+
+[node name="Node3D" type="Node3D" parent="checkpoints/checkpoint 5" unique_id=2091024823 groups=["ponto respawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="checkpoint 6" type="Area3D" parent="checkpoints" unique_id=1779083658 groups=["checkpoint"]]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 29.84446, 0, -11.863335)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 6" unique_id=1911934396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9632721, 6.763489, 11.242126)
+shape = SubResource("BoxShape3D_3c2wv")
+
+[node name="Node3D" type="Node3D" parent="checkpoints/checkpoint 6" unique_id=510338843 groups=["ponto respawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="checkpoint 7" type="Area3D" parent="checkpoints" unique_id=2023989335 groups=["checkpoint"]]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 29.84446, 0, 33.664867)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 7" unique_id=883643894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9632721, 6.763489, 11.242126)
+shape = SubResource("BoxShape3D_3c2wv")
+
+[node name="Node3D" type="Node3D" parent="checkpoints/checkpoint 7" unique_id=1877142932 groups=["ponto respawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="checkpoint 8" type="Area3D" parent="checkpoints" unique_id=1802041999 groups=["checkpoint"]]
+transform = Transform3D(0.3957859, 0, -0.91834277, 0, 1, 0, 0.91834277, 0, 0.3957859, 22.995646, 0, 90.41452)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 8" unique_id=463672055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9632721, 6.763489, 11.242126)
+shape = SubResource("BoxShape3D_3c2wv")
+
+[node name="Node3D" type="Node3D" parent="checkpoints/checkpoint 8" unique_id=244134987 groups=["ponto respawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="checkpoint 9" type="Area3D" parent="checkpoints" unique_id=394060197 groups=["checkpoint"]]
+transform = Transform3D(-0.62347037, 0, -0.78184706, 0, 1, 0, 0.78184706, 0, -0.62347037, 2.736147, 0, 107.61351)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 9" unique_id=2147420351]
+transform = Transform3D(0.96395147, 0, 0.26607782, 0, 1, 0, -0.26607782, 0, 0.96395147, 1.7214661, 6.763489, 18.678253)
+shape = SubResource("BoxShape3D_3c2wv")
+
+[node name="Node3D" type="Node3D" parent="checkpoints/checkpoint 9" unique_id=1935160436 groups=["ponto respawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="checkpoint 10" type="Area3D" parent="checkpoints" unique_id=347425078 groups=["checkpoint"]]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -34.127956, 0, 33.664867)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 10" unique_id=642696071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9632721, 6.763489, 11.242126)
+shape = SubResource("BoxShape3D_3c2wv")
+
+[node name="Node3D" type="Node3D" parent="checkpoints/checkpoint 10" unique_id=818094917 groups=["ponto respawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="gibus" parent="." unique_id=818493968 instance=ExtResource("1_3c2wv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.34063, 0.047168106, 10.096794)
+
+[node name="plano morte" type="Area3D" parent="." unique_id=201323305 groups=["plano morte"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plano morte" unique_id=599536784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -22.243202, 0)
+shape = SubResource("BoxShape3D_dav28")
