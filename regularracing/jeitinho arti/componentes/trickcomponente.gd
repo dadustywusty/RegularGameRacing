@@ -15,25 +15,29 @@ var animacoes := [
 
 var pode_trick := false
 var fez_trick := false
+var tranca := true
 
-# eu nao renomeei essa função pra "tick" pq ja tem uma função "trick". se nao ia
-# confundir. se quiser mudar o nome da segunda função e jogar esse process pra um
-# tick no script principal, pode fazer.
-func _process(_delta: float) -> void:
+func tick() -> void:
 	if is_colliding():
 		pode_trick = false
-	
-	if not is_colliding():
-		pode_trick = true
-		await get_tree().create_timer(0.5).timeout
+		tranca = true
+	else:
+		if tranca:
+			pode_trick = true
+			await get_tree().create_timer(0.5).timeout
+			tranca = false
 		pode_trick = false
 	
 	if fez_trick and is_colliding():
 		aplicar_turbo()
 		fez_trick = false
 
-func trick() -> void:
+func fazer_trick() -> void:
+	if not pode_trick:
+		return
+	tranca = false
 	pode_trick = false
+	fez_trick = true
 	som_trick.pitch_scale = randf_range(0.8, 1.2)
 	som_trick.play()
 	tocar_animacoes()
