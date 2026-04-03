@@ -15,7 +15,6 @@
 [ext_resource type="Script" uid="uid://dh08wb8l76l35" path="res://jeitinho arti/componentes/turbo.gd" id="10_k3m2r"]
 [ext_resource type="Script" uid="uid://r3go3f8v2idd" path="res://jeitinho arti/componentes/trickcomponente.gd" id="11_l0ubc"]
 [ext_resource type="AudioStream" uid="uid://b6gpsgd3ubf8p" path="res://preciso de terapia/tu.wav" id="11_ps1wu"]
-[ext_resource type="PackedScene" uid="uid://l71jb0ibeyew" path="res://FOGUINHO.tscn" id="12_au0uo"]
 [ext_resource type="Material" uid="uid://grmdou6sd7u2" path="res://dusty folder/texturas/drift3gradiente.tres" id="14_s7ypg"]
 [ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_y7ux3"]
 
@@ -287,6 +286,45 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sblya")
 
+[sub_resource type="Curve" id="Curve_y7ux3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.75, 0.9066148), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_au0uo"]
+curve = SubResource("Curve_y7ux3")
+
+[sub_resource type="Gradient" id="Gradient_5b3dn"]
+colors = PackedColorArray(1, 0, 0.7529412, 1, 0.48235294, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sy36w"]
+gradient = SubResource("Gradient_5b3dn")
+
+[sub_resource type="Curve" id="Curve_5b3dn"]
+_limits = [0.0, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 0.23735416), 0.0, -0.31128407, 0, 0, Vector2(1, 1.196498), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sy36w"]
+curve = SubResource("Curve_5b3dn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pn5sl"]
+initial_velocity_max = 0.099999994
+gravity = Vector3(0, 1, 0)
+scale_curve = SubResource("CurveTexture_sy36w")
+color_initial_ramp = SubResource("GradientTexture1D_sy36w")
+alpha_curve = SubResource("CurveTexture_au0uo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pn5sl"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_i8l2r"]
+material = SubResource("StandardMaterial3D_pn5sl")
+radius = 0.25
+height = 0.5
+radial_segments = 6
+rings = 3
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7ypg"]
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -438,6 +476,14 @@ mesh = SubResource("ArrayMesh_2gvdu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.000002, 66, -30.000002)
 mesh = SubResource("ArrayMesh_86kxw")
 
+[node name="Fumaça" type="GPUParticles3D" parent="carro(1)" unique_id=1472325435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040842056, 0.14192796, 1.3390901)
+emitting = false
+lifetime = 2.0799999999999996
+speed_scale = 2.0
+process_material = SubResource("ParticleProcessMaterial_pn5sl")
+draw_pass_1 = SubResource("SphereMesh_i8l2r")
+
 [node name="ParticulaDriftL" type="GPUParticles3D" parent="carro(1)" unique_id=1415227943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.608, -0.0035195947, 1.0291927)
 emitting = false
@@ -484,9 +530,6 @@ metadata/_custom_type_script = "uid://hmf3mjrc6bxp"
 unique_name_in_owner = true
 script = ExtResource("6_045yo")
 corpo = NodePath("..")
-
-[node name="Node3D" parent="." unique_id=865249187 instance=ExtResource("12_au0uo")]
-transform = Transform3D(-0.01, 1.9852336e-23, 1.5099579e-09, 2.4745051e-11, 0.009998657, 0.00016387907, -1.5097552e-09, 0.00016387907, -0.009998657, 0.32286182, 0.19287878, 1.3702984)
 
 [node name="turbo" type="Node" parent="." unique_id=1573332801]
 unique_name_in_owner = true

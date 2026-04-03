@@ -45,6 +45,7 @@ func _physics_process(delta: float) -> void:
 	camera.tick(delta, velocity.length()) 
 	rotacao_componente.tick(delta)
 	turbo.tick(delta)
+	trick_componente.tick()
 	item_componente.tick()
 	
 	
@@ -76,9 +77,7 @@ func _physics_process(delta: float) -> void:
 	
 	# faz trick
 	if trick_componente.pode_trick and Input.is_action_just_pressed("drift"):
-		trick_componente.fez_trick = true
-		trick_componente.trick()
-		trick_componente.pode_trick = false
+		trick_componente.fazer_trick()
 	
 	# mexe o som do motor
 	som_motor.pitch_scale = remap(velocity.length(), 0, 100, 1.0, 3.0)
