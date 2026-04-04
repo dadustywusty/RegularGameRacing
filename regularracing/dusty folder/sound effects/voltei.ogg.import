@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c0yrvonwtyieg"
+path="res://.godot/imported/voltei.ogg-390688c3c8e69daa7e6fb9fa91e6dc9d.oggvorbisstr"
+
+[deps]
+
+source_file="res://dusty folder/sound effects/voltei.ogg"
+dest_files=["res://.godot/imported/voltei.ogg-390688c3c8e69daa7e6fb9fa91e6dc9d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

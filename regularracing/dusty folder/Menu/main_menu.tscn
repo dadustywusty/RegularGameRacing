@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b2lkocn3d5gqi" path="res://dusty folder/BOTOES/outro quadrado.png" id="7_b5g2a"]
 [ext_resource type="Script" uid="uid://cb41k5ii3oo3g" path="res://dusty folder/Menu/som_menu.gd" id="8_b5g2a"]
 [ext_resource type="Script" uid="uid://cmkqjf7vdg5xa" path="res://dusty folder/Menu/menu_de_opções.gd" id="8_l6nqh"]
+[ext_resource type="Texture2D" uid="uid://dghx6gsfurge1" path="res://dusty folder/BOTOES/outro quadrado verde.png" id="9_l6nqh"]
 [ext_resource type="Script" uid="uid://cuyuxebwet18s" path="res://dusty folder/Menu/musga.gd" id="9_ljdfl"]
-[ext_resource type="AudioStream" uid="uid://bqxntc7ol34gd" path="res://dusty folder/MUSGA/Project_54 intro.ogg" id="10_l6nqh"]
-[ext_resource type="AudioStream" uid="uid://djmw0jvvble36" path="res://dusty folder/MUSGA/Project_54.ogg" id="11_yew0f"]
+[ext_resource type="AudioStream" uid="uid://bjbfhcbfl2byo" path="res://dusty folder/MUSGA/corrida menu.ogg" id="11_ljdfl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2v7eo"]
 shader = ExtResource("2_ixhn6")
@@ -38,6 +38,12 @@ texture = ExtResource("7_b5g2a")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yew0f"]
 texture = ExtResource("7_b5g2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gfih5"]
+texture = ExtResource("9_l6nqh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hvvi"]
+texture = ExtResource("9_l6nqh")
 
 [node name="MainMenu" type="Node2D" unique_id=1535348458]
 script = ExtResource("1_1xk4r")
@@ -155,15 +161,30 @@ text = " SAIr"
 
 [node name="Menu de opções" type="Control" parent="CanvasLayer" unique_id=435015413]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -676.0
+offset_bottom = -676.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 script = ExtResource("8_l6nqh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu de opções" unique_id=2050280870]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.5
+offset_top = -89.0
+offset_right = 109.5
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HSliderMusica" type="HSlider" parent="CanvasLayer/Menu de opções/VBoxContainer" unique_id=213419188]
 layout_mode = 2
@@ -171,26 +192,35 @@ layout_mode = 2
 [node name="HSliderEfeitos" type="HSlider" parent="CanvasLayer/Menu de opções/VBoxContainer" unique_id=1471451728]
 layout_mode = 2
 
-[node name="Voltar" type="Button" parent="CanvasLayer/Menu de opções/VBoxContainer" unique_id=540957176]
+[node name="Voltar" type="Button" parent="CanvasLayer/Menu de opções/VBoxContainer" unique_id=1635010160]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
-text = "voltar
-"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kw6je")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gfih5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3hvvi")
 
-[node name="Idiomas" type="Label" parent="CanvasLayer/Menu de opções/VBoxContainer" unique_id=1329404068]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Menu de opções/VBoxContainer/Voltar" unique_id=1676965145]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/Menu de opções/VBoxContainer/Voltar/CenterContainer" unique_id=1897685645]
 layout_mode = 2
-text = "voltar
-"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_b5g2a")
+theme_override_font_sizes/font_size = 50
+text = "voltar"
 
 [node name="SomMenu" type="AudioStreamPlayer" parent="." unique_id=556504355]
+volume_db = 5.0
 script = ExtResource("8_b5g2a")
 
 [node name="Musga" type="Node" parent="." unique_id=695832562]
 script = ExtResource("9_ljdfl")
 
-[node name="Intro" type="AudioStreamPlayer" parent="Musga" unique_id=411747242]
-stream = ExtResource("10_l6nqh")
-volume_db = -5.0
-
 [node name="Loop" type="AudioStreamPlayer" parent="Musga" unique_id=1513738210]
-stream = ExtResource("11_yew0f")
-volume_db = -5.0
+stream = ExtResource("11_ljdfl")
+volume_db = -8.0

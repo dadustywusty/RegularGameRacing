@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bkh6x40fpcd2b"
+path="res://.godot/imported/cliquei.ogg-b31130af4b3b7dcc3b2c74fce4ab1d2b.oggvorbisstr"
+
+[deps]
+
+source_file="res://dusty folder/sound effects/cliquei.ogg"
+dest_files=["res://.godot/imported/cliquei.ogg-b31130af4b3b7dcc3b2c74fce4ab1d2b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
