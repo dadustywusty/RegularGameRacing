@@ -4,6 +4,12 @@ class_name ItemComponente
 var item_atual
 var tem_item := false
 
+var itens: Dictionary = {
+	"latinha": preload("uid://buu6imckneitw"),
+	"latinhas triplas": preload("uid://jhdftpvqvih3"),
+	"molinha": preload("res://itens/mola/molinha.tscn")
+}
+
 func tick() -> void:
 	if item_atual:
 		item_atual.global_transform = global_transform

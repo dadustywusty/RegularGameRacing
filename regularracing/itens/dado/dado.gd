@@ -35,9 +35,10 @@ func _quebrar(player: CharacterBody3D) -> void:
 	# logica de quebrado
 	_quebrado = true
 		# função do dado mesmo
-	var item_novo = itens.keys().pick_random()
+	var item_dicionario = player.get_node("ItemComponente").itens
+	var item_novo = item_dicionario.keys().pick_random()
 	if not player.tem_item:
-		player.receber_item(itens[item_novo].instantiate())
+		player.receber_item(item_dicionario[item_novo].instantiate())
 	# animação
 	area.set_deferred("monitoring", false)
 	particula.emitting = true

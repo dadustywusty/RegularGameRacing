@@ -48,6 +48,7 @@ func usar() -> void:
 	tween.tween_callback(func():
 		var som = latinha_atual.get_node_or_null("som")
 		if som:
+			som.pitch_scale = randf_range(0.8, 1.2)
 			som.play()
 			som.finished.connect(func():
 				latinha_atual.queue_free()
@@ -58,7 +59,6 @@ func usar() -> void:
 
 	# se acabou tudo, deleta o item inteiro
 	if usos == 0:
-		await get_tree().create_timer(1.5).timeout
 		queue_free()
 
 	_usando = false

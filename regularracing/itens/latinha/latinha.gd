@@ -26,18 +26,19 @@ func usar() -> void:
 		return
 	_usando = true
 	usos -= 1
-
+	
 	# ativa o turbo
 	turbo.forca_turbo = 100
 	turbo.duracao_turbo = 1.0
 	turbo.ativar()
-
+	
 	# encolhe rapidinho
 	var tween = create_tween()
 	tween.tween_property(modelo, "scale", Vector3.ZERO, 0.15)\
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(func():
+		som.pitch_scale = randf_range(0.8, 1.2)
 		som.play()
 	)
 	# some quando o som acabar

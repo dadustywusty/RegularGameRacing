@@ -29,15 +29,15 @@ func usar() -> void:
 		return
 	_usando = true
 	usos -= 1
-
+	
 	fisica.velocidade_vertical = 34.5
-
+	
 	# força o trick independente do chão
 	if _trick:
 		_trick.pode_trick = true
 		await get_tree().create_timer(0.8).timeout
 		_trick.pode_trick = false
-
+	
 	var tween = modelo.create_tween()
 	tween.tween_property(modelo, "scale", Vector3.ZERO, 0.3)\
 		.set_ease(Tween.EASE_IN)\
