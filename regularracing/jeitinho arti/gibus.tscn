@@ -508,9 +508,10 @@ draw_pass_1 = SubResource("SphereMesh_l0ubc")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.8, 0)
 shape = SubResource("CapsuleShape3D_64arw")
 
-[node name="InputComponente" type="Node" parent="." unique_id=34086533]
+[node name="InputComponente" type="Node" parent="." unique_id=34086533 node_paths=PackedStringArray("personagem")]
 unique_name_in_owner = true
 script = ExtResource("2_64arw")
+personagem = NodePath("..")
 metadata/_custom_type_script = "uid://cpamosiyhrbhc"
 
 [node name="MovimentoComponente" type="Node" parent="." unique_id=1048050016 node_paths=PackedStringArray("corpo")]

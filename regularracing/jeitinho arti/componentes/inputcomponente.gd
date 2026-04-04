@@ -7,9 +7,11 @@ class_name InputComponente
 var aceleracao := 0.0
 # direção do volante, 1 é pra esquerda, -1 é pra direita
 var rotacao := 0.0
-var drift
+var drift : bool
+var retrovisor : bool
+var item : bool
 
-func update() -> void:
+func _process(_delta: float) -> void:
 	aceleracao = 0.0
 	aceleracao += Input.get_action_strength("acelerar")
 	aceleracao -= Input.get_action_strength("freio")
@@ -17,6 +19,15 @@ func update() -> void:
 	rotacao += Input.get_action_strength("esquerda")
 	rotacao -= Input.get_action_strength("direita")
 	
-	drift = false
-	if Input.is_action_pressed("drift"):
-		drift = true
+	item = Input.is_action_just_pressed("item")
+	retrovisor = Input.is_action_pressed("retrovisor")
+	drift = Input.is_action_pressed("drift")
+	
+	var personagem = get_parent()
+	personagem.aceleracao = aceleracao
+	personagem.rotacao = rotacao
+	personagem.drift = drift
+	personagem.pulo = Input.is_action_just_pressed("drift")
+	personagem.item_input = item
+	personagem.retrovisor = retrovisor
+	
