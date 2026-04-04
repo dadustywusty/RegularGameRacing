@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://b032u2sliltvl"]
+
+[ext_resource type="Script" uid="uid://b60k4vlqye127" path="res://dusty folder/Menu/mapas.gd" id="1_dxck6"]
+[ext_resource type="Shader" uid="uid://ccfnggl2v4krc" path="res://dusty folder/Menu/main_menu.gdshader" id="2_lmyoj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ufn8"]
+shader = ExtResource("2_lmyoj")
+
+[node name="Mapas" type="Node2D" unique_id=1394261337]
+script = ExtResource("1_dxck6")
+
+[node name="Botoes legais" type="Control" parent="." unique_id=766451674]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=332876290]
+
+[node name="BackGround" type="ColorRect" parent="CanvasLayer" unique_id=1357520716]
+material = SubResource("ShaderMaterial_0ufn8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.5254902, 0.25882354, 1, 1)
+
+[node name="Controle principal" type="Control" parent="CanvasLayer" unique_id=495927141]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1112.0
+offset_bottom = -608.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Controle principal" unique_id=1632354082]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 89.0
+offset_top = 265.0
+offset_right = 251.0
+offset_bottom = 366.0
+grow_vertical = 2
+
+[node name="Mapa de teste" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=1700315365]
+layout_mode = 2
+text = "Mapa de teste
+"
+
+[node name="Rainbow Road" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=720510395]
+layout_mode = 2
+text = "Rainbow Road"
+
+[node name="ToadHarbor" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=14565825]
+layout_mode = 2
+text = "ToadHarbor"
+
+[node name="YoshiCiruit" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=592077823]
+layout_mode = 2
+text = "YoshiCiruit"
+
+[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Mapa de teste" to="." method="_on_mapa_de_teste_pressed"]
+[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Rainbow Road" to="." method="_on_rainbow_road_pressed"]
+[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/ToadHarbor" to="." method="_on_toad_harbor_pressed"]
+[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/YoshiCiruit" to="." method="_on_yoshi_ciruit_pressed"]

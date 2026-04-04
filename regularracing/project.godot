@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="regularracing.com"
-run/main_scene="uid://jte064jhvirl"
+run/main_scene="uid://bv6fgbuaabqpk"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

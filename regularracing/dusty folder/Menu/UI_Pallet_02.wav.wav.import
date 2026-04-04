@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6hb83g1v3gcd"
+path="res://.godot/imported/UI_Pallet_02.wav.wav-9e678af99c19cb3dae8d7f18ed0c6538.sample"
+
+[deps]
+
+source_file="res://dusty folder/Menu/UI_Pallet_02.wav.wav"
+dest_files=["res://.godot/imported/UI_Pallet_02.wav.wav-9e678af99c19cb3dae8d7f18ed0c6538.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -13,12 +13,13 @@ extends CharacterBody3D
 @onready var trick_componente: TrickComponente = %TrickComponente
 @onready var item_componente: ItemComponente = %ItemComponente
 @onready var peixe: Node3D = $"carro(1)/sedan/peixe"
+@onready var roda_esquerda = $"carro(1)/sedan/wheel-front-left"
+@onready var roda_direita = $"carro(1)/sedan/wheel-front-right"
 @export var inclinacao_max: float = 16.0
 @export var velocidade_inclinacao: float = 8.0
 
 
 @export var velocidade_minima_drift := 1.0
-
 
 
 var tem_item := false
@@ -28,7 +29,6 @@ var _rotacao_base_peixe: Vector3
 
 func _ready() -> void:
 	_rotacao_base_peixe = peixe.rotation
-
 
 func receber_item(item) -> void:
 	add_child(item)
@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 	turbo.tick(delta)
 	trick_componente.tick()
 	item_componente.tick()
+		
 	
 	
 	var inclinacao_alvo = input_componente.rotacao * deg_to_rad(inclinacao_max)

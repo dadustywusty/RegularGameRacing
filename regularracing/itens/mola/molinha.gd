@@ -39,7 +39,7 @@ func usar() -> void:
 		_trick.pode_trick = false
 
 	var tween = modelo.create_tween()
-	tween.tween_property(modelo, "scale", Vector3.ZERO, 0.15)\
+	tween.tween_property(modelo, "scale", Vector3.ZERO, 0.3)\
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_CUBIC) #transparente seus bobocas, não confudam
 	tween.tween_callback(queue_free)
