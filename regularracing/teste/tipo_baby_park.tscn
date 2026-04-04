@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bmcw46axmxgb6"]
 
-[ext_resource type="PackedScene" uid="uid://dkr85b7y25ba6" path="res://jeitinho arti/gibusbot.tscn" id="1_3c2wv"]
-
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3c2wv"]
-sky_top_color = Color(0.81, 0.2511, 0.44671497, 1)
-sky_horizon_color = Color(0.64116573, 0.51944655, 0.61389446, 1)
+sky_top_color = Color(0.80726576, 0.25702372, 0.4506368, 1)
+sky_horizon_color = Color(0.8339494, 0.4296813, 0.31260234, 1)
+sky_curve = 0.10606606
 ground_bottom_color = Color(0.055800002, 0.12782332, 0.31, 1)
-ground_horizon_color = Color(0.64116573, 0.51944655, 0.61389446, 1)
+ground_horizon_color = Color(0.8352941, 0.43137255, 0.3137255, 1)
+ground_curve = 0.05656853
 
 [sub_resource type="Sky" id="Sky_mugri"]
 sky_material = SubResource("ProceduralSkyMaterial_3c2wv")
@@ -240,9 +240,6 @@ shape = SubResource("BoxShape3D_3c2wv")
 
 [node name="Node3D" type="Node3D" parent="checkpoints/checkpoint 10" unique_id=818094917 groups=["ponto respawn"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
-
-[node name="gibus" parent="." unique_id=818493968 instance=ExtResource("1_3c2wv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.34063, 0.047168106, 10.096794)
 
 [node name="plano morte" type="Area3D" parent="." unique_id=201323305 groups=["plano morte"]]
 

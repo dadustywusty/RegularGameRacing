@@ -3,6 +3,7 @@ class_name ItemComponente
 
 var item_atual
 var tem_item := false
+var item_input : bool
 
 var itens: Dictionary = {
 	"latinha": preload("uid://buu6imckneitw"),
@@ -15,5 +16,5 @@ func tick() -> void:
 		item_atual.global_transform = global_transform
 		if item_atual.usos == 0:
 			tem_item = false
-	if tem_item and Input.is_action_just_pressed("item"):
+	if tem_item and item_input:
 		item_atual.usar()

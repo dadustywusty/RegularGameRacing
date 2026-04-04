@@ -30,16 +30,16 @@ func usar() -> void:
 	if _usando:
 		return
 	_usando = true
-
+	
 	turbo.forca_turbo = 100
 	turbo.duracao_turbo = 1.0
 	turbo.ativar()
-
+	
 	# pega a latinha atual (última da lista)
 	var index = usos - 1
 	var latinha_atual = latinhas[index]
 	usos -= 1
-
+	
 	# encolhe e some
 	var tween = latinha_atual.create_tween()
 	tween.tween_property(latinha_atual, "scale", Vector3.ZERO, 0.15)\
@@ -56,9 +56,5 @@ func usar() -> void:
 		else:
 			latinha_atual.queue_free()
 	)
-
-	# se acabou tudo, deleta o item inteiro
-	if usos == 0:
-		queue_free()
 
 	_usando = false

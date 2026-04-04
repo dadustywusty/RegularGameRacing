@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-@onready var input_componente: InputComponente = $InputComponente
 @onready var movimento_componente: MovimentoComponente = $MovimentoComponente
 @onready var drift_componente: DriftComponente = %DriftComponente
 @onready var fisica = %fisica
@@ -17,15 +16,19 @@ extends CharacterBody3D
 @onready var roda_direita = $"carro(1)/sedan/wheel-front-right"
 @export var inclinacao_max: float = 16.0
 @export var velocidade_inclinacao: float = 8.0
-
-
 @export var velocidade_minima_drift := 1.0
-
 
 var tem_item := false
 var pegou_direcao_particula := false
 var direcao_particula : float
 var _rotacao_base_peixe: Vector3
+
+var aceleracao := 0.0
+var rotacao := 0.0
+var drift : bool
+var pulo : bool
+var retrovisor : bool
+var item_input : bool
 
 func _ready() -> void:
 	_rotacao_base_peixe = peixe.rotation
@@ -37,7 +40,6 @@ func receber_item(item) -> void:
 	item_componente.item_atual = item
 
 func _physics_process(delta: float) -> void:
-	input_componente.update()
 	movimento_componente.tick(delta)
 	drift_componente.tick(delta)
 	fisica.no_chao = is_on_floor()
@@ -47,44 +49,45 @@ func _physics_process(delta: float) -> void:
 	turbo.tick(delta)
 	trick_componente.tick()
 	item_componente.tick()
-		
 	
 	
-	var inclinacao_alvo = input_componente.rotacao * deg_to_rad(inclinacao_max)
+	
+	var inclinacao_alvo = rotacao * deg_to_rad(inclinacao_max)
 	peixe.rotation.z = lerp(peixe.rotation.z, _rotacao_base_peixe.z + inclinacao_alvo, velocidade_inclinacao * delta)
 	# acelera o player
 	if not is_on_floor():
 		movimento_componente.aceleracao = 0
 	else:
-		movimento_componente.aceleracao = input_componente.aceleracao
+		movimento_componente.aceleracao = aceleracao
 	
 	# gira o player
 	if not movimento_componente.aceleracao == 0 or drift_componente.drift:
-		movimento_componente.rotacao = input_componente.rotacao
+		movimento_componente.rotacao = rotacao
 	
 	# começa e termina drift
-	if input_componente.drift:
+	if drift:
 		if -global_basis.z.dot(velocity) > velocidade_minima_drift:
 			drift_componente.comecar_drift()
 	else: 
 		drift_componente.terminar_drift()
-	drift_componente.input_direcao = input_componente.rotacao
+	drift_componente.input_direcao = rotacao
 	
 	# gravidade
 	velocity.y = fisica.velocidade_vertical
 	
 	# lida com os itens
+	item_componente.item_input = item_input
 	tem_item = item_componente.tem_item
 	
 	# faz trick
-	if trick_componente.pode_trick and Input.is_action_just_pressed("drift"):
+	if trick_componente.pode_trick and drift:
 		trick_componente.fazer_trick()
 	
 	# mexe o som do motor
 	som_motor.pitch_scale = remap(velocity.length(), 0, 100, 1.0, 3.0)
 	
 	# aciona o retrovisor
-	if Input.is_action_pressed("retrovisor"):
+	if retrovisor:
 		camera.retrovisor = true
 	else:
 		camera.retrovisor = false

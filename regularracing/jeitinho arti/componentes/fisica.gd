@@ -18,7 +18,7 @@ func tick(delta: float) -> void:
 		velocidade_vertical -= gravidade * delta
 
 func _input_pulo() -> bool:
-	return Input.is_action_just_pressed("drift")
+	return corpo.pulo
 
 func _on_trick_componente_trick_pulo() -> void:
 	velocidade_vertical = 25.0
