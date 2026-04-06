@@ -5,6 +5,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ufn8"]
 shader = ExtResource("2_lmyoj")
+shader_parameter/deep_purple = Vector3(0.18, 0.03, 0.14)
+shader_parameter/aubergine = Vector3(0.46, 0.16, 0.32)
+shader_parameter/orange_glow = Vector3(0.91, 0.33, 0.12)
 
 [node name="Mapas" type="Node2D" unique_id=1394261337]
 script = ExtResource("1_dxck6")
@@ -67,7 +70,12 @@ text = "ToadHarbor"
 layout_mode = 2
 text = "YoshiCiruit"
 
+[node name="Sabor" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=430172572]
+layout_mode = 2
+text = "SaborBabyPark"
+
 [connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Mapa de teste" to="." method="_on_mapa_de_teste_pressed"]
 [connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Rainbow Road" to="." method="_on_rainbow_road_pressed"]
 [connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/ToadHarbor" to="." method="_on_toad_harbor_pressed"]
 [connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/YoshiCiruit" to="." method="_on_yoshi_ciruit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Sabor" to="." method="_on_sabor_pressed"]

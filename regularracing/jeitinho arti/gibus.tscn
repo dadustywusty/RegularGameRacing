@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cwiua0wljjll8" path="res://rosto/boca.png" id="5_l0ubc"]
 [ext_resource type="Script" uid="uid://hmf3mjrc6bxp" path="res://jeitinho arti/componentes/driftcomponente.gd" id="5_qsdoc"]
 [ext_resource type="Script" uid="uid://bhh2tnr8whyny" path="res://jeitinho arti/componentes/fisica.gd" id="6_045yo"]
+[ext_resource type="ArrayMesh" uid="uid://ck03cthp1q4wl" path="res://dusty folder/fumaca/fumaça da boa.obj" id="6_au0uo"]
 [ext_resource type="Script" uid="uid://1dn6kmrc06gw" path="res://jeitinho arti/componentes/respawncomponente.gd" id="8_8tgkw"]
 [ext_resource type="Script" uid="uid://l06107u601lk" path="res://jeitinho arti/componentes/rotacaocomponente.gd" id="8_eol6c"]
 [ext_resource type="Script" uid="uid://c1g85g4ip5hmx" path="res://jeitinho arti/componentes/itemcomponente.gd" id="10_2ekgj"]
@@ -286,6 +287,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sblya")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5b3dn"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+disable_receive_shadows = true
+
 [sub_resource type="Curve" id="Curve_y7ux3"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.75, 0.9066148), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -294,10 +301,16 @@ point_count = 3
 curve = SubResource("Curve_y7ux3")
 
 [sub_resource type="Gradient" id="Gradient_5b3dn"]
-colors = PackedColorArray(1, 0, 0.7529412, 1, 0.48235294, 0, 1, 1)
+offsets = PackedFloat32Array(0, 0.99376947)
+colors = PackedColorArray(0.7254902, 0.12941177, 0, 1, 4.2760115, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_sy36w"]
 gradient = SubResource("Gradient_5b3dn")
+
+[sub_resource type="Gradient" id="Gradient_sy36w"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pn5sl"]
+gradient = SubResource("Gradient_sy36w")
 
 [sub_resource type="Curve" id="Curve_5b3dn"]
 _limits = [0.0, 1.5, 0.0, 1.0]
@@ -308,22 +321,15 @@ point_count = 2
 curve = SubResource("Curve_5b3dn")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pn5sl"]
+particle_flag_rotate_y = true
+angle_min = -179.99998
+angle_max = 180.00002
 initial_velocity_max = 0.099999994
 gravity = Vector3(0, 1, 0)
 scale_curve = SubResource("CurveTexture_sy36w")
+color_ramp = SubResource("GradientTexture1D_pn5sl")
 color_initial_ramp = SubResource("GradientTexture1D_sy36w")
 alpha_curve = SubResource("CurveTexture_au0uo")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pn5sl"]
-transparency = 1
-vertex_color_use_as_albedo = true
-
-[sub_resource type="SphereMesh" id="SphereMesh_i8l2r"]
-material = SubResource("StandardMaterial3D_pn5sl")
-radius = 0.25
-height = 0.5
-radial_segments = 6
-rings = 3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7ypg"]
 shading_mode = 0
@@ -477,12 +483,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.000002, 66, -30.000002)
 mesh = SubResource("ArrayMesh_86kxw")
 
 [node name="Fumaça" type="GPUParticles3D" parent="carro(1)" unique_id=1472325435]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040842056, 0.14192796, 1.3390901)
-emitting = false
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.040842056, 0.14192796, 1.3390901)
+material_override = SubResource("StandardMaterial3D_5b3dn")
+amount = 10
 lifetime = 2.0799999999999996
 speed_scale = 2.0
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_pn5sl")
-draw_pass_1 = SubResource("SphereMesh_i8l2r")
+draw_pass_1 = ExtResource("6_au0uo")
 
 [node name="ParticulaDriftL" type="GPUParticles3D" parent="carro(1)" unique_id=1415227943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.608, -0.0035195947, 1.0291927)
@@ -508,10 +516,9 @@ draw_pass_1 = SubResource("SphereMesh_l0ubc")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.8, 0)
 shape = SubResource("CapsuleShape3D_64arw")
 
-[node name="InputComponente" type="Node" parent="." unique_id=34086533 node_paths=PackedStringArray("personagem")]
+[node name="InputComponente" type="Node" parent="." unique_id=34086533]
 unique_name_in_owner = true
 script = ExtResource("2_64arw")
-personagem = NodePath("..")
 metadata/_custom_type_script = "uid://cpamosiyhrbhc"
 
 [node name="MovimentoComponente" type="Node" parent="." unique_id=1048050016 node_paths=PackedStringArray("corpo")]

@@ -12,3 +12,6 @@ func _on_toad_harbor_pressed() -> void:
 
 func _on_yoshi_ciruit_pressed() -> void:
 	get_tree().change_scene_to_file("res://teste/yoshi circuit.tscn")
+
+func _on_sabor_pressed() -> void:
+	get_tree().change_scene_to_file("res://teste/sabor_baby_park.tscn")
