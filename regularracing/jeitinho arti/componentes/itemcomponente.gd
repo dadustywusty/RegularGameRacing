@@ -8,7 +8,8 @@ var item_input : bool
 var itens: Dictionary = {
 	"latinha": preload("uid://buu6imckneitw"),
 	"latinhas triplas": preload("uid://jhdftpvqvih3"),
-	"molinha": preload("res://itens/mola/molinha.tscn")
+	"molinha": preload("uid://bpspel1hunwcc"),
+	#"pedra": preload("uid://7uk04ilajpgx")
 }
 
 func tick() -> void:
@@ -16,5 +17,6 @@ func tick() -> void:
 		item_atual.global_transform = global_transform
 		if item_atual.usos == 0:
 			tem_item = false
+			item_atual = null
 	if tem_item and item_input:
 		item_atual.usar()

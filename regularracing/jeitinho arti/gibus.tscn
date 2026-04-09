@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://l06107u601lk" path="res://jeitinho arti/componentes/rotacaocomponente.gd" id="8_eol6c"]
 [ext_resource type="Script" uid="uid://c1g85g4ip5hmx" path="res://jeitinho arti/componentes/itemcomponente.gd" id="10_2ekgj"]
 [ext_resource type="Script" uid="uid://dh08wb8l76l35" path="res://jeitinho arti/componentes/turbo.gd" id="10_k3m2r"]
+[ext_resource type="Script" uid="uid://cgflvg15aig7p" path="res://jeitinho arti/componentes/danocomponente.gd" id="11_5b3dn"]
 [ext_resource type="Script" uid="uid://r3go3f8v2idd" path="res://jeitinho arti/componentes/trickcomponente.gd" id="11_l0ubc"]
 [ext_resource type="AudioStream" uid="uid://b6gpsgd3ubf8p" path="res://preciso de terapia/tu.wav" id="11_ps1wu"]
 [ext_resource type="Material" uid="uid://grmdou6sd7u2" path="res://dusty folder/texturas/drift3gradiente.tres" id="14_s7ypg"]
@@ -346,6 +347,9 @@ rings = 2
 radius = 0.84716797
 height = 2.725586
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5b3dn"]
+size = Vector3(1.8359375, 1.696228, 2.8017578)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_y7ux3"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_ps1wu"]
@@ -485,6 +489,7 @@ mesh = SubResource("ArrayMesh_86kxw")
 [node name="Fumaça" type="GPUParticles3D" parent="carro(1)" unique_id=1472325435]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.040842056, 0.14192796, 1.3390901)
 material_override = SubResource("StandardMaterial3D_5b3dn")
+emitting = false
 amount = 10
 lifetime = 2.0799999999999996
 speed_scale = 2.0
@@ -559,6 +564,15 @@ unique_name_in_owner = true
 script = ExtResource("11_l0ubc")
 metadata/_custom_type_script = "uid://r3go3f8v2idd"
 
+[node name="DanoComponente" type="Area3D" parent="." unique_id=1954585976 node_paths=PackedStringArray("corpo")]
+script = ExtResource("11_5b3dn")
+corpo = NodePath("..")
+metadata/_custom_type_script = "uid://cgflvg15aig7p"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DanoComponente" unique_id=711773015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8329773, 0)
+shape = SubResource("BoxShape3D_5b3dn")
+
 [node name="RespawnComponente" type="Area3D" parent="." unique_id=1705178301 node_paths=PackedStringArray("corpo")]
 unique_name_in_owner = true
 script = ExtResource("8_8tgkw")
@@ -585,4 +599,5 @@ libraries/ = SubResource("AnimationLibrary_y7ux3")
 stream = ExtResource("17_y7ux3")
 
 [connection signal="trick_pulo" from="TrickComponente" to="fisica" method="_on_trick_componente_trick_pulo"]
+[connection signal="body_entered" from="DanoComponente" to="DanoComponente" method="_on_body_entered"]
 [connection signal="area_entered" from="RespawnComponente" to="RespawnComponente" method="_on_area_entered"]

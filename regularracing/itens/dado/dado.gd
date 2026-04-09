@@ -9,16 +9,8 @@ extends Node3D
 @onready var particula: GPUParticles3D = $GPUParticles3D
 @onready var som: AudioStreamPlayer2D = $BreakingBad
 
-var itens: Dictionary = {
-	"latinha": preload("uid://buu6imckneitw"),
-	"latinhas triplas": preload("uid://jhdftpvqvih3"),
-	"molinha": preload("res://itens/mola/molinha.tscn")
-}
-
 var _quebrado: bool = false
 var _escala_original: Vector3
-
-
 
 func _ready() -> void:
 	area.body_entered.connect(_ao_colidir)

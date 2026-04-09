@@ -19,11 +19,16 @@ config/icon="res://icon.svg"
 
 movie_writer/movie_file="C:/Users/Usuario/Documents/flip.avi"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/road-generator/plugin.cfg")
+
 [global_group]
 
 "plano morte"=""
 "ponto respawn"=""
 checkpoint=""
+dano=""
 
 [input]
 

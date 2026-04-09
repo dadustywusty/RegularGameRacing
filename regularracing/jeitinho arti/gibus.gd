@@ -19,6 +19,7 @@ extends CharacterBody3D
 @export var velocidade_minima_drift := 1.0
 
 var tem_item := false
+
 var pegou_direcao_particula := false
 var direcao_particula : float
 var _rotacao_base_peixe: Vector3
@@ -38,6 +39,9 @@ func receber_item(item) -> void:
 	item.configurar(self)
 	item_componente.tem_item = true
 	item_componente.item_atual = item
+
+func levar_dano() -> void:
+	print("levou dano")
 
 func _physics_process(delta: float) -> void:
 	movimento_componente.tick(delta)
@@ -80,7 +84,7 @@ func _physics_process(delta: float) -> void:
 	tem_item = item_componente.tem_item
 	
 	# faz trick
-	if trick_componente.pode_trick and drift:
+	if trick_componente.pode_trick and pulo:
 		trick_componente.fazer_trick()
 	
 	# mexe o som do motor
