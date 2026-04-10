@@ -17,7 +17,6 @@ const DURACAO_MENU   := 0.6
 var tweens := {}
 
 func _ready() -> void:
-	_animar_gibus()
 	painel_opcoes.fechou.connect(_on_opcoes_fechou)
 	for btn in [btn_jogar, btn_opcoes, btn_sair]:
 		btn.pivot_offset = btn.size / 2.0
@@ -28,8 +27,8 @@ func _ready() -> void:
 	btn_opcoes.pressed.connect(_on_opeçoes_pressed)
 	btn_sair.pressed.connect(_on_vou_embora_pressed)
 
-func _tween(no, propriedade, alvo, duracao, tipo_ease = Tween.EASE_OUT, trans = Tween.TRANS_CUBIC) -> Tween:
-	var t = create_tween().set_ease(tipo_ease).set_trans(trans)
+func _tween(no, propriedade, alvo, duracao, ease = Tween.EASE_OUT, trans = Tween.TRANS_CUBIC) -> Tween:
+	var t = create_tween().set_ease(ease).set_trans(trans)
 	t.tween_property(no, propriedade, alvo, duracao)
 	return t
 
@@ -42,8 +41,8 @@ func _animar_btn(no, escala_alvo: Vector2) -> void:
 	var escala_comp = Vector2(1.0 / escala_alvo.x, 1.0 / escala_alvo.y)
 	_tween(no.get_child(0), "scale", escala_comp, DURACAO, Tween.EASE_OUT, Tween.TRANS_BACK)
 
-func _animar_painel(no, alvo, tipo_ease = Tween.EASE_OUT) -> Tween:
-	return _tween(no, "position", alvo, DURACAO_MENU, tipo_ease, Tween.TRANS_CUBIC)
+func _animar_painel(no, alvo, ease = Tween.EASE_OUT) -> Tween:
+	return _tween(no, "position", alvo, DURACAO_MENU, ease, Tween.TRANS_CUBIC)
 
 func _on_opcoes_fechou() -> void:
 	controle_principal.visible = true
@@ -58,20 +57,8 @@ func _on_opeçoes_pressed() -> void:
 
 func _on_vamo_pressed() -> void:
 	som_menu.tocar_click()
-	Transicao.transicionar("res://dusty folder/Menu/mapas.tscn")
+	get_tree().change_scene_to_file("res://dusty folder/Menu/mapas.tscn")
 
 func _on_vou_embora_pressed() -> void:
 	som_menu.tocar_click()
 	get_tree().quit()
-
-#67
-
-#animação que eu decidir fazer agora e eu to com precisa de arrumar
-@onready var gibus = $"CanvasLayer/Controle principal/VBoxContainer/Gibus"
-
-func _animar_gibus() -> void:
-	var t = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	t.tween_property(gibus, "position", gibus.position + Vector2(0, 12), 1.8)
-	t.tween_property(gibus, "position", gibus.position, 1.8)
-	await t.finished
-	_animar_gibus()

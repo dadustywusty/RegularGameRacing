@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://bw1piaq3fncsy"]
-
-[ext_resource type="PackedScene" uid="uid://cbt1qnjawgopm" path="res://teste/carro(1).glb" id="1_2os2v"]
-
-[node name="carro(1)" unique_id=1595893888 instance=ExtResource("1_2os2v")]

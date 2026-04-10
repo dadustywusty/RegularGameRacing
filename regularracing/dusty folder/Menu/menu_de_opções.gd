@@ -21,25 +21,9 @@ const CORES := {
 func _ready() -> void:
 	position = PAINEL_FORA
 	btn_voltar.pressed.connect(_on_voltar)
-	slider_musica.value  = _db_para_slider(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Musica")))
-	slider_efeitos.value = _db_para_slider(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Efeitos")))
-	slider_musica.value_changed.connect(_on_musica_mudou)
-	slider_efeitos.value_changed.connect(_on_efeitos_mudou)
 
-func _on_musica_mudou(valor: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Musica"), _slider_para_db(valor))
-
-func _on_efeitos_mudou(valor: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Efeitos"), _slider_para_db(valor))
-
-func _slider_para_db(valor: float) -> float:
-	return linear_to_db(valor / 100.0)
-
-func _db_para_slider(db: float) -> float:
-	return db_to_linear(db) * 100.0
-
-func _tween(alvo, tipo_ease = Tween.EASE_OUT) -> Tween:
-	var t = create_tween().set_ease(tipo_ease).set_trans(Tween.TRANS_CUBIC)
+func _tween(alvo, ease = Tween.EASE_OUT) -> Tween:
+	var t = create_tween().set_ease(ease).set_trans(Tween.TRANS_CUBIC)
 	t.tween_property(self, "position", alvo, DURACAO)
 	return t
 

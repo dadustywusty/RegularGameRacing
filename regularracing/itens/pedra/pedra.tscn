@@ -30,8 +30,6 @@ height = 0.39233398
 radius = 0.18066406
 
 [node name="pedra" type="RigidBody3D" unique_id=166451395]
-transform = Transform3D(1.395, 0, 0, 0, 1.395, 0, 0, 0, 1.395, 0, 0, 0)
-contact_monitor = true
 script = ExtResource("1_nfatf")
 
 [node name="preda" parent="." unique_id=1199580918 instance=ExtResource("1_k3hjm")]
@@ -44,5 +42,3 @@ autoplay = &"pedra"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=760187440]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25061035, 0)
 shape = SubResource("CylinderShape3D_nfatf")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
