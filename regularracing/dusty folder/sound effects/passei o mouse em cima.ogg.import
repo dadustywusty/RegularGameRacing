@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://drfe0ro6pq15d"
+path="res://.godot/imported/passei o mouse em cima.ogg-ea36fb5456ad5ae02e76404b54a981ab.oggvorbisstr"
+
+[deps]
+
+source_file="res://dusty folder/sound effects/passei o mouse em cima.ogg"
+dest_files=["res://.godot/imported/passei o mouse em cima.ogg-ea36fb5456ad5ae02e76404b54a981ab.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

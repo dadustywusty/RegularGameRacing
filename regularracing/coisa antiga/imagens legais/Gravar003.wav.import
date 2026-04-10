@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmas5f84robx6"
+path="res://.godot/imported/Gravar003.wav-f30e301c73bdf3a48e3e032015efea89.sample"
+
+[deps]
+
+source_file="res://coisa antiga/imagens legais/Gravar003.wav"
+dest_files=["res://.godot/imported/Gravar003.wav-f30e301c73bdf3a48e3e032015efea89.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

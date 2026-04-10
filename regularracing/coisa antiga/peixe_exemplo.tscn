@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b8ef2pxjrqgvk"]
+
+[ext_resource type="PackedScene" uid="uid://buwppww6ff21i" path="res://carro(1).glb" id="1_2dt0f"]
+[ext_resource type="PackedScene" uid="uid://cwcwtoesmtiyd" path="res://Corrida/campodeteste.tscn" id="2_1k8yk"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="carro(1)" parent="." instance=ExtResource("1_2dt0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3541508, 0)
+
+[node name="Node3D" parent="." instance=ExtResource("2_1k8yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.466648, 0, 18.102331)
+script = null

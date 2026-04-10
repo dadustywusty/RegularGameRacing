@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://drius8753qmtr"]
+
+[ext_resource type="Script" uid="uid://ikwhyteaysoh" path="res://Corrida/cartest.gd" id="1_yjrfe"]
+[ext_resource type="PackedScene" uid="uid://buwppww6ff21i" path="res://carro(1).glb" id="2_kvuw6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mtigy"]
+bounce = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5ws58"]
+
+[node name="Car" type="Node3D"]
+script = ExtResource("1_yjrfe")
+
+[node name="Ball" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032375455, 0.53413284, -0.00069212914)
+physics_material_override = SubResource("PhysicsMaterial_mtigy")
+gravity_scale = 10.0
+linear_damp = 2.0
+angular_damp = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
+shape = SubResource("SphereShape3D_5ws58")
+
+[node name="Car" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032375455, -0.0027676225, -0.00069212914)
+
+[node name="Model" parent="Car" instance=ExtResource("2_kvuw6")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Car"]
+transform = Transform3D(-4.371139e-08, -0.2990408, 0.9542403, 0, 0.9542403, 0.2990408, -1, 1.3071488e-08, -4.1711168e-08, 3.103, 2.677, 0)
+fov = 90.6
+
+[node name="DriftTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="BoostTimer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../BoostTimer")
+
+[connection signal="timeout" from="DriftTimer" to="." method="_on_drift_timer_timeout"]

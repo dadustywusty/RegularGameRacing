@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6gpsgd3ubf8p"
+path="res://.godot/imported/tu.wav-bcd0c556dc600eaaffe334b3f8a5417a.sample"
+
+[deps]
+
+source_file="res://preciso de terapia/tu.wav"
+dest_files=["res://.godot/imported/tu.wav-bcd0c556dc600eaaffe334b3f8a5417a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
