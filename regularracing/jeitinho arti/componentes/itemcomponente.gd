@@ -6,10 +6,10 @@ var tem_item := false
 var item_input : bool
 
 var itens: Dictionary = {
-	"latinha": preload("uid://buu6imckneitw"),
-	"latinhas triplas": preload("uid://jhdftpvqvih3"),
-	"molinha": preload("uid://bpspel1hunwcc"),
-	#"pedra": preload("uid://7uk04ilajpgx")
+	#"latinha": preload("uid://buu6imckneitw"),
+	#"latinhas triplas": preload("uid://jhdftpvqvih3"),
+	#"molinha": preload("uid://bpspel1hunwcc"),
+	"pedra": preload("uid://7uk04ilajpgx")
 }
 
 func tick() -> void:

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://w0p3u7g0tg71" path="res://kenney_prototype-textures/PNG/Green/texture_01.png" id="4_0c4pu"]
 [ext_resource type="Texture2D" uid="uid://c1bsnaxgduf0e" path="res://kenney_prototype-textures/PNG/Purple/texture_01.png" id="4_36yuk"]
 [ext_resource type="Texture2D" uid="uid://noqfofnqu4sr" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="5_i7wld"]
-[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://itens/dado/dado.tscn" id="6_lcd4u"]
+[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://preciso de terapia/itens/dado/dado.tscn" id="6_lcd4u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l3rou"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

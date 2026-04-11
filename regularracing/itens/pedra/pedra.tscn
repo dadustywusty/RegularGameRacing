@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://7uk04ilajpgx"]
 
-[ext_resource type="PackedScene" uid="uid://b5jxsv4grrv4f" path="res://itens/pedra/preda.fbx" id="1_k3hjm"]
+[ext_resource type="PackedScene" uid="uid://b5jxsv4grrv4f" path="res://preciso de terapia/itens/pedra/preda.fbx" id="1_k3hjm"]
 [ext_resource type="Script" uid="uid://cxed4xsmcmjkb" path="res://itens/pedra/pedra.gd" id="1_nfatf"]
-[ext_resource type="Animation" uid="uid://dji3qfkusr7s6" path="res://itens/pedra/pedraanimacao.res" id="2_oxbnw"]
+[ext_resource type="Animation" uid="uid://dji3qfkusr7s6" path="res://preciso de terapia/itens/pedra/pedraanimacao.res" id="2_oxbnw"]
 
 [sub_resource type="Animation" id="Animation_oxbnw"]
 length = 0.001
@@ -30,10 +30,13 @@ height = 0.39233398
 radius = 0.18066406
 
 [node name="pedra" type="RigidBody3D" unique_id=166451395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.31966797, 0)
+gravity_scale = 3.093
+continuous_cd = true
 script = ExtResource("1_nfatf")
 
 [node name="preda" parent="." unique_id=1199580918 instance=ExtResource("1_k3hjm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+transform = Transform3D(1.32, 0, 0, 0, 1.32, 0, 0, 0, 1.32, 0, -0.6663703, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1760809488]
 libraries/ = SubResource("AnimationLibrary_4mljj")
