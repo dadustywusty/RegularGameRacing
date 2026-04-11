@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://bbqghq57qnbya"]
 
+[ext_resource type="Script" uid="uid://c1ts24pqx6feu" path="res://pistas/regular circuit/regular_circuit.gd" id="1_f7hsb"]
 [ext_resource type="Script" uid="uid://cvwmed2gvpndg" path="res://addons/road-generator/nodes/road_manager.gd" id="1_pn7qn"]
 [ext_resource type="Script" uid="uid://bdqrd0uut8hq0" path="res://addons/road-generator/nodes/road_container.gd" id="2_dragt"]
 [ext_resource type="Script" uid="uid://cx3wjlcttn1ak" path="res://addons/road-generator/nodes/road_point.gd" id="3_ah2hv"]
+[ext_resource type="Material" uid="uid://dpashsuk5lr4x" path="res://addons/road-generator/resources/road_texture.material" id="3_dragt"]
 [ext_resource type="PackedScene" uid="uid://bbopapkbjoke6" path="res://jeitinho arti/gibus.tscn" id="4_ip1xh"]
+[ext_resource type="PackedScene" uid="uid://74v6laavjv6a" path="res://pistas/regular circuit/modulos/regular_1.tscn" id="5_ah2hv"]
+[ext_resource type="Script" uid="uid://8mvy4kebv538" path="res://jeitinho arti/componentes/gerenciadordepista.gd" id="5_ip1xh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pn7qn"]
 sky_top_color = Color(0.8117647, 0.2509804, 0.44705883, 1)
@@ -20,7 +24,11 @@ sky = SubResource("Sky_dragt")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ip1xh"]
+size = Vector3(20, 16, 1)
+
 [node name="regular circuit" type="Node3D" unique_id=2116929989]
+script = ExtResource("1_f7hsb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=365641531]
 environment = SubResource("Environment_ah2hv")
@@ -37,12 +45,13 @@ metadata/_custom_type_script = "uid://cvwmed2gvpndg"
 
 [node name="Road_001" type="Node3D" parent="RoadManager" unique_id=1945414650]
 script = ExtResource("2_dragt")
+material_resource = ExtResource("3_dragt")
 use_lowpoly_preview = true
 edge_containers = Array[NodePath]([NodePath(""), NodePath(""), NodePath(""), NodePath("")])
 edge_rp_targets = Array[NodePath]([NodePath(""), NodePath(""), NodePath(""), NodePath("")])
 edge_rp_target_dirs = Array[int]([-1, -1, -1, -1])
-edge_rp_locals = Array[NodePath]([NodePath("RP_007"), NodePath("RP_002"), NodePath("RP_003"), NodePath("RP_006")])
-edge_rp_local_dirs = Array[int]([1, 0, 1, 0])
+edge_rp_locals = Array[NodePath]([NodePath("RP_002"), NodePath("RP_003"), NodePath("RP_006"), NodePath("RP_007")])
+edge_rp_local_dirs = Array[int]([0, 1, 0, 1])
 
 [node name="RP_002" type="Node3D" parent="RoadManager/Road_001" unique_id=1282358098]
 script = ExtResource("3_ah2hv")
@@ -79,11 +88,69 @@ prior_mag = 32.265465
 next_mag = 31.677256
 next_pt_init = NodePath("../RP_006")
 
-[node name="gibus" parent="." unique_id=818493968 instance=ExtResource("4_ip1xh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2430236, 2.7394614, -30.773102)
+[node name="GerenciadorDePista" type="Node" parent="." unique_id=1417154308]
+script = ExtResource("5_ip1xh")
+metadata/_custom_type_script = "uid://8mvy4kebv538"
 
-[node name="spawn a" type="Node3D" parent="." unique_id=101843690]
+[node name="grupo1" type="Node" parent="GerenciadorDePista" unique_id=1941353743]
+
+[node name="Area3D" type="Area3D" parent="GerenciadorDePista/grupo1" unique_id=846435081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.7837877, -64)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GerenciadorDePista/grupo1/Area3D" unique_id=1774125245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 7.5, 0)
+shape = SubResource("BoxShape3D_ip1xh")
+
+[node name="Sprite3D" type="Sprite3D" parent="GerenciadorDePista/grupo1/Area3D" unique_id=570322742]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1, 8, 0)
+shaded = true
+
+[node name="Area3D2" type="Area3D" parent="GerenciadorDePista/grupo1" unique_id=806944136]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8, 0.7837877, -64)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GerenciadorDePista/grupo1/Area3D2" unique_id=1227227828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 7.5, 0)
+shape = SubResource("BoxShape3D_ip1xh")
+
+[node name="Sprite3D" type="Sprite3D" parent="GerenciadorDePista/grupo1/Area3D2" unique_id=322419502]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1, 8, 0)
+shaded = true
+
+[node name="grupo2" type="Node" parent="GerenciadorDePista" unique_id=204062041]
+
+[node name="Area3D" type="Area3D" parent="GerenciadorDePista/grupo2" unique_id=1674707438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0.71734047, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GerenciadorDePista/grupo2/Area3D" unique_id=1421622476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 7.5, 0)
+shape = SubResource("BoxShape3D_ip1xh")
+
+[node name="Sprite3D" type="Sprite3D" parent="GerenciadorDePista/grupo2/Area3D" unique_id=1388693133]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1, 8, 0)
+shaded = true
+
+[node name="Area3D2" type="Area3D" parent="GerenciadorDePista/grupo2" unique_id=647227520]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 56, 0.71734047, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GerenciadorDePista/grupo2/Area3D2" unique_id=174599780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 7.5, 0)
+shape = SubResource("BoxShape3D_ip1xh")
+
+[node name="Sprite3D" type="Sprite3D" parent="GerenciadorDePista/grupo2/Area3D2" unique_id=496826590]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1, 8, 0)
+shaded = true
+
+[node name="modulos" type="Node" parent="." unique_id=1132460968]
+
+[node name="spawn a" type="Marker3D" parent="modulos" unique_id=1917790350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0)
 
-[node name="spawn b" type="Node3D" parent="." unique_id=1763111913]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -64)
+[node name="regular1" parent="modulos/spawn a" unique_id=970091809 instance=ExtResource("5_ah2hv")]
+
+[node name="spawn b" type="Marker3D" parent="modulos" unique_id=1583336154]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 32, 0, -64)
+
+[node name="regular1" parent="modulos/spawn b" unique_id=1147451820 instance=ExtResource("5_ah2hv")]
+
+[node name="gibus" parent="." unique_id=818493968 instance=ExtResource("4_ip1xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2430236, 2.7394614, -30.773102)

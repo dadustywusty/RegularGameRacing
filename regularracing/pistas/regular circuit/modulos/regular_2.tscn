@@ -3,15 +3,18 @@
 [ext_resource type="Script" uid="uid://cvwmed2gvpndg" path="res://addons/road-generator/nodes/road_manager.gd" id="1_c28g0"]
 [ext_resource type="Script" uid="uid://bdqrd0uut8hq0" path="res://addons/road-generator/nodes/road_container.gd" id="2_1joay"]
 [ext_resource type="Script" uid="uid://cx3wjlcttn1ak" path="res://addons/road-generator/nodes/road_point.gd" id="3_hfqy0"]
+[ext_resource type="Material" uid="uid://dpashsuk5lr4x" path="res://addons/road-generator/resources/road_texture.material" id="3_ilqkd"]
 
 [node name="regular2" type="Node3D" unique_id=2116929989]
 
 [node name="RoadManager" type="Node3D" parent="." unique_id=832309782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0)
 script = ExtResource("1_c28g0")
 metadata/_custom_type_script = "uid://cvwmed2gvpndg"
 
 [node name="Road_001" type="Node3D" parent="RoadManager" unique_id=1945414650]
 script = ExtResource("2_1joay")
+material_resource = ExtResource("3_ilqkd")
 use_lowpoly_preview = true
 edge_containers = Array[NodePath]([NodePath(""), NodePath("")])
 edge_rp_targets = Array[NodePath]([NodePath(""), NodePath("")])
@@ -125,6 +128,3 @@ prior_mag = 48.341957
 next_mag = 48.341957
 prior_pt_init = NodePath("../RP_018")
 next_pt_init = NodePath("../RP_010")
-
-[node name="spawn" type="Node3D" parent="." unique_id=1536254272]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0)

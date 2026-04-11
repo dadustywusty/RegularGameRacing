@@ -9,16 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://cwiua0wljjll8" path="res://rosto/boca.png" id="5_l0ubc"]
 [ext_resource type="Script" uid="uid://hmf3mjrc6bxp" path="res://jeitinho arti/componentes/driftcomponente.gd" id="5_qsdoc"]
 [ext_resource type="Script" uid="uid://bhh2tnr8whyny" path="res://jeitinho arti/componentes/fisica.gd" id="6_045yo"]
-[ext_resource type="ArrayMesh" uid="uid://ck03cthp1q4wl" path="res://dusty folder/fumaca/fumaça da boa.obj" id="6_au0uo"]
+[ext_resource type="ArrayMesh" uid="uid://ck03cthp1q4wl" path="res://preciso de terapia/dusty folder/fumaca/fumaça da boa.obj" id="6_au0uo"]
 [ext_resource type="Script" uid="uid://1dn6kmrc06gw" path="res://jeitinho arti/componentes/respawncomponente.gd" id="8_8tgkw"]
 [ext_resource type="Script" uid="uid://l06107u601lk" path="res://jeitinho arti/componentes/rotacaocomponente.gd" id="8_eol6c"]
+[ext_resource type="Script" uid="uid://eywdna1fwkr" path="res://jeitinho arti/componentes/posicaocomponente.gd" id="8_sy36w"]
 [ext_resource type="Script" uid="uid://c1g85g4ip5hmx" path="res://jeitinho arti/componentes/itemcomponente.gd" id="10_2ekgj"]
 [ext_resource type="Script" uid="uid://dh08wb8l76l35" path="res://jeitinho arti/componentes/turbo.gd" id="10_k3m2r"]
-[ext_resource type="Script" uid="uid://cgflvg15aig7p" path="res://jeitinho arti/componentes/danocomponente.gd" id="11_5b3dn"]
 [ext_resource type="Script" uid="uid://r3go3f8v2idd" path="res://jeitinho arti/componentes/trickcomponente.gd" id="11_l0ubc"]
 [ext_resource type="AudioStream" uid="uid://b6gpsgd3ubf8p" path="res://preciso de terapia/tu.wav" id="11_ps1wu"]
-[ext_resource type="Material" uid="uid://grmdou6sd7u2" path="res://dusty folder/texturas/drift3gradiente.tres" id="14_s7ypg"]
-[ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_y7ux3"]
+[ext_resource type="Material" uid="uid://grmdou6sd7u2" path="res://preciso de terapia/dusty folder/texturas/drift3gradiente.tres" id="14_s7ypg"]
+[ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://preciso de terapia/dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_y7ux3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxa1w"]
 resource_name = "colormap.001"
@@ -347,9 +347,6 @@ rings = 2
 radius = 0.84716797
 height = 2.725586
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5b3dn"]
-size = Vector3(1.8359375, 1.696228, 2.8017578)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_y7ux3"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_ps1wu"]
@@ -548,6 +545,11 @@ corpo = NodePath("..")
 unique_name_in_owner = true
 script = ExtResource("10_k3m2r")
 
+[node name="PosiçaoComponente" type="Node" parent="." unique_id=1380440019]
+unique_name_in_owner = true
+script = ExtResource("8_sy36w")
+metadata/_custom_type_script = "uid://eywdna1fwkr"
+
 [node name="ItemComponente" type="Node3D" parent="." unique_id=986230591]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 2)
@@ -563,15 +565,6 @@ corpo = NodePath("..")
 unique_name_in_owner = true
 script = ExtResource("11_l0ubc")
 metadata/_custom_type_script = "uid://r3go3f8v2idd"
-
-[node name="DanoComponente" type="Area3D" parent="." unique_id=1954585976 node_paths=PackedStringArray("corpo")]
-script = ExtResource("11_5b3dn")
-corpo = NodePath("..")
-metadata/_custom_type_script = "uid://cgflvg15aig7p"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DanoComponente" unique_id=711773015]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8329773, 0)
-shape = SubResource("BoxShape3D_5b3dn")
 
 [node name="RespawnComponente" type="Area3D" parent="." unique_id=1705178301 node_paths=PackedStringArray("corpo")]
 unique_name_in_owner = true
@@ -599,5 +592,4 @@ libraries/ = SubResource("AnimationLibrary_y7ux3")
 stream = ExtResource("17_y7ux3")
 
 [connection signal="trick_pulo" from="TrickComponente" to="fisica" method="_on_trick_componente_trick_pulo"]
-[connection signal="body_entered" from="DanoComponente" to="DanoComponente" method="_on_body_entered"]
 [connection signal="area_entered" from="RespawnComponente" to="RespawnComponente" method="_on_area_entered"]
