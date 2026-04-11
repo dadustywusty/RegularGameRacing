@@ -131,7 +131,7 @@ size = Vector2(3, 3)
 script = ExtResource("6_csse1")
 
 [node name="Dado" type="MeshInstance3D" parent="." unique_id=628714641]
-transform = Transform3D(1.0000001, 0, 0, 0, 0.9999999, 0, 0, 0, 1.0000001, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_fa4b8")
 mesh = ExtResource("4_kdc0u")
 
@@ -143,7 +143,7 @@ render_priority = 1
 texture = ExtResource("5_qbkbv")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=170156715]
-transform = Transform3D(1.0000001, 0, 0, 0, 0.9999999, 0, 0, 0, 1.0000001, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=841471647]
 transform = Transform3D(2.015, 0, 0, 0, 2.015, 0, 0, 0, 2.015, 0, 0, 0)
@@ -156,12 +156,11 @@ autoplay = &"dado"
 
 [node name="BreakingBad" type="AudioStreamPlayer2D" parent="." unique_id=1983727670]
 stream = ExtResource("9_dja63")
-bus = &"Efeitos"
 
 [node name="respawn" type="Timer" parent="." unique_id=1595058717]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1333688296]
-transform = Transform3D(1.0000002, 0, 0, 0, 0.9999999, 0, 0, 0, 1.0000002, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 emitting = false
 amount = 30
 lifetime = 0.8

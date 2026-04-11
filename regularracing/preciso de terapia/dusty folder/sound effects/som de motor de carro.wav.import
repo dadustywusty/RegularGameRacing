@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rpeic26f686p"
+path="res://.godot/imported/som de motor de carro.wav-108972dab7239980197ea4f753181fb6.sample"
+
+[deps]
+
+source_file="res://preciso de terapia/dusty folder/sound effects/som de motor de carro.wav"
+dest_files=["res://.godot/imported/som de motor de carro.wav-108972dab7239980197ea4f753181fb6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

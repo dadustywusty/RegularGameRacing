@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://b032u2sliltvl"]
+
+[ext_resource type="Script" uid="uid://b60k4vlqye127" path="res://dusty folder/Menu/mapas.gd" id="1_dxck6"]
+[ext_resource type="Shader" uid="uid://ccfnggl2v4krc" path="res://dusty folder/Menu/main_menu.gdshader" id="2_lmyoj"]
+[ext_resource type="Texture2D" uid="uid://dghx6gsfurge1" path="res://dusty folder/BOTOES/outro quadrado verde.png" id="3_fjhsw"]
+[ext_resource type="FontFile" uid="uid://cp2b6ulmb5y83" path="res://fonte de texto/upheavtt.ttf" id="4_jmc8g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ufn8"]
+shader = ExtResource("2_lmyoj")
+shader_parameter/deep_purple = Vector3(0.18, 0.03, 0.14)
+shader_parameter/aubergine = Vector3(0.46, 0.16, 0.32)
+shader_parameter/orange_glow = Vector3(0.91, 0.33, 0.12)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y1vme"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mttw7"]
+texture = ExtResource("3_fjhsw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vctcd"]
+texture = ExtResource("3_fjhsw")
+
+[node name="Mapas" type="Node2D" unique_id=1394261337]
+script = ExtResource("1_dxck6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=332876290]
+
+[node name="BackGround" type="ColorRect" parent="CanvasLayer" unique_id=1357520716]
+material = SubResource("ShaderMaterial_0ufn8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.5254902, 0.25882354, 1, 1)
+
+[node name="Controle principal" type="Control" parent="CanvasLayer" unique_id=495927141]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Controle principal" unique_id=1632354082]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -68.0
+offset_right = 59.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mapa de teste" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=1700315365]
+layout_mode = 2
+text = "Mapa de teste
+"
+
+[node name="Rainbow Road" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=720510395]
+layout_mode = 2
+text = "Rainbow Road"
+
+[node name="ToadHarbor" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=14565825]
+layout_mode = 2
+text = "ToadHarbor"
+
+[node name="YoshiCiruit" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=592077823]
+layout_mode = 2
+text = "YoshiCiruit"
+
+[node name="Voltar" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=611017366]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y1vme")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mttw7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vctcd")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Controle principal/VBoxContainer/Voltar" unique_id=1600932868]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/Controle principal/VBoxContainer/Voltar/CenterContainer" unique_id=1247737875]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_jmc8g")
+theme_override_font_sizes/font_size = 50
+text = "voltar"
+
+[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Mapa de teste" to="." method="_on_mapa_de_teste_pressed"]
+[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Rainbow Road" to="." method="_on_rainbow_road_pressed"]
+[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/ToadHarbor" to="." method="_on_toad_harbor_pressed"]
+[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/YoshiCiruit" to="." method="_on_yoshi_ciruit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]

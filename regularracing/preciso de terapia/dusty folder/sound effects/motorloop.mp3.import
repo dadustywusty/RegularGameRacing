@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5ty4tywbnanx"
+path="res://.godot/imported/motorloop.mp3-3f4d44c4b60fa023dee67022e2173744.mp3str"
+
+[deps]
+
+source_file="res://preciso de terapia/dusty folder/sound effects/motorloop.mp3"
+dest_files=["res://.godot/imported/motorloop.mp3-3f4d44c4b60fa023dee67022e2173744.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

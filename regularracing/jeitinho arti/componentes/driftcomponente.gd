@@ -9,7 +9,7 @@ class_name DriftComponente
 # ─── Física de Deslize (Tração/Sabão) ──────────────────────
 @export_group("Física de Tração")
 @export var tracao_normal: float = 10.0  # Resposta rápida (asfalto)
-@export var tracao_drift: float = 0.3    # Efeito "sabão" (quanto menor, mais escorrega)
+@export var tracao_drift: float = 1.5    # Efeito "sabão" (quanto menor, mais escorrega)
 var tracao_atual: float = 10.0
 
 # ─── Som ───────────────────────────────────────────────────

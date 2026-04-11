@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://bv6fgbuaabqpk"]
+
+[ext_resource type="Script" uid="uid://bmvlafgkc7wjf" path="res://dusty folder/Menu/main_menu.gd" id="1_1xk4r"]
+[ext_resource type="Shader" uid="uid://ccfnggl2v4krc" path="res://dusty folder/Menu/main_menu.gdshader" id="2_ixhn6"]
+[ext_resource type="Texture2D" uid="uid://8fw23hug4koh" path="res://dusty folder/Menu/GIBUS.png" id="3_2v7eo"]
+[ext_resource type="Texture2D" uid="uid://bnlgmaogssdpp" path="res://dusty folder/BOTOES/ultimo.png" id="4_pdifu"]
+[ext_resource type="Texture2D" uid="uid://cxdkll87xdfgb" path="res://dusty folder/BOTOES/quando jogar for selecionado.png" id="5_qld25"]
+[ext_resource type="FontFile" uid="uid://cp2b6ulmb5y83" path="res://fonte de texto/upheavtt.ttf" id="6_b5g2a"]
+[ext_resource type="Texture2D" uid="uid://b2lkocn3d5gqi" path="res://dusty folder/BOTOES/outro quadrado.png" id="7_b5g2a"]
+[ext_resource type="Script" uid="uid://cb41k5ii3oo3g" path="res://dusty folder/Menu/som_menu.gd" id="8_b5g2a"]
+[ext_resource type="Script" uid="uid://cmkqjf7vdg5xa" path="res://dusty folder/Menu/menu_de_opções.gd" id="8_l6nqh"]
+[ext_resource type="Texture2D" uid="uid://dghx6gsfurge1" path="res://dusty folder/BOTOES/outro quadrado verde.png" id="9_l6nqh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2v7eo"]
+shader = ExtResource("2_ixhn6")
+shader_parameter/deep_purple = Vector3(0.18, 0.03, 0.14)
+shader_parameter/aubergine = Vector3(0.46, 0.16, 0.32)
+shader_parameter/orange_glow = Vector3(0.91, 0.33, 0.12)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kw6je"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7yqk3"]
+texture = ExtResource("4_pdifu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b5g2a"]
+texture = ExtResource("4_pdifu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kw6je"]
+texture = ExtResource("5_qld25")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljdfl"]
+texture = ExtResource("5_qld25")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6nqh"]
+texture = ExtResource("7_b5g2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yew0f"]
+texture = ExtResource("7_b5g2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gfih5"]
+texture = ExtResource("9_l6nqh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hvvi"]
+texture = ExtResource("9_l6nqh")
+
+[node name="MainMenu" type="Node2D" unique_id=1535348458]
+script = ExtResource("1_1xk4r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=774529154]
+
+[node name="BackGround" type="ColorRect" parent="CanvasLayer" unique_id=724738298]
+material = SubResource("ShaderMaterial_2v7eo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0.5254902, 0.25882354, 1, 1)
+
+[node name="Controle principal" type="Control" parent="CanvasLayer" unique_id=1132043656]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Controle principal" unique_id=1438899392]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -154.0
+offset_right = 150.0
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gibus" type="Sprite2D" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=816692234]
+position = Vector2(150, 154)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("3_2v7eo")
+
+[node name="Vamo" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=35680117]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kw6je")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7yqk3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b5g2a")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Controle principal/VBoxContainer/Vamo" unique_id=320216612]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Controle principal/VBoxContainer/Vamo/CenterContainer" unique_id=1105696415]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_b5g2a")
+theme_override_font_sizes/font_size = 50
+text = "Jogar"
+
+[node name="Opeçoes" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=647633871]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kw6je")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kw6je")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ljdfl")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Controle principal/VBoxContainer/Opeçoes" unique_id=18824496]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/Controle principal/VBoxContainer/Opeçoes/CenterContainer" unique_id=1862929923]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_b5g2a")
+theme_override_font_sizes/font_size = 50
+text = "Opções"
+
+[node name="vou embora" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=50932852]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kw6je")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l6nqh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yew0f")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Controle principal/VBoxContainer/vou embora" unique_id=1043475921]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/Controle principal/VBoxContainer/vou embora/CenterContainer" unique_id=1511917092]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_b5g2a")
+theme_override_font_sizes/font_size = 50
+text = " SAIr"
+
+[node name="Menu de opções" type="Control" parent="CanvasLayer" unique_id=435015413]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -657.0
+offset_bottom = -657.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("8_l6nqh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu de opções" unique_id=2050280870]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -44.0
+offset_right = 150.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSliderMusica" type="HSlider" parent="CanvasLayer/Menu de opções/VBoxContainer" unique_id=213419188]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/Menu de opções/VBoxContainer/HSliderMusica" unique_id=923331164]
+layout_mode = 0
+offset_left = -128.0
+offset_top = -4.0
+offset_right = 77.0
+offset_bottom = 42.0
+scale = Vector2(0.56, 0.52)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_b5g2a")
+theme_override_font_sizes/font_size = 50
+text = "música"
+
+[node name="HSliderEfeitos" type="HSlider" parent="CanvasLayer/Menu de opções/VBoxContainer" unique_id=1471451728]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="CanvasLayer/Menu de opções/VBoxContainer/HSliderEfeitos" unique_id=409894291]
+layout_mode = 0
+offset_left = -128.0
+offset_top = -4.0
+offset_right = 55.0
+offset_bottom = 42.0
+scale = Vector2(0.56, 0.52)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_b5g2a")
+theme_override_font_sizes/font_size = 50
+text = "Efeitos"
+
+[node name="Voltar" type="Button" parent="CanvasLayer/Menu de opções/VBoxContainer" unique_id=1635010160]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kw6je")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gfih5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3hvvi")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Menu de opções/VBoxContainer/Voltar" unique_id=1676965145]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/Menu de opções/VBoxContainer/Voltar/CenterContainer" unique_id=1897685645]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_b5g2a")
+theme_override_font_sizes/font_size = 50
+text = "voltar"
+
+[node name="SomMenu" type="AudioStreamPlayer" parent="." unique_id=556504355]
+volume_db = 5.0
+bus = &"Efeitos"
+script = ExtResource("8_b5g2a")
