@@ -23,6 +23,7 @@ var pegou_direcao_particula := false
 var direcao_particula : float
 var _rotacao_base_peixe: Vector3
 
+var _levando_dano := false
 var aceleracao := 0.0
 var rotacao := 0.0
 var drift : bool
@@ -39,8 +40,28 @@ func receber_item(item) -> void:
 	item_componente.tem_item = true
 	item_componente.item_atual = item
 
-func levar_dano() -> void:
-	print("levou dano")
+func levar_dano(direcao_empurrao: Vector3 = Vector3.ZERO) -> void:
+	if _levando_dano:
+		return
+	_levando_dano = true
+
+	if direcao_empurrao != Vector3.ZERO:
+		velocity += direcao_empurrao * 20.0
+	else:
+		var dir = Vector3(randf_range(-1, 1), 0, randf_range(-1, 1)).normalized()
+		velocity += dir * 20.0
+
+	var tween = create_tween()
+	tween.tween_property($"carro(1)", "rotation:y", deg_to_rad(360.0), 0.6)\
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.parallel().tween_property($"carro(1)", "rotation:z", deg_to_rad(20.0), 0.3)\
+		.set_ease(Tween.EASE_OUT)
+	tween.tween_property($"carro(1)", "rotation:z", 0.0, 0.3)\
+		.set_ease(Tween.EASE_IN)
+	await tween.finished
+
+	$"carro(1)".rotation.y = 0.0
+	_levando_dano = false
 
 func _physics_process(delta: float) -> void:
 	movimento_componente.tick(delta)

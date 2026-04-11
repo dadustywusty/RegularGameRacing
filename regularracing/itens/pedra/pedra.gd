@@ -7,7 +7,7 @@ var usos := 1
 var _ativa := false
 var _animando := false
 var _direcao := Vector3.ZERO
-const VELOCIDADE := 12.0
+const VELOCIDADE := 150.0
 
 func configurar(player: CharacterBody3D) -> void:
 	corpo = player
@@ -32,29 +32,26 @@ func usar() -> void:
 	_animando = true
 	usos -= 1
 	reparent(pai)
-	gravity_scale = 4.0
 
 	var lado = corpo.global_transform.basis.x * 2.0
-	var pos_meio = corpo.global_position + lado + Vector3(0, 1.5, 0)
+	var pos_meio = corpo.global_position + lado + Vector3(0, 2.0, 0)
 	var direcao_frente = -corpo.global_transform.basis.z
-	var pos_fim = corpo.global_position + direcao_frente * 2.0 + Vector3(0, 1.2, 0)
+	var pos_fim = corpo.global_position + direcao_frente * 2.0 + Vector3(0, 1.5, 0)
 
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", pos_meio, 0.0)\
+	tween.tween_property(self, "global_position", pos_meio, 0.0000001)\
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(self, "global_position", pos_fim, 0.0)\
+	tween.tween_property(self, "global_position", pos_fim, 0.00000001)\
 		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	modelo.scale = Vector3.ONE * 0.3
-	tween.parallel().tween_property(modelo, "scale", Vector3.ONE * 2.5, 0.0)\
+	tween.parallel().tween_property(modelo, "scale", Vector3.ONE * 2.5, 0.01)\
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	await tween.finished
 	_animando = false
-	
-	add_collision_exception_with(corpo)  # reaplica após reparent
-	
+
 	_direcao = -corpo.global_transform.basis.z
 	freeze = false
-	gravity_scale = 30.0
+	gravity_scale = 50.0
 	lock_rotation = true
 	linear_velocity = _direcao * VELOCIDADE
 	anim.play("pedra")
@@ -70,16 +67,10 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if vel_atual.length() < VELOCIDADE * 0.5:
 		for i in state.get_contact_count():
 			var normal = state.get_contact_local_normal(i)
-			if abs(normal.y) < 0.3:  # é parede, rebate
+			if abs(normal.y) < 0.3:
 				_direcao = _direcao.bounce(normal).normalized()
 				break
-			# se é chão/rampa, não faz nada, deixa a gravidade agir
-	
-	# só mantém velocidade horizontal, não mexe no Y
-	var vel_horizontal = Vector2(_direcao.x, _direcao.z).length()
-	if vel_horizontal > 0.1:
-		var dir_horizontal = Vector3(_direcao.x, 0, _direcao.z).normalized()
-		state.linear_velocity = dir_horizontal * VELOCIDADE + Vector3(0, state.linear_velocity.y, 0)
+	state.linear_velocity = _direcao * VELOCIDADE
 
 func _on_body_entered(body: Node) -> void:
 	if body == corpo:

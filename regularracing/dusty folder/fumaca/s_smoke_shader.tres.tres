@@ -1,0 +1,25 @@
+type="VisualShader" format=3 uid="uid://tvsjbglq2t5f"]
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_fqftw"]
+parameter_name = "Disolver_Texture"
+texture_type = 1
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_b1wen"]
+expanded_output_ports = [0]
+source = 5
+texture_type = 1
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_fqftw"]
+input_name = "color"
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_b1wen"]
+[resource]
+modes/cull = 2
+modes/diffuse = 3
+modes/specular = 1
+nodes/vertex/0/position = Vector2(760, -80)
+nodes/vertex/2/node = SubResource("VisualShaderNodeTexture2DParameter_fqftw")
+nodes/vertex/2/position = Vector2(58, 150)
+nodes/vertex/3/node = SubResource("VisualShaderNodeTexture_b1wen")
+nodes/vertex/3/position = Vector2(140, -140)
+nodes/vertex/4/node = SubResource("VisualShaderNodeInput_fqftw")
+nodes/vertex/4/position = Vector2(380, 100)
+nodes/vertex/5/node = SubResource("VisualShaderNodeStep_b1wen")
+nodes/vertex/5/position = Vector2(480, -160)
+nodes/vertex/connections = PackedInt32Array(2, 0, 3, 2, 3, 1, 5, 0, 4, 0, 5, 1, 5, 0, 0, 7)
