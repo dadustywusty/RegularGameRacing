@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://drbh1v0m3oqf7"]
+
+[ext_resource type="PackedScene" uid="uid://b5jxsv4grrv4f" path="res://preciso de terapia/itens/pedra/preda.fbx" id="1_1w2gp"]
+
+[node name="preda" unique_id=1180958467 instance=ExtResource("1_1w2gp")]
+
+[node name="sphere" parent="." index="0" unique_id=738591025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
