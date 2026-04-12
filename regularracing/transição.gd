@@ -6,22 +6,21 @@ const DURACAO    := 0.5
 const TEMPO_PRETO := 0.5
 
 func _ready() -> void:
-	# força quadrado centralizado em 45 graus
-	var tamanho = 3000.0  # grande o suficiente para cobrir tudo
+	var tamanho = 3000.0
 	rect.size = Vector2(tamanho, tamanho)
 	rect.rotation_degrees = 45
 	rect.pivot_offset = Vector2(tamanho, tamanho) / 2.0
 	rect.position = get_viewport().get_visible_rect().size / 2.0 - rect.pivot_offset
-	rect.scale = Vector2.ZERO
+	rect.scale = Vector2.ZERO  # <- esse zero está resetando!
 	rect.color = Color(0.133, 0.0, 0.145, 1.0)
 	rect.visible = false
 
 func transicionar(cena: String) -> void:
 	await _fechar()
 	await get_tree().create_timer(TEMPO_PRETO).timeout
+	rect.scale = Vector2.ONE
+	rect.visible = true
 	get_tree().change_scene_to_file(cena)
-	await get_tree().process_frame
-	await _abrir()
 
 func _fechar() -> void:
 	rect.visible = true

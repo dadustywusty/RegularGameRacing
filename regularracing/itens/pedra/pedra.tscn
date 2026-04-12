@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://7uk04ilajpgx"]
 
 [ext_resource type="Script" uid="uid://cxed4xsmcmjkb" path="res://preciso de terapia/itens/pedra/pedra.gd" id="1_nfatf"]
-[ext_resource type="Texture2D" uid="uid://cpad1qe5xhptw" path="res://itens/pedra/preda_0.png" id="2_nfatf"]
+[ext_resource type="Texture2D" uid="uid://cpad1qe5xhptw" path="res://preciso de terapia/itens/pedra/preda_0.png" id="2_nfatf"]
 [ext_resource type="Animation" uid="uid://dji3qfkusr7s6" path="res://preciso de terapia/itens/pedra/pedraanimacao.res" id="2_oxbnw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i75ma"]
@@ -67,13 +67,29 @@ _data = {
 height = 0.39233398
 radius = 0.18066406
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfatf"]
+albedo_color = Color(0.29276508, 0.81789327, 0.37684807, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nfatf"]
+particle_flag_rotate_y = true
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 3.0
+initial_velocity_max = 10.0
+angular_velocity_min = -180.00002
+angular_velocity_max = 179.99998
+scale_max = 2.0
+color = Color(0.09383171, 0.45286787, 0.07288987, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nfatf"]
+size = Vector3(0.2, 0.2, 0.2)
+
 [node name="pedra" type="RigidBody3D" unique_id=166451395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.31966797, 0)
-gravity_scale = 3.093
+gravity_scale = 3.841
 lock_rotation = true
 continuous_cd = true
 contact_monitor = true
-max_contacts_reported = 4
 script = ExtResource("1_nfatf")
 
 [node name="preda" type="Node3D" parent="." unique_id=1199580918]
@@ -92,5 +108,18 @@ shape = SubResource("CylinderShape3D_nfatf")
 
 [node name="SomRebate" type="AudioStreamPlayer3D" parent="." unique_id=549915450]
 pitch_scale = 4.0
+bus = &"Efeitos"
 
 [node name="SomRolando" type="AudioStreamPlayer3D" parent="." unique_id=1957143930]
+bus = &"Efeitos"
+
+[node name="Explosao" type="GPUParticles3D" parent="." unique_id=874176334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49460346, 0)
+material_override = SubResource("StandardMaterial3D_nfatf")
+emitting = false
+amount = 16
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_nfatf")
+draw_pass_1 = SubResource("BoxMesh_nfatf")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b032u2sliltvl"]
 
-[ext_resource type="Script" uid="uid://b60k4vlqye127" path="res://dusty folder/Menu/mapas.gd" id="1_dxck6"]
-[ext_resource type="Shader" uid="uid://ccfnggl2v4krc" path="res://dusty folder/Menu/main_menu.gdshader" id="2_lmyoj"]
+[ext_resource type="Script" uid="uid://b60k4vlqye127" path="res://preciso de terapia/dusty folder/Menu/mapas.gd" id="1_dxck6"]
+[ext_resource type="Shader" uid="uid://ccfnggl2v4krc" path="res://preciso de terapia/dusty folder/Menu/main_menu.gdshader" id="2_lmyoj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ufn8"]
 shader = ExtResource("2_lmyoj")
@@ -11,12 +11,6 @@ shader_parameter/orange_glow = Vector3(0.91, 0.33, 0.12)
 
 [node name="Mapas" type="Node2D" unique_id=1394261337]
 script = ExtResource("1_dxck6")
-
-[node name="Botoes legais" type="Control" parent="." unique_id=766451674]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=332876290]
 
@@ -73,6 +67,12 @@ text = "YoshiCiruit"
 [node name="Sabor" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=430172572]
 layout_mode = 2
 text = "SaborBabyPark"
+
+[node name="Botoes legais" type="Control" parent="." unique_id=766451674]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Mapa de teste" to="." method="_on_mapa_de_teste_pressed"]
 [connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Rainbow Road" to="." method="_on_rainbow_road_pressed"]

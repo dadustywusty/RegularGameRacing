@@ -24,21 +24,27 @@ func _ao_colidir(body: Node3D) -> void:
 	_quebrar(body)
 
 func _quebrar(player: CharacterBody3D) -> void:
-	# logica de quebrado
 	_quebrado = true
-		# função do dado mesmo
-	var item_dicionario = player.get_node("ItemComponente").itens
-	var item_novo = item_dicionario.keys().pick_random()
-	if not player.tem_item:
-		player.receber_item(item_dicionario[item_novo].instantiate())
-	# animação
 	area.set_deferred("monitoring", false)
 	particula.emitting = true
 	som.play()
+
 	var tween = create_tween()
 	tween.tween_property(dado, "scale", Vector3.ZERO, velocidade_quebra)
 	await tween.finished
-	# respawn
+
+	# toca som de espera no player
+	if player.has_node("som_item"):
+		player.get_node("som_item").play()
+
+	# delay antes de dar o item
+	await get_tree().create_timer(1.5).timeout
+
+	if not player.tem_item:
+		var item_dicionario = player.get_node("ItemComponente").itens
+		var item_novo = item_dicionario.keys().pick_random()
+		player.receber_item(item_dicionario[item_novo].instantiate())
+
 	await get_tree().create_timer(tempo_respawn).timeout
 	_respawnar()
 

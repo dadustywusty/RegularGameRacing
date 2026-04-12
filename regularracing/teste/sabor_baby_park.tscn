@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bmcw46axmxgb6"]
 
 [ext_resource type="PackedScene" uid="uid://dkr85b7y25ba6" path="res://jeitinho arti/gibusbot.tscn" id="1_3c2wv"]
-[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://itens/dado/dado.tscn" id="2_47x8v"]
+[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://preciso de terapia/itens/dado/dado.tscn" id="2_47x8v"]
 [ext_resource type="PackedScene" uid="uid://bbopapkbjoke6" path="res://jeitinho arti/gibus.tscn" id="3_cjhtp"]
+[ext_resource type="Script" uid="uid://dvm6afwjjb5xv" path="res://teste/sou_um_mapa.gd" id="4_xlq2f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3c2wv"]
 sky_top_color = Color(0.81, 0.2511, 0.44671497, 1)
@@ -345,3 +346,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.07241, 0.04716803, 25.473
 
 [node name="gibusbot6" parent="." unique_id=505532631 instance=ExtResource("1_3c2wv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.426893, 0.047167987, 18.83367)
+
+[node name="sou um mapa" type="Node" parent="." unique_id=1781446862]
+script = ExtResource("4_xlq2f")

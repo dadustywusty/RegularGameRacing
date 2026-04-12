@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cwiua0wljjll8" path="res://rosto/boca.png" id="5_l0ubc"]
 [ext_resource type="Script" uid="uid://hmf3mjrc6bxp" path="res://jeitinho arti/componentes/driftcomponente.gd" id="5_qsdoc"]
 [ext_resource type="Script" uid="uid://bhh2tnr8whyny" path="res://jeitinho arti/componentes/fisica.gd" id="6_045yo"]
-[ext_resource type="ArrayMesh" uid="uid://ck03cthp1q4wl" path="res://dusty folder/fumaca/fumaça da boa.obj" id="6_au0uo"]
+[ext_resource type="ArrayMesh" uid="uid://ck03cthp1q4wl" path="res://preciso de terapia/dusty folder/fumaca/fumaça da boa.obj" id="6_au0uo"]
 [ext_resource type="Script" uid="uid://1dn6kmrc06gw" path="res://jeitinho arti/componentes/respawncomponente.gd" id="8_8tgkw"]
 [ext_resource type="Script" uid="uid://l06107u601lk" path="res://jeitinho arti/componentes/rotacaocomponente.gd" id="8_eol6c"]
 [ext_resource type="Script" uid="uid://c1g85g4ip5hmx" path="res://jeitinho arti/componentes/itemcomponente.gd" id="10_2ekgj"]
@@ -17,8 +17,10 @@
 [ext_resource type="Script" uid="uid://cgflvg15aig7p" path="res://jeitinho arti/componentes/danocomponente.gd" id="11_5b3dn"]
 [ext_resource type="Script" uid="uid://r3go3f8v2idd" path="res://jeitinho arti/componentes/trickcomponente.gd" id="11_l0ubc"]
 [ext_resource type="AudioStream" uid="uid://b6gpsgd3ubf8p" path="res://preciso de terapia/tu.wav" id="11_ps1wu"]
-[ext_resource type="Material" uid="uid://grmdou6sd7u2" path="res://dusty folder/texturas/drift3gradiente.tres" id="14_s7ypg"]
-[ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_y7ux3"]
+[ext_resource type="Material" uid="uid://grmdou6sd7u2" path="res://preciso de terapia/dusty folder/texturas/drift3gradiente.tres" id="14_s7ypg"]
+[ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://preciso de terapia/dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_y7ux3"]
+[ext_resource type="AudioStream" uid="uid://blmicmxg0e06u" path="res://itens/dado/sfx1.ogg" id="20_pn5sl"]
+[ext_resource type="AudioStream" uid="uid://ft4gbw0vhcke" path="res://itens/dado/item roleta.ogg" id="20_sy36w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxa1w"]
 resource_name = "colormap.001"
@@ -490,8 +492,8 @@ mesh = SubResource("ArrayMesh_86kxw")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.040842056, 0.14192796, 1.3390901)
 material_override = SubResource("StandardMaterial3D_5b3dn")
 emitting = false
-amount = 10
-lifetime = 2.0799999999999996
+amount = 30
+lifetime = 0.78
 speed_scale = 2.0
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_pn5sl")
@@ -585,11 +587,13 @@ shape = SubResource("BoxShape3D_y7ux3")
 
 [node name="SomDrift" type="AudioStreamPlayer3D" parent="." unique_id=1653422992]
 stream = ExtResource("11_ps1wu")
+bus = &"Efeitos"
 
 [node name="SomMotor" type="AudioStreamPlayer3D" parent="." unique_id=1573738736]
 stream = SubResource("AudioStreamMP3_ps1wu")
 volume_db = -15.34
 autoplay = true
+bus = &"Efeitos"
 
 [node name="TrickAnimaçoes" type="AnimationPlayer" parent="." unique_id=14989763]
 unique_name_in_owner = true
@@ -597,6 +601,17 @@ libraries/ = SubResource("AnimationLibrary_y7ux3")
 
 [node name="Trick" type="AudioStreamPlayer3D" parent="." unique_id=1679501583]
 stream = ExtResource("17_y7ux3")
+bus = &"Efeitos"
+
+[node name="som_itemAparece" type="AudioStreamPlayer" parent="." unique_id=643906747]
+stream = ExtResource("20_pn5sl")
+volume_db = 3.0
+bus = &"Efeitos"
+
+[node name="som_item" type="AudioStreamPlayer" parent="." unique_id=900384870]
+stream = ExtResource("20_sy36w")
+volume_db = -3.0
+bus = &"Efeitos"
 
 [connection signal="trick_pulo" from="TrickComponente" to="fisica" method="_on_trick_componente_trick_pulo"]
 [connection signal="body_entered" from="DanoComponente" to="DanoComponente" method="_on_body_entered"]

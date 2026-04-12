@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ft4gbw0vhcke"
+path="res://.godot/imported/item roleta.ogg-70b4c14319500f6f21ff1627604ff8fb.oggvorbisstr"
+
+[deps]
+
+source_file="res://itens/dado/item roleta.ogg"
+dest_files=["res://.godot/imported/item roleta.ogg-70b4c14319500f6f21ff1627604ff8fb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
