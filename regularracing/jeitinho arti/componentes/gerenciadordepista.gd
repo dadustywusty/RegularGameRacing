@@ -1,18 +1,8 @@
 extends Node
 class_name GerenciadorDePista
 
-#var icones := {
-#	preload("uid://74v6laavjv6a"):  preload("res://pistas/regular circuit/regular1.png"),
-#	preload("uid://b2grv3605w2cx"): preload("res://pistas/regular circuit/regular3.png"),
-#	preload("uid://eakm2yw4j6pe"):  preload("res://pistas/regular circuit/regular2.png"),
-#}
-
 var modulos := []
-var icones := {
-	preload("uid://74v6laavjv6a"):  preload("res://pistas/regular circuit/regular1.png"),
-	preload("uid://b2grv3605w2cx"): preload("res://pistas/regular circuit/regular3.png"),
-	preload("uid://eakm2yw4j6pe"):  preload("res://pistas/regular circuit/regular2.png"),
-}
+var icones := {}
 var grupos := []
 var spawns := []
 var index := 0

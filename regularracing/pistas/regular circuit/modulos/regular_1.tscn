@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvwmed2gvpndg" path="res://addons/road-generator/nodes/road_manager.gd" id="1_8g74v"]
 [ext_resource type="Script" uid="uid://bdqrd0uut8hq0" path="res://addons/road-generator/nodes/road_container.gd" id="2_17gs2"]
+[ext_resource type="Material" uid="uid://dpashsuk5lr4x" path="res://addons/road-generator/resources/road_texture.material" id="3_17gs2"]
 [ext_resource type="Script" uid="uid://cx3wjlcttn1ak" path="res://addons/road-generator/nodes/road_point.gd" id="3_jq0r0"]
 
 [node name="regular1" type="Node3D" unique_id=2116929989]
@@ -13,6 +14,7 @@ metadata/_custom_type_script = "uid://cvwmed2gvpndg"
 
 [node name="Road_001" type="Node3D" parent="RoadManager" unique_id=1945414650]
 script = ExtResource("2_17gs2")
+material_resource = ExtResource("3_17gs2")
 use_lowpoly_preview = true
 edge_containers = Array[NodePath]([NodePath(""), NodePath("")])
 edge_rp_targets = Array[NodePath]([NodePath(""), NodePath("")])
@@ -57,3 +59,25 @@ prior_mag = 32.265465
 next_mag = 31.677256
 prior_pt_init = NodePath("../RP_002")
 next_pt_init = NodePath("../RP_006")
+
+[node name="marcadores" type="Node3D" parent="." unique_id=1447777375]
+
+[node name="1" type="Marker3D" parent="marcadores" unique_id=2033112173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 35)
+gizmo_extents = 5.0
+
+[node name="2" type="Marker3D" parent="marcadores" unique_id=1345422116]
+transform = Transform3D(0.83651626, -0.22414386, -0.5, 0.25881904, 0.9659258, 0, 0.4829629, -0.12940952, 0.8660254, 32, 11, 70)
+gizmo_extents = 5.0
+
+[node name="3" type="Marker3D" parent="marcadores" unique_id=1933830172]
+transform = Transform3D(-8.940697e-08, 1.4901161e-08, -1, 0.25881907, 0.96592593, 0, 0.9659259, -0.25881907, -1.4901161e-07, 0, 17, 86)
+gizmo_extents = 5.0
+
+[node name="4" type="Marker3D" parent="marcadores" unique_id=881968349]
+transform = Transform3D(-0.8365163, 0.22414386, -0.49999997, 0.25881907, 0.96592593, 0, 0.48296285, -0.12940949, -0.86602557, -32, 11, 70)
+gizmo_extents = 5.0
+
+[node name="5" type="Marker3D" parent="marcadores" unique_id=231315308]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -32, 0, 35)
+gizmo_extents = 5.0
