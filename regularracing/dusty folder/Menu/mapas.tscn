@@ -27,24 +27,27 @@ color = Color(0.5254902, 0.25882354, 1, 1)
 
 [node name="Controle principal" type="Control" parent="CanvasLayer" unique_id=495927141]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1112.0
-offset_bottom = -608.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Controle principal" unique_id=1632354082]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 89.0
-offset_top = 265.0
-offset_right = 251.0
-offset_bottom = 366.0
+offset_left = -81.0
+offset_top = -85.5
+offset_right = 81.0
+offset_bottom = 85.5
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Mapa de teste" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=1700315365]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bvgypiewnmvrx"]
+
+[ext_resource type="Script" uid="uid://biifp38igo722" path="res://jeitinho arti/componentes/icon_componente.gd" id="1_0a86u"]
+
+[node name="IconComponente" type="Node3D" unique_id=1359179303]
+script = ExtResource("1_0a86u")
+
+[node name="IconSprite" type="Sprite3D" parent="." unique_id=947369402]
+layers = 524288
+pixel_size = 0.001
+axis = 1
+no_depth_test = true
+fixed_size = true

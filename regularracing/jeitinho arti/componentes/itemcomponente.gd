@@ -6,17 +6,24 @@ var tem_item := false
 var item_input : bool
 
 var itens: Dictionary = {
-	"latinha": preload("uid://buu6imckneitw"),
-	"latinhas triplas": preload("uid://jhdftpvqvih3"),
-	"molinha": preload("uid://bpspel1hunwcc"),
+	#"latinha": preload("uid://buu6imckneitw"),
+	#"latinhas triplas": preload("uid://jhdftpvqvih3"),
+	#"molinha": preload("uid://bpspel1hunwcc"),
 	"pedra": preload("uid://7uk04ilajpgx")
 }
 
 func tick() -> void:
 	if item_atual:
-		item_atual.global_transform = global_transform
-		if item_atual.usos == 0:
-			tem_item = false
+		# Só controla posição se ainda NÃO foi usado
+		if not item_atual.has_method("_ativa") or not item_atual._ativa:
+			item_atual.global_transform = global_transform
+		
+		# remove da HUD quando acabar
+		if "usos" in item_atual and item_atual.usos <= 0:
 			item_atual = null
-	if tem_item and item_input:
-		item_atual.usar()
+			tem_item = false
+
+	# usar item
+	if tem_item and item_input and item_atual:
+		if item_atual.has_method("usar"):
+			item_atual.usar()

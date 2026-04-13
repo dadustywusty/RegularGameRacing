@@ -21,6 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://preciso de terapia/dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_y7ux3"]
 [ext_resource type="AudioStream" uid="uid://blmicmxg0e06u" path="res://itens/dado/sfx1.ogg" id="20_pn5sl"]
 [ext_resource type="AudioStream" uid="uid://ft4gbw0vhcke" path="res://itens/dado/item roleta.ogg" id="20_sy36w"]
+[ext_resource type="Script" uid="uid://bwn5qf6sn4bdw" path="res://jeitinho arti/payer_gui.gd" id="22_i8l2r"]
+[ext_resource type="PackedScene" uid="uid://bvgypiewnmvrx" path="res://jeitinho arti/componentes/icon_componente.tscn" id="23_nt7ve"]
+[ext_resource type="Texture2D" uid="uid://bikgts5i0hfo4" path="res://MAPA/pexe.png" id="24_k4gwq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxa1w"]
 resource_name = "colormap.001"
@@ -429,7 +432,9 @@ _data = {
 &"trick 3": SubResource("Animation_au0uo")
 }
 
-[node name="gibus" type="CharacterBody3D" unique_id=818493968]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nt7ve"]
+
+[node name="gibus" type="CharacterBody3D" unique_id=818493968 groups=["player"]]
 floor_snap_length = 0.5
 script = ExtResource("1_wm3er")
 
@@ -439,6 +444,7 @@ spring_length = 20.0
 script = ExtResource("3_2vwgx")
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=935696114]
+cull_mask = 524287
 
 [node name="carro(1)" type="Node3D" parent="." unique_id=340454854]
 
@@ -550,11 +556,21 @@ corpo = NodePath("..")
 unique_name_in_owner = true
 script = ExtResource("10_k3m2r")
 
+[node name="SomRoleta" type="AudioStreamPlayer" parent="." unique_id=900384870]
+stream = ExtResource("20_sy36w")
+volume_db = -3.0
+bus = &"Efeitos"
+
 [node name="ItemComponente" type="Node3D" parent="." unique_id=986230591]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 2)
 script = ExtResource("10_2ekgj")
 metadata/_custom_type_script = "uid://c1g85g4ip5hmx"
+
+[node name="som_item" type="AudioStreamPlayer" parent="." unique_id=643906747]
+stream = ExtResource("20_pn5sl")
+volume_db = 3.0
+bus = &"Efeitos"
 
 [node name="RotacaoComponente" type="RayCast3D" parent="." unique_id=419432117 node_paths=PackedStringArray("corpo")]
 unique_name_in_owner = true
@@ -603,15 +619,37 @@ libraries/ = SubResource("AnimationLibrary_y7ux3")
 stream = ExtResource("17_y7ux3")
 bus = &"Efeitos"
 
-[node name="som_itemAparece" type="AudioStreamPlayer" parent="." unique_id=643906747]
-stream = ExtResource("20_pn5sl")
-volume_db = 3.0
-bus = &"Efeitos"
+[node name="PayerGUI" type="Control" parent="." unique_id=725319858 node_paths=PackedStringArray("minimap_rect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_i8l2r")
+minimap_rect = NodePath("MarginContainer/MinimapRect")
 
-[node name="som_item" type="AudioStreamPlayer" parent="." unique_id=900384870]
-stream = ExtResource("20_sy36w")
-volume_db = -3.0
-bus = &"Efeitos"
+[node name="MarginContainer" type="MarginContainer" parent="PayerGUI" unique_id=1682057057]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="MinimapRect" type="TextureRect" parent="PayerGUI/MarginContainer" unique_id=2142564675]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = SubResource("PlaceholderTexture2D_nt7ve")
+
+[node name="IconComponente" parent="." unique_id=1359179303 instance=ExtResource("23_nt7ve")]
+map_icon = ExtResource("24_k4gwq")
 
 [connection signal="trick_pulo" from="TrickComponente" to="fisica" method="_on_trick_componente_trick_pulo"]
 [connection signal="body_entered" from="DanoComponente" to="DanoComponente" method="_on_body_entered"]

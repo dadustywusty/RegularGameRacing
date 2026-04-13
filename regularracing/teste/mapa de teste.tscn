@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://noqfofnqu4sr" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="5_i7wld"]
 [ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://preciso de terapia/itens/dado/dado.tscn" id="6_lcd4u"]
 [ext_resource type="Script" uid="uid://dvm6afwjjb5xv" path="res://teste/sou_um_mapa.gd" id="8_rn0op"]
+[ext_resource type="Script" uid="uid://djcucrqvseyd4" path="res://MAPA/minimap_cam.gd" id="9_a57v5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l3rou"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -157,3 +158,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.189625, 15.157292, -341.9
 
 [node name="sou um mapa" type="Node" parent="." unique_id=1217880623]
 script = ExtResource("8_rn0op")
+
+[node name="MiniMapViewport" type="SubViewport" parent="." unique_id=1502965224]
+size = Vector2i(200, 200)
+
+[node name="MinimapCam" type="Camera3D" parent="MiniMapViewport" unique_id=1479400350]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 50, 0)
+projection = 1
+current = true
+size = 72.403
+script = ExtResource("9_a57v5")
