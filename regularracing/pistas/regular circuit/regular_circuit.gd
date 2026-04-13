@@ -11,14 +11,14 @@ var icones := {
 	preload("uid://eakm2yw4j6pe"):  preload("res://pistas/regular circuit/regular2.png"),
 }
 
-var grupo_1_cp := [
+@onready var grupo_1_cp := [
 	$"checkpoints/checkpoint 3",
 	$"checkpoints/checkpoint 4",
 	$"checkpoints/checkpoint 5",
 	$"checkpoints/checkpoint 6",
 	$"checkpoints/checkpoint 7"
 ]
-var grupo_2_cp := [
+@onready var grupo_2_cp := [
 	$"checkpoints/checkpoint 10",
 	$"checkpoints/checkpoint 11",
 	$"checkpoints/checkpoint 12",
@@ -26,4 +26,4 @@ var grupo_2_cp := [
 	$"checkpoints/checkpoint 14"
 ]
 
-var cp_modular := [grupo_1_cp, grupo_2_cp]
+@onready var cp_modular := [grupo_1_cp, grupo_2_cp]

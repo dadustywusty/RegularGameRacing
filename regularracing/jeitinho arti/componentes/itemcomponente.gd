@@ -9,7 +9,7 @@ var itens: Dictionary = {
 	#"latinha": preload("uid://buu6imckneitw"),
 	#"latinhas triplas": preload("uid://jhdftpvqvih3"),
 	#"molinha": preload("uid://bpspel1hunwcc"),
-	"pedra": preload("uid://7uk04ilajpgx")
+	"pedra": preload("res://itens/pedra/pedra.tscn")
 }
 
 func tick() -> void:

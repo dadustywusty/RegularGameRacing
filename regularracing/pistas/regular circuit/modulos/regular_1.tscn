@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bdqrd0uut8hq0" path="res://addons/road-generator/nodes/road_container.gd" id="2_17gs2"]
 [ext_resource type="Material" uid="uid://dpashsuk5lr4x" path="res://addons/road-generator/resources/road_texture.material" id="3_17gs2"]
 [ext_resource type="Script" uid="uid://cx3wjlcttn1ak" path="res://addons/road-generator/nodes/road_point.gd" id="3_jq0r0"]
+[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://itens/dado/dado.tscn" id="5_jq0r0"]
 
 [node name="regular1" type="Node3D" unique_id=2116929989]
 
@@ -81,3 +82,26 @@ gizmo_extents = 5.0
 [node name="5" type="Marker3D" parent="marcadores" unique_id=231315308]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -32, 0, 35)
 gizmo_extents = 5.0
+
+[node name="dados" type="Node3D" parent="." unique_id=233029055]
+transform = Transform3D(1, 0, 0, 0, 0.9376465, 0.34759033, 0, -0.34759033, 0.9376465, 0, 21, 86)
+
+[node name="Dado" parent="dados" unique_id=1665922199 instance=ExtResource("5_jq0r0")]
+
+[node name="Dado3" parent="dados" unique_id=29428406 instance=ExtResource("5_jq0r0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Dado5" parent="dados" unique_id=241487226 instance=ExtResource("5_jq0r0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="Dado7" parent="dados" unique_id=25942006 instance=ExtResource("5_jq0r0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="Dado2" parent="dados" unique_id=291143544 instance=ExtResource("5_jq0r0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Dado4" parent="dados" unique_id=259155186 instance=ExtResource("5_jq0r0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="Dado6" parent="dados" unique_id=367483692 instance=ExtResource("5_jq0r0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)

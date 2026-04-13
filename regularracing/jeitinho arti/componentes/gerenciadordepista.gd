@@ -77,17 +77,31 @@ func _on_escolha(body: Node3D, area: Area3D) -> void:
 	var spawn = spawns[idx]
 	if spawn.get_child_count() > 0:
 		spawn.get_child(0).queue_free()
-
+	
 	var novo = modulo_escolhido.instantiate()
 	spawn.add_child(novo)
 	novo.global_position = spawn.global_position
-
+	
+	atualizar_checkpoints(idx, novo)
+	
 	modulo_atual_por_spawn[idx] = modulo_escolhido
-
+	
 	# Avança e prepara o próximo grupo
 	index = (index + 1) % grupos.size()
 	_preparar_grupo(index)
 	_ativar_grupo(grupos[index])
+
+func atualizar_checkpoints(idx: int, modulo: Node3D):
+	var cp_modular = get_parent().cp_modular
+	var lista_cp = cp_modular[(idx - 1) % cp_modular.size()]
+	var container_marcadores = modulo.get_node_or_null("marcadores")
+	
+	if container_marcadores:
+		var marcadores = container_marcadores.get_children()
+		for i in range(lista_cp.size()):
+			var cp = lista_cp[i]
+			var marcador = marcadores[i]
+			cp.global_transform = marcador.global_transform
 
 func _limpar_icones(grupo: Node) -> void:
 	for area in grupo.get_children():

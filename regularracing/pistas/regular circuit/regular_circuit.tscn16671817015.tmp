@@ -34,21 +34,6 @@ size = Vector3(46, 15, 30)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rsj0f"]
 size = Vector3(49, 21, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_k126a"]
-size = Vector3(49, 21, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cd2dj"]
-size = Vector3(49, 21, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3ssn1"]
-size = Vector3(49, 21, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_c2mbp"]
-size = Vector3(49, 21, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_v2evs"]
-size = Vector3(49, 21, 1)
-
 [node name="regular circuit" type="Node3D" unique_id=2116929989]
 script = ExtResource("1_f7hsb")
 
@@ -200,8 +185,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -99)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 3" unique_id=1455011987]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
-shape = SubResource("BoxShape3D_k126a")
-debug_color = Color(1, 0.0078074336, 0.07274025, 0.41960785)
+shape = SubResource("BoxShape3D_rsj0f")
 
 [node name="ponto respawn" type="Node3D" parent="checkpoints/checkpoint 3" unique_id=1419292289 groups=["ponto respawn"]]
 
@@ -210,8 +194,7 @@ transform = Transform3D(0.83651626, 0.22414386, -0.5, -0.25881904, 0.9659258, 0,
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 4" unique_id=1177822281]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
-shape = SubResource("BoxShape3D_cd2dj")
-debug_color = Color(1, 0.007843138, 0.07450981, 0.41960785)
+shape = SubResource("BoxShape3D_rsj0f")
 
 [node name="ponto respawn" type="Node3D" parent="checkpoints/checkpoint 4" unique_id=1483140391 groups=["ponto respawn"]]
 
@@ -220,8 +203,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, -0.25881904, 0.9659258, 1.131334e-
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 5" unique_id=254024822]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
-shape = SubResource("BoxShape3D_3ssn1")
-debug_color = Color(1, 0.007843138, 0.07450981, 0.41960785)
+shape = SubResource("BoxShape3D_rsj0f")
 
 [node name="ponto respawn" type="Node3D" parent="checkpoints/checkpoint 5" unique_id=773925029 groups=["ponto respawn"]]
 
@@ -230,8 +212,7 @@ transform = Transform3D(-0.8365163, -0.22414388, -0.49999994, -0.25881907, 0.965
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 6" unique_id=1593475738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
-shape = SubResource("BoxShape3D_c2mbp")
-debug_color = Color(1, 0.007843138, 0.07450981, 0.41960785)
+shape = SubResource("BoxShape3D_rsj0f")
 
 [node name="ponto respawn" type="Node3D" parent="checkpoints/checkpoint 6" unique_id=1868856104 groups=["ponto respawn"]]
 
@@ -240,8 +221,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 64, 
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoints/checkpoint 7" unique_id=1794248088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
-shape = SubResource("BoxShape3D_v2evs")
-debug_color = Color(1, 0.007843138, 0.07450981, 0.41960785)
+shape = SubResource("BoxShape3D_rsj0f")
 
 [node name="ponto respawn" type="Node3D" parent="checkpoints/checkpoint 7" unique_id=1833677730 groups=["ponto respawn"]]
 

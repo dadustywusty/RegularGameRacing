@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bdqrd0uut8hq0" path="res://addons/road-generator/nodes/road_container.gd" id="2_1joay"]
 [ext_resource type="Script" uid="uid://cx3wjlcttn1ak" path="res://addons/road-generator/nodes/road_point.gd" id="3_hfqy0"]
 [ext_resource type="Material" uid="uid://dpashsuk5lr4x" path="res://addons/road-generator/resources/road_texture.material" id="3_ilqkd"]
+[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://itens/dado/dado.tscn" id="5_81art"]
 
 [node name="regular2" type="Node3D" unique_id=2116929989]
 
@@ -144,9 +145,55 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 108,
 gizmo_extents = 5.0
 
 [node name="4" type="Marker3D" parent="marcadores" unique_id=1042202695]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 62, 215)
+transform = Transform3D(0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 0, 0, 1, 86, 61, 215)
 gizmo_extents = 5.0
 
 [node name="5" type="Marker3D" parent="marcadores" unique_id=191482854]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -32, 0, 168)
 gizmo_extents = 5.0
+
+[node name="dados" type="Node3D" parent="." unique_id=459835191]
+transform = Transform3D(0.050104823, 0, -0.99874395, 0, 1, 0, 0.99874395, 0, 0.050104823, 34, 19, 71)
+
+[node name="Dado" parent="dados" unique_id=1665922199 instance=ExtResource("5_81art")]
+
+[node name="Dado3" parent="dados" unique_id=1861448520 instance=ExtResource("5_81art")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Dado5" parent="dados" unique_id=333161575 instance=ExtResource("5_81art")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="Dado7" parent="dados" unique_id=1644067178 instance=ExtResource("5_81art")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="Dado2" parent="dados" unique_id=27485082 instance=ExtResource("5_81art")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Dado4" parent="dados" unique_id=1585091372 instance=ExtResource("5_81art")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="Dado6" parent="dados" unique_id=199585583 instance=ExtResource("5_81art")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="dados2" type="Node3D" parent="." unique_id=1329180039]
+transform = Transform3D(-0.12131502, 0, -0.992614, 0, 1, 0, 0.992614, 0, -0.12131502, 38, 87, 99)
+
+[node name="Dado" parent="dados2" unique_id=765630034 instance=ExtResource("5_81art")]
+
+[node name="Dado3" parent="dados2" unique_id=1053492808 instance=ExtResource("5_81art")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Dado5" parent="dados2" unique_id=45634098 instance=ExtResource("5_81art")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="Dado7" parent="dados2" unique_id=363226679 instance=ExtResource("5_81art")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="Dado2" parent="dados2" unique_id=1501803996 instance=ExtResource("5_81art")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Dado4" parent="dados2" unique_id=911870837 instance=ExtResource("5_81art")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="Dado6" parent="dados2" unique_id=908504593 instance=ExtResource("5_81art")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
