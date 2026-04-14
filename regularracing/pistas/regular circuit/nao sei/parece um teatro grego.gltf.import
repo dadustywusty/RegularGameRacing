@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://chxgfyfwle7i8"
-path="res://.godot/imported/regular12.fbx-b518ee041e6b45ca4478950685cf8944.scn"
+uid="uid://b5m1f5fmj8ssg"
+path="res://.godot/imported/parece um teatro grego.gltf-5e12a02f6e9c1082f815ab8dec320a6e.scn"
 
 [deps]
 
-source_file="res://pistas/regular circuit/nao sei/regular12.fbx"
-dest_files=["res://.godot/imported/regular12.fbx-b518ee041e6b45ca4478950685cf8944.scn"]
+source_file="res://pistas/regular circuit/nao sei/parece um teatro grego.gltf"
+dest_files=["res://.godot/imported/parece um teatro grego.gltf-5e12a02f6e9c1082f815ab8dec320a6e.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1

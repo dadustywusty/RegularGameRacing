@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8vwlhc03bq5i"
-path="res://.godot/imported/33.fbx-b5c1a84c5c6586f92f812023ff86d250.scn"
+uid="uid://ctufhtgqfnptn"
+path="res://.godot/imported/aqui o nao me mata pfv.gltf-192c2328ed170f184848531ee16c2618.scn"
 
 [deps]
 
-source_file="res://pistas/regular circuit/nao sei/33.fbx"
-dest_files=["res://.godot/imported/33.fbx-b5c1a84c5c6586f92f812023ff86d250.scn"]
+source_file="res://pistas/regular circuit/nao sei/aqui o nao me mata pfv.gltf"
+dest_files=["res://.godot/imported/aqui o nao me mata pfv.gltf-192c2328ed170f184848531ee16c2618.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1

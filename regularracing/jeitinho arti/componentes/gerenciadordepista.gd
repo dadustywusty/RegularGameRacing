@@ -10,6 +10,8 @@ var index := 0
 # Qual PackedScene está instanciada em cada spawn agora
 var modulo_atual_por_spawn := []
 
+var corredores := []
+
 func _ready() -> void:
 	modulos = get_parent().modulos
 	icones = get_parent().icones
@@ -26,6 +28,14 @@ func _ready() -> void:
 
 	_preparar_grupo(index)
 	_ativar_grupo(grupos[index])
+
+func _process(_delta: float):
+	#atualiza a colocação dos jogadores
+	corredores.sort_custom(func (a, b):
+		return a.progresso > b.progresso
+		)
+	for i in range(corredores.size()):
+		corredores[i].posicao = i + 1
 
 func _preparar_grupo(idx: int) -> void:
 	var grupo = grupos[idx]

@@ -1,15 +1,30 @@
 [gd_scene format=3 uid="uid://74v6laavjv6a"]
 
 [ext_resource type="Script" uid="uid://cvwmed2gvpndg" path="res://addons/road-generator/nodes/road_manager.gd" id="1_8g74v"]
+[ext_resource type="PackedScene" uid="uid://ctufhtgqfnptn" path="res://pistas/regular circuit/nao sei/aqui o nao me mata pfv.gltf" id="1_m7s6b"]
 [ext_resource type="Script" uid="uid://bdqrd0uut8hq0" path="res://addons/road-generator/nodes/road_container.gd" id="2_17gs2"]
 [ext_resource type="Material" uid="uid://dpashsuk5lr4x" path="res://addons/road-generator/resources/road_texture.material" id="3_17gs2"]
 [ext_resource type="Script" uid="uid://cx3wjlcttn1ak" path="res://addons/road-generator/nodes/road_point.gd" id="3_jq0r0"]
 [ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://itens/dado/dado.tscn" id="5_jq0r0"]
+[ext_resource type="PackedScene" uid="uid://b5m1f5fmj8ssg" path="res://pistas/regular circuit/nao sei/parece um teatro grego.gltf" id="7_fdkov"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_guibt"]
+vertices = PackedVector3Array(-49.749985, 10.250002, 62.25, -14.249985, 10.250002, 62.25, -14.249985, 0.750002, 2.25, -49.749985, 0.750002, 2.25, 14.000015, 10.750002, 65, 13.500015, 11.250002, 66, 14.000015, 12.000002, 68.25, 16.750015, 12.000002, 68.5, 48.250015, 12.250002, 69, 49.750015, 10.750002, 64.75, 49.750015, 0.750002, 2.25, 14.000015, 0.750002, 2.25, 49.750015, 9.750002, 60.717743, 14.000015, 9.500002, 58.927418, -15.499985, 12.000002, 68.25, -12.999985, 11.250002, 66.25, -14.249985, 10.500002, 64.25, -49.749985, 10.750002, 64.75, -48.249985, 12.250002, 68.75, 11.500015, 11.750002, 67.5, 9.250015, 12.000002, 68.25, 9.750015, 24.500002, 102.5, 14.500015, 24.000002, 101.25, -10.999985, 11.750002, 67.5, -15.499985, 12.750002, 70.25, -15.749985, 23.750002, 100.75, -11.499985, 24.250002, 102, -10.249985, 24.500002, 102.5, -2.9999847, 24.500002, 102.5, -2.4999847, 12.500002, 69.75, -7.7499847, 12.250002, 68.75, -21.499985, 14.500002, 74.75, -42.999985, 18.000002, 85, -36.999985, 19.750002, 89.5, 3.0000153, 12.500002, 69.75, 3.5000153, 24.500002, 102.5, 25.750015, 22.750002, 98.25, 27.000015, 22.750002, 97.5, 43.250015, 18.000002, 84.75, -23.249985, 23.000002, 98.75, -26.749985, 22.750002, 97.75)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 12), PackedInt32Array(12, 8, 7), PackedInt32Array(12, 7, 4), PackedInt32Array(12, 4, 13), PackedInt32Array(12, 13, 11), PackedInt32Array(12, 11, 10), PackedInt32Array(14, 16, 15), PackedInt32Array(16, 14, 1), PackedInt32Array(1, 14, 18), PackedInt32Array(1, 18, 17), PackedInt32Array(1, 17, 0), PackedInt32Array(19, 5, 6), PackedInt32Array(19, 6, 20), PackedInt32Array(20, 6, 22), PackedInt32Array(20, 22, 21), PackedInt32Array(14, 15, 24), PackedInt32Array(24, 15, 23), PackedInt32Array(25, 24, 26), PackedInt32Array(26, 24, 23), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 29), PackedInt32Array(29, 26, 30), PackedInt32Array(26, 23, 30), PackedInt32Array(14, 24, 31), PackedInt32Array(32, 18, 33), PackedInt32Array(33, 18, 31), PackedInt32Array(31, 18, 14), PackedInt32Array(35, 34, 21), PackedInt32Array(21, 34, 20), PackedInt32Array(36, 22, 37), PackedInt32Array(37, 22, 7), PackedInt32Array(7, 22, 6), PackedInt32Array(38, 37, 8), PackedInt32Array(8, 37, 7), PackedInt32Array(29, 34, 28), PackedInt32Array(28, 34, 35), PackedInt32Array(39, 31, 25), PackedInt32Array(25, 31, 24), PackedInt32Array(40, 33, 39), PackedInt32Array(39, 33, 31)]
+geometry_parsed_geometry_type = 0
+agent_radius = 2.25
 
 [node name="regular1" type="Node3D" unique_id=2116929989]
 
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=854969053]
+navigation_mesh = SubResource("NavigationMesh_guibt")
+
+[node name="blockbench_export2" parent="NavigationRegion3D" unique_id=1445645878 instance=ExtResource("1_m7s6b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 64)
+
 [node name="RoadManager" type="Node3D" parent="." unique_id=832309782]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 64)
+visible = false
 script = ExtResource("1_8g74v")
 metadata/_custom_type_script = "uid://cvwmed2gvpndg"
 
@@ -62,6 +77,7 @@ prior_pt_init = NodePath("../RP_002")
 next_pt_init = NodePath("../RP_006")
 
 [node name="marcadores" type="Node3D" parent="." unique_id=1447777375]
+visible = false
 
 [node name="1" type="Marker3D" parent="marcadores" unique_id=2033112173]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 35)
@@ -85,6 +101,7 @@ gizmo_extents = 5.0
 
 [node name="dados" type="Node3D" parent="." unique_id=233029055]
 transform = Transform3D(1, 0, 0, 0, 0.9376465, 0.34759033, 0, -0.34759033, 0.9376465, 0, 21, 86)
+visible = false
 
 [node name="Dado" parent="dados" unique_id=1665922199 instance=ExtResource("5_jq0r0")]
 
@@ -105,3 +122,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 
 [node name="Dado6" parent="dados" unique_id=367483692 instance=ExtResource("5_jq0r0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="blockbench_export" parent="." unique_id=1510635438 instance=ExtResource("7_fdkov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 64)

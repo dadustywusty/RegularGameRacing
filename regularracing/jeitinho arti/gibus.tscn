@@ -12,6 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ck03cthp1q4wl" path="res://preciso de terapia/dusty folder/fumaca/fumaça da boa.obj" id="6_au0uo"]
 [ext_resource type="Script" uid="uid://1dn6kmrc06gw" path="res://jeitinho arti/componentes/respawncomponente.gd" id="8_8tgkw"]
 [ext_resource type="Script" uid="uid://l06107u601lk" path="res://jeitinho arti/componentes/rotacaocomponente.gd" id="8_eol6c"]
+[ext_resource type="Script" uid="uid://eywdna1fwkr" path="res://jeitinho arti/componentes/posicaocomponente.gd" id="8_sy36w"]
 [ext_resource type="Script" uid="uid://c1g85g4ip5hmx" path="res://jeitinho arti/componentes/itemcomponente.gd" id="10_2ekgj"]
 [ext_resource type="Script" uid="uid://dh08wb8l76l35" path="res://jeitinho arti/componentes/turbo.gd" id="10_k3m2r"]
 [ext_resource type="Script" uid="uid://cgflvg15aig7p" path="res://jeitinho arti/componentes/danocomponente.gd" id="11_5b3dn"]
@@ -21,7 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://preciso de terapia/dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_y7ux3"]
 [ext_resource type="AudioStream" uid="uid://blmicmxg0e06u" path="res://itens/dado/sfx1.ogg" id="20_pn5sl"]
 [ext_resource type="AudioStream" uid="uid://ft4gbw0vhcke" path="res://itens/dado/item roleta.ogg" id="20_sy36w"]
-[ext_resource type="Script" uid="uid://bwn5qf6sn4bdw" path="res://jeitinho arti/payer_gui.gd" id="22_i8l2r"]
+[ext_resource type="Script" path="res://jeitinho arti/payer_gui.gd" id="22_i8l2r"]
 [ext_resource type="PackedScene" uid="uid://bvgypiewnmvrx" path="res://jeitinho arti/componentes/icon_componente.tscn" id="23_nt7ve"]
 [ext_resource type="Texture2D" uid="uid://bikgts5i0hfo4" path="res://MAPA/pexe.png" id="24_k4gwq"]
 
@@ -528,6 +529,11 @@ draw_pass_1 = SubResource("SphereMesh_l0ubc")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=547204020]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.8, 0)
 shape = SubResource("CapsuleShape3D_64arw")
+
+[node name="PosiçaoComponente" type="Node" parent="." unique_id=1806841703]
+unique_name_in_owner = true
+script = ExtResource("8_sy36w")
+metadata/_custom_type_script = "uid://eywdna1fwkr"
 
 [node name="InputComponente" type="Node" parent="." unique_id=34086533]
 unique_name_in_owner = true

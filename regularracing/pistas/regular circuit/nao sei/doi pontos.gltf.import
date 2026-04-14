@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cxwndnj48841a"
-path="res://.godot/imported/21.fbx-b1d2b20a44360e8a8c51fe85d468d367.scn"
+uid="uid://cw5jwbnpt7abd"
+path="res://.godot/imported/doi pontos.gltf-e4171e399a8ddcf44a93a7fd7212cfb4.scn"
 
 [deps]
 
-source_file="res://pistas/regular circuit/nao sei/21.fbx"
-dest_files=["res://.godot/imported/21.fbx-b1d2b20a44360e8a8c51fe85d468d367.scn"]
+source_file="res://pistas/regular circuit/nao sei/doi pontos.gltf"
+dest_files=["res://.godot/imported/doi pontos.gltf-e4171e399a8ddcf44a93a7fd7212cfb4.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1

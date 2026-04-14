@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dx50hij2id186"
-path="res://.godot/imported/34.fbx-a34ca64e98f3a0eed5e4115d3e93a015.scn"
+uid="uid://b6jsbjnubmggm"
+path="res://.godot/imported/um quarto de uma quadra.gltf-8dc50270f4ad23b7235c776eae574baa.scn"
 
 [deps]
 
-source_file="res://pistas/regular circuit/nao sei/34.fbx"
-dest_files=["res://.godot/imported/34.fbx-a34ca64e98f3a0eed5e4115d3e93a015.scn"]
+source_file="res://pistas/regular circuit/nao sei/um quarto de uma quadra.gltf"
+dest_files=["res://.godot/imported/um quarto de uma quadra.gltf-8dc50270f4ad23b7235c776eae574baa.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1

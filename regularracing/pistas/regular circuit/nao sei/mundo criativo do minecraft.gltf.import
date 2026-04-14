@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bxqqdamqja00d"
-path="res://.godot/imported/42.fbx-105a2020a6ee0340d96c8474acae9c9b.scn"
+uid="uid://iq3iuvpjskov"
+path="res://.godot/imported/mundo criativo do minecraft.gltf-e55c5acfb9c4596f51b5015e76688ac1.scn"
 
 [deps]
 
-source_file="res://pistas/regular circuit/nao sei/42.fbx"
-dest_files=["res://.godot/imported/42.fbx-105a2020a6ee0340d96c8474acae9c9b.scn"]
+source_file="res://pistas/regular circuit/nao sei/mundo criativo do minecraft.gltf"
+dest_files=["res://.godot/imported/mundo criativo do minecraft.gltf-e55c5acfb9c4596f51b5015e76688ac1.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1

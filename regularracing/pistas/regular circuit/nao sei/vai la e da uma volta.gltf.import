@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c8nupkhvu88ey"
-path="res://.godot/imported/model.fbx-704dcf21c417b3f78e4be47d89233436.scn"
+uid="uid://bddwgvbfm4ve4"
+path="res://.godot/imported/vai la e da uma volta.gltf-6dc3586a8d687b89fc541b4415c9be49.scn"
 
 [deps]
 
-source_file="res://pistas/regular circuit/nao sei/model.fbx"
-dest_files=["res://.godot/imported/model.fbx-704dcf21c417b3f78e4be47d89233436.scn"]
+source_file="res://pistas/regular circuit/nao sei/vai la e da uma volta.gltf"
+dest_files=["res://.godot/imported/vai la e da uma volta.gltf-6dc3586a8d687b89fc541b4415c9be49.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1

@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg4txt1hcee77"
-path.s3tc="res://.godot/imported/11.png-b8bcd8f0a173256c8317723eae4c65da.s3tc.ctex"
+uid="uid://6fi0e8be7gru"
+path.s3tc="res://.godot/imported/parede_0.png-3946d05e516cb817891a0ed0ecd38f60.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "2e6a089b611ff910158c131a6763b92c"
+}
 
 [deps]
 
-source_file="res://pistas/regular circuit/nao sei/11.png"
-dest_files=["res://.godot/imported/11.png-b8bcd8f0a173256c8317723eae4c65da.s3tc.ctex"]
+source_file="res://pistas/regular circuit/nao sei/parede_0.png"
+dest_files=["res://.godot/imported/parede_0.png-3946d05e516cb817891a0ed0ecd38f60.s3tc.ctex"]
 
 [params]
 
