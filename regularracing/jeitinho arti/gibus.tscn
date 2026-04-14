@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bbopapkbjoke6"]
+[gd_scene format=4 uid="uid://bj61xl7owjnc0"]
 
 [ext_resource type="Texture2D" uid="uid://dir48kvw04nui" path="res://teste/carro(1)_colormap.png" id="1_cjgle"]
 [ext_resource type="Script" uid="uid://bgep8theb7r85" path="res://jeitinho arti/gibus.gd" id="1_wm3er"]
@@ -22,7 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://preciso de terapia/dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_y7ux3"]
 [ext_resource type="AudioStream" uid="uid://blmicmxg0e06u" path="res://itens/dado/sfx1.ogg" id="20_pn5sl"]
 [ext_resource type="AudioStream" uid="uid://ft4gbw0vhcke" path="res://itens/dado/item roleta.ogg" id="20_sy36w"]
-[ext_resource type="Script" path="res://jeitinho arti/payer_gui.gd" id="22_i8l2r"]
+[ext_resource type="Script" uid="uid://bwn5qf6sn4bdw" path="res://jeitinho arti/payer_gui.gd" id="22_i8l2r"]
 [ext_resource type="PackedScene" uid="uid://bvgypiewnmvrx" path="res://jeitinho arti/componentes/icon_componente.tscn" id="23_nt7ve"]
 [ext_resource type="Texture2D" uid="uid://bikgts5i0hfo4" path="res://MAPA/pexe.png" id="24_k4gwq"]
 
