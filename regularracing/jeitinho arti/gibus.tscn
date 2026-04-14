@@ -660,3 +660,4 @@ map_icon = ExtResource("24_k4gwq")
 [connection signal="trick_pulo" from="TrickComponente" to="fisica" method="_on_trick_componente_trick_pulo"]
 [connection signal="body_entered" from="DanoComponente" to="DanoComponente" method="_on_body_entered"]
 [connection signal="area_entered" from="RespawnComponente" to="RespawnComponente" method="_on_area_entered"]
+[connection signal="checkpoint_passado" from="RespawnComponente" to="PosiçaoComponente" method="_on_respawn_componente_checkpoint_passado"]

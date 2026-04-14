@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dir48kvw04nui" path="res://teste/carro(1)_colormap.png" id="3_kw6y7"]
 [ext_resource type="Texture2D" uid="uid://b4b142oqimyo8" path="res://rosto/olho.png" id="4_vwuqb"]
 [ext_resource type="Texture2D" uid="uid://cwiua0wljjll8" path="res://rosto/boca.png" id="5_i7rkj"]
-[ext_resource type="Material" uid="uid://grmdou6sd7u2" path="res://dusty folder/texturas/drift3gradiente.tres" id="6_syh5x"]
+[ext_resource type="Material" uid="uid://grmdou6sd7u2" path="res://preciso de terapia/dusty folder/texturas/drift3gradiente.tres" id="6_syh5x"]
 [ext_resource type="Script" uid="uid://en3wyre3x21f" path="res://jeitinho arti/componentes/iacomponente.gd" id="7_ngv3e"]
 [ext_resource type="Script" uid="uid://cj46vy4outtpd" path="res://jeitinho arti/componentes/movimentocomponente.gd" id="8_wmuuf"]
 [ext_resource type="Script" uid="uid://hmf3mjrc6bxp" path="res://jeitinho arti/componentes/driftcomponente.gd" id="9_pw47w"]
@@ -15,7 +15,8 @@
 [ext_resource type="Script" uid="uid://r3go3f8v2idd" path="res://jeitinho arti/componentes/trickcomponente.gd" id="14_gclm0"]
 [ext_resource type="Script" uid="uid://1dn6kmrc06gw" path="res://jeitinho arti/componentes/respawncomponente.gd" id="15_hlbgi"]
 [ext_resource type="AudioStream" uid="uid://b6gpsgd3ubf8p" path="res://preciso de terapia/tu.wav" id="16_eqix1"]
-[ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_be6ac"]
+[ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://preciso de terapia/dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_be6ac"]
+[ext_resource type="Script" uid="uid://eywdna1fwkr" path="res://jeitinho arti/componentes/posicaocomponente.gd" id="17_ngv3e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxa1w"]
 resource_name = "colormap.001"
@@ -566,6 +567,10 @@ libraries/ = SubResource("AnimationLibrary_y7ux3")
 
 [node name="Trick" type="AudioStreamPlayer3D" parent="." unique_id=1679501583]
 stream = ExtResource("17_be6ac")
+
+[node name="PosiçaoComponente" type="Node" parent="." unique_id=1569793479]
+script = ExtResource("17_ngv3e")
+metadata/_custom_type_script = "uid://eywdna1fwkr"
 
 [connection signal="trick_pulo" from="TrickComponente" to="fisica" method="_on_trick_componente_trick_pulo"]
 [connection signal="area_entered" from="RespawnComponente" to="RespawnComponente" method="_on_area_entered"]

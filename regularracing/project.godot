@@ -46,6 +46,7 @@ enabled=PackedStringArray("res://addons/road-generator/plugin.cfg")
 checkpoint=""
 dano=""
 player=""
+"container checkpoints"=""
 
 [input]
 
