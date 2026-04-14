@@ -7,11 +7,10 @@
 [ext_resource type="Script" uid="uid://cx3wjlcttn1ak" path="res://addons/road-generator/nodes/road_point.gd" id="3_ah2hv"]
 [ext_resource type="Texture2D" uid="uid://bm18kjaev3iby" path="res://pistas/regular circuit/nao sei/clash royale_0.png" id="3_c2mbp"]
 [ext_resource type="Material" uid="uid://dpashsuk5lr4x" path="res://addons/road-generator/resources/road_texture.material" id="3_dragt"]
-[ext_resource type="PackedScene" uid="uid://bbopapkbjoke6" path="res://jeitinho arti/gibus.tscn" id="4_ip1xh"]
+[ext_resource type="PackedScene" uid="uid://bj61xl7owjnc0" path="res://jeitinho arti/gibus.tscn" id="4_ip1xh"]
 [ext_resource type="PackedScene" uid="uid://74v6laavjv6a" path="res://pistas/regular circuit/modulos/regular_1.tscn" id="5_ah2hv"]
 [ext_resource type="Script" uid="uid://8mvy4kebv538" path="res://jeitinho arti/componentes/gerenciadordepista.gd" id="5_ip1xh"]
 [ext_resource type="Script" uid="uid://djcucrqvseyd4" path="res://MAPA/minimap_cam.gd" id="9_rsj0f"]
-[ext_resource type="PackedScene" uid="uid://dkr85b7y25ba6" path="res://jeitinho arti/gibusbot.tscn" id="12_3ssn1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pn7qn"]
 sky_top_color = Color(0.8117647, 0.2509804, 0.44705883, 1)
@@ -446,6 +445,3 @@ script = ExtResource("9_rsj0f")
 
 [node name="gibus" parent="." unique_id=818493968 instance=ExtResource("4_ip1xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.874115, 0.047167987, -30.730179)
-
-[node name="gibusbot" parent="." unique_id=1089798069 instance=ExtResource("12_3ssn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -36)

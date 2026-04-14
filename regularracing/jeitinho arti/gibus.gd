@@ -15,6 +15,7 @@ class_name Player
 @onready var particula_drift_r: GPUParticles3D = $"carro(1)/ParticulaDriftR"
 @onready var trick_componente: TrickComponente = %TrickComponente
 @onready var item_componente: ItemComponente = %ItemComponente
+@onready var posiçao_componente: PosiçaoComponente = %PosiçaoComponente
 @onready var peixe: Node3D = $"carro(1)/sedan/peixe"
 @onready var roda_esquerda = $"carro(1)/sedan/wheel-front-left"
 @onready var roda_direita = $"carro(1)/sedan/wheel-front-right"
@@ -70,6 +71,13 @@ func levar_dano(direcao_empurrao: Vector3 = Vector3.ZERO) -> void:
 	_levando_dano = false
 
 func _physics_process(delta: float) -> void:
+	if posiçao_componente.acabou:
+		velocity.x = lerp(velocity.x, 0.0, 0.03)
+		velocity.z = lerp(velocity.z, 0.0, 0.03)
+		velocity.y = fisica.velocidade_vertical
+		fisica.tick(delta)
+		camera.tick(delta, velocity.length())
+	
 	if _levando_dano:
 		velocity.x = lerp(velocity.x, 0.0, 0.03)
 		velocity.z = lerp(velocity.z, 0.0, 0.03)
@@ -77,6 +85,7 @@ func _physics_process(delta: float) -> void:
 		fisica.no_chao = is_on_floor()
 		fisica.tick(delta)
 		camera.tick(delta, velocity.length())
+		posiçao_componente.tick(delta)
 		move_and_slide()
 		return
 
@@ -89,6 +98,7 @@ func _physics_process(delta: float) -> void:
 	turbo.tick(delta)
 	trick_componente.tick()
 	item_componente.tick()
+	posiçao_componente.tick(delta)
 
 	var inclinacao_alvo = rotacao * deg_to_rad(inclinacao_max)
 	peixe.rotation.z = lerp(peixe.rotation.z, _rotacao_base_peixe.z + inclinacao_alvo, velocidade_inclinacao * delta)

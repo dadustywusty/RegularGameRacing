@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://bwn5qf6sn4bdw" path="res://jeitinho arti/payer_gui.gd" id="22_i8l2r"]
 [ext_resource type="PackedScene" uid="uid://bvgypiewnmvrx" path="res://jeitinho arti/componentes/icon_componente.tscn" id="23_nt7ve"]
 [ext_resource type="Texture2D" uid="uid://bikgts5i0hfo4" path="res://MAPA/pexe.png" id="24_k4gwq"]
+[ext_resource type="FontFile" uid="uid://cp2b6ulmb5y83" path="res://fonte de texto/upheavtt.ttf" id="24_tn6jm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxa1w"]
 resource_name = "colormap.001"
@@ -435,6 +436,10 @@ _data = {
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nt7ve"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_c45x7"]
+font = ExtResource("24_tn6jm")
+font_size = 64
+
 [node name="gibus" type="CharacterBody3D" unique_id=818493968 groups=["player"]]
 floor_snap_length = 0.5
 script = ExtResource("1_wm3er")
@@ -653,6 +658,24 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 texture = SubResource("PlaceholderTexture2D_nt7ve")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PayerGUI" unique_id=1928248183]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="PayerGUI/VBoxContainer" unique_id=614026587]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_c45x7")
 
 [node name="IconComponente" parent="." unique_id=1359179303 instance=ExtResource("23_nt7ve")]
 map_icon = ExtResource("24_k4gwq")
