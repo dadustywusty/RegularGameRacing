@@ -10,9 +10,11 @@
 [ext_resource type="Script" uid="uid://hmf3mjrc6bxp" path="res://jeitinho arti/componentes/driftcomponente.gd" id="5_qsdoc"]
 [ext_resource type="Script" uid="uid://bhh2tnr8whyny" path="res://jeitinho arti/componentes/fisica.gd" id="6_045yo"]
 [ext_resource type="ArrayMesh" uid="uid://ck03cthp1q4wl" path="res://preciso de terapia/dusty folder/fumaca/fumaça da boa.obj" id="6_au0uo"]
+[ext_resource type="Texture2D" uid="uid://c2gafk1i1b42g" path="res://trick.png" id="8_6iucu"]
 [ext_resource type="Script" uid="uid://1dn6kmrc06gw" path="res://jeitinho arti/componentes/respawncomponente.gd" id="8_8tgkw"]
 [ext_resource type="Script" uid="uid://l06107u601lk" path="res://jeitinho arti/componentes/rotacaocomponente.gd" id="8_eol6c"]
 [ext_resource type="Script" uid="uid://eywdna1fwkr" path="res://jeitinho arti/componentes/posicaocomponente.gd" id="8_sy36w"]
+[ext_resource type="Script" uid="uid://cwpaqvktjn5gd" path="res://jeitinho arti/GibusEfeito.gd" id="9_0mqsq"]
 [ext_resource type="Script" uid="uid://c1g85g4ip5hmx" path="res://jeitinho arti/componentes/itemcomponente.gd" id="10_2ekgj"]
 [ext_resource type="Script" uid="uid://dh08wb8l76l35" path="res://jeitinho arti/componentes/turbo.gd" id="10_k3m2r"]
 [ext_resource type="Script" uid="uid://cgflvg15aig7p" path="res://jeitinho arti/componentes/danocomponente.gd" id="11_5b3dn"]
@@ -679,6 +681,16 @@ label_settings = SubResource("LabelSettings_c45x7")
 
 [node name="IconComponente" parent="." unique_id=1359179303 instance=ExtResource("23_nt7ve")]
 map_icon = ExtResource("24_k4gwq")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1049363456]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, -0.2624339, -1.3416221)
+cast_shadow = 0
+pixel_size = 0.005
+billboard = 2
+alpha_cut = 1
+render_priority = 1
+texture = ExtResource("8_6iucu")
+script = ExtResource("9_0mqsq")
 
 [connection signal="trick_pulo" from="TrickComponente" to="fisica" method="_on_trick_componente_trick_pulo"]
 [connection signal="body_entered" from="DanoComponente" to="DanoComponente" method="_on_body_entered"]
