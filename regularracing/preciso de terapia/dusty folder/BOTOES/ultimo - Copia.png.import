@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d243cyq3ejcq2"
-path="res://.godot/imported/RU.png-3a69b067fe3ab7cad78faa01b54848ae.ctex"
+uid="uid://cxl4krs1qjc1n"
+path="res://.godot/imported/ultimo - Copia.png-c0151431c023f45eb5f5d50fc2d57813.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://coisa antiga/RU.png"
-dest_files=["res://.godot/imported/RU.png-3a69b067fe3ab7cad78faa01b54848ae.ctex"]
+source_file="res://preciso de terapia/dusty folder/BOTOES/ultimo - Copia.png"
+dest_files=["res://.godot/imported/ultimo - Copia.png-c0151431c023f45eb5f5d50fc2d57813.ctex"]
 
 [params]
 

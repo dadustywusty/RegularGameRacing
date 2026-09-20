@@ -7,10 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cxdkll87xdfgb" path="res://preciso de terapia/dusty folder/BOTOES/quando jogar for selecionado.png" id="5_qld25"]
 [ext_resource type="FontFile" uid="uid://cp2b6ulmb5y83" path="res://fonte de texto/upheavtt.ttf" id="6_b5g2a"]
 [ext_resource type="Texture2D" uid="uid://b2lkocn3d5gqi" path="res://preciso de terapia/dusty folder/BOTOES/outro quadrado.png" id="7_b5g2a"]
-[ext_resource type="Script" uid="uid://cb41k5ii3oo3g" path="res://preciso de terapia/dusty folder/Menu/som_menu.gd" id="8_b5g2a"]
-[ext_resource type="Script" uid="uid://cmkqjf7vdg5xa" path="res://preciso de terapia/dusty folder/Menu/menu_de_opções.gd" id="8_l6nqh"]
-[ext_resource type="Texture2D" uid="uid://dghx6gsfurge1" path="res://preciso de terapia/dusty folder/BOTOES/outro quadrado verde.png" id="9_l6nqh"]
-[ext_resource type="Texture2D" uid="uid://b2l5c6s6i0hjp" path="res://dusty folder/Menu/ENGRNAGEM.png" id="9_tapjk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2v7eo"]
 shader = ExtResource("2_ixhn6")
@@ -37,12 +33,6 @@ texture = ExtResource("7_b5g2a")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yew0f"]
 texture = ExtResource("7_b5g2a")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gfih5"]
-texture = ExtResource("9_l6nqh")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hvvi"]
-texture = ExtResource("9_l6nqh")
 
 [node name="MainMenu" type="Node2D" unique_id=1535348458]
 script = ExtResource("1_1xk4r")
@@ -96,6 +86,7 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kw6je")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7yqk3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_b5g2a")
+theme_override_styles/focus = SubResource("StyleBoxTexture_7yqk3")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Controle principal/VBoxContainer/Vamo" unique_id=320216612]
 layout_mode = 1
@@ -110,7 +101,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_b5g2a")
 theme_override_font_sizes/font_size = 50
-text = "play"
+text = "Jogar"
 
 [node name="Opeçoes" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=647633871]
 unique_name_in_owner = true
@@ -119,6 +110,7 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kw6je")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_kw6je")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ljdfl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ljdfl")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Controle principal/VBoxContainer/Opeçoes" unique_id=18824496]
 layout_mode = 1
@@ -133,7 +125,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_b5g2a")
 theme_override_font_sizes/font_size = 50
-text = "options"
+text = "Opções"
 
 [node name="vou embora" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=50932852]
 unique_name_in_owner = true
@@ -142,6 +134,7 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kw6je")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_l6nqh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_yew0f")
+theme_override_styles/focus = SubResource("StyleBoxTexture_yew0f")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Controle principal/VBoxContainer/vou embora" unique_id=1043475921]
 layout_mode = 1
@@ -156,94 +149,4 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_b5g2a")
 theme_override_font_sizes/font_size = 50
-text = "leave"
-
-[node name="Menu de opções" type="Control" parent="CanvasLayer" unique_id=435015413]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -657.0
-offset_bottom = -657.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-script = ExtResource("8_l6nqh")
-
-[node name="Engrnagem" type="Sprite2D" parent="CanvasLayer/Menu de opções" unique_id=934713509]
-position = Vector2(640.00006, 329.49994)
-scale = Vector2(0.6666667, 0.61018515)
-texture = ExtResource("9_tapjk")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu de opções" unique_id=2050280870]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -44.0
-offset_right = 150.0
-offset_bottom = 134.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HSliderMusica" type="HSlider" parent="CanvasLayer/Menu de opções/VBoxContainer" unique_id=213419188]
-layout_mode = 2
-
-[node name="Label3" type="Label" parent="CanvasLayer/Menu de opções/VBoxContainer/HSliderMusica" unique_id=923331164]
-layout_mode = 0
-offset_left = -128.0
-offset_top = -4.0
-offset_right = 77.0
-offset_bottom = 42.0
-scale = Vector2(0.56, 0.52)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_b5g2a")
-theme_override_font_sizes/font_size = 50
-text = "Music"
-
-[node name="HSliderEfeitos" type="HSlider" parent="CanvasLayer/Menu de opções/VBoxContainer" unique_id=1471451728]
-layout_mode = 2
-
-[node name="Label4" type="Label" parent="CanvasLayer/Menu de opções/VBoxContainer/HSliderEfeitos" unique_id=409894291]
-layout_mode = 0
-offset_left = -128.0
-offset_top = -4.0
-offset_right = 55.0
-offset_bottom = 42.0
-scale = Vector2(0.56, 0.52)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_b5g2a")
-theme_override_font_sizes/font_size = 50
-text = "effects
-"
-
-[node name="Voltar" type="Button" parent="CanvasLayer/Menu de opções/VBoxContainer" unique_id=1635010160]
-custom_minimum_size = Vector2(300, 100)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_kw6je")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_gfih5")
-theme_override_styles/hover = SubResource("StyleBoxTexture_3hvvi")
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Menu de opções/VBoxContainer/Voltar" unique_id=1676965145]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label3" type="Label" parent="CanvasLayer/Menu de opções/VBoxContainer/Voltar/CenterContainer" unique_id=1897685645]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_b5g2a")
-theme_override_font_sizes/font_size = 50
-text = "voltar"
-
-[node name="SomMenu" type="AudioStreamPlayer" parent="." unique_id=556504355]
-volume_db = 5.0
-bus = &"Efeitos"
-script = ExtResource("8_b5g2a")
+text = "Sair"

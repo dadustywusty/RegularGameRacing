@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bpo5e81bnep4c"]
+
+[ext_resource type="Script" uid="uid://cb41k5ii3oo3g" path="res://preciso de terapia/dusty folder/Menu/som_menu.gd" id="1_clqe6"]
+
+[node name="SomMenu" type="AudioStreamPlayer" unique_id=525398946]
+volume_db = 5.0
+bus = &"Efeitos"
+script = ExtResource("1_clqe6")

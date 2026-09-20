@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://b032u2sliltvl"]
 
-[ext_resource type="Script" uid="uid://b60k4vlqye127" path="res://preciso de terapia/dusty folder/Menu/mapas.gd" id="1_dxck6"]
+[ext_resource type="Script" uid="uid://b60k4vlqye127" path="res://dusty folder/Menu/mapas.gd" id="1_jmc8g"]
 [ext_resource type="Shader" uid="uid://ccfnggl2v4krc" path="res://preciso de terapia/dusty folder/Menu/main_menu.gdshader" id="2_lmyoj"]
+[ext_resource type="Texture2D" uid="uid://bk8ao2xikmy85" path="res://sla/regularcoiso.png" id="3_jmc8g"]
+[ext_resource type="Texture2D" uid="uid://bnlgmaogssdpp" path="res://preciso de terapia/dusty folder/BOTOES/ultimo.png" id="4_y1vme"]
+[ext_resource type="Texture2D" uid="uid://cxl4krs1qjc1n" path="res://preciso de terapia/dusty folder/BOTOES/ultimo - Copia.png" id="5_jmc8g"]
+[ext_resource type="FontFile" uid="uid://cp2b6ulmb5y83" path="res://fonte de texto/upheavtt.ttf" id="5_mttw7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ufn8"]
 shader = ExtResource("2_lmyoj")
@@ -9,8 +13,19 @@ shader_parameter/deep_purple = Vector3(0.18, 0.03, 0.14)
 shader_parameter/aubergine = Vector3(0.46, 0.16, 0.32)
 shader_parameter/orange_glow = Vector3(0.91, 0.33, 0.12)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vctcd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mttw7"]
+texture = ExtResource("4_y1vme")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wowgv"]
+texture = ExtResource("5_jmc8g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxd7i"]
+texture = ExtResource("5_jmc8g")
+
 [node name="Mapas" type="Node2D" unique_id=1394261337]
-script = ExtResource("1_dxck6")
+script = ExtResource("1_jmc8g")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=332876290]
 
@@ -27,58 +42,93 @@ color = Color(0.5254902, 0.25882354, 1, 1)
 
 [node name="Controle principal" type="Control" parent="CanvasLayer" unique_id=495927141]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Controle principal" unique_id=1632354082]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -81.0
-offset_top = -85.5
-offset_right = 81.0
-offset_bottom = 85.5
+offset_left = 33.0
+offset_top = -155.0
+offset_right = 583.0
+offset_bottom = 16.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=1905969083]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_mttw7")
+theme_override_font_sizes/font_size = 30
+text = "teste  uma corrida modular contra
+o tempo! tem que fazer 3 voltas, 
+escolha os módulos com sabedoria
+e utilize suas latinhas com
+cautela..."
+
+[node name="Regularcoiso" type="Sprite2D" parent="CanvasLayer/Controle principal" unique_id=1778191472]
+position = Vector2(914, 364)
+texture = ExtResource("3_jmc8g")
+
+[node name="Vamo" type="Button" parent="CanvasLayer/Controle principal" unique_id=1526535854]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
+offset_left = 125.0
+offset_top = 469.0
+offset_right = 425.0
+offset_bottom = 569.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vctcd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mttw7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mttw7")
+theme_override_styles/focus = SubResource("StyleBoxTexture_mttw7")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Controle principal/Vamo" unique_id=1473322739]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Mapa de teste" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=1700315365]
+[node name="Label" type="Label" parent="CanvasLayer/Controle principal/Vamo/CenterContainer" unique_id=1328408853]
 layout_mode = 2
-text = "Mapa de teste
-"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_mttw7")
+theme_override_font_sizes/font_size = 50
+text = "vamo!"
 
-[node name="Rainbow Road" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=720510395]
+[node name="voltar" type="Button" parent="CanvasLayer/Controle principal" unique_id=1457586108]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
+offset_left = 125.0
+offset_top = 569.0
+offset_right = 425.0
+offset_bottom = 669.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vctcd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wowgv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nxd7i")
+theme_override_styles/focus = SubResource("StyleBoxTexture_nxd7i")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Controle principal/voltar" unique_id=159354145]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Controle principal/voltar/CenterContainer" unique_id=1304803723]
 layout_mode = 2
-text = "Rainbow Road"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_mttw7")
+theme_override_font_sizes/font_size = 50
+text = "calma..."
 
-[node name="ToadHarbor" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=14565825]
-layout_mode = 2
-text = "ToadHarbor"
-
-[node name="YoshiCiruit" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=592077823]
-layout_mode = 2
-text = "YoshiCiruit"
-
-[node name="Sabor" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=430172572]
-layout_mode = 2
-text = "SaborBabyPark"
-
-[node name="Botoes legais" type="Control" parent="." unique_id=766451674]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Mapa de teste" to="." method="_on_mapa_de_teste_pressed"]
-[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Rainbow Road" to="." method="_on_rainbow_road_pressed"]
-[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/ToadHarbor" to="." method="_on_toad_harbor_pressed"]
-[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/YoshiCiruit" to="." method="_on_yoshi_ciruit_pressed"]
-[connection signal="pressed" from="CanvasLayer/Controle principal/VBoxContainer/Sabor" to="." method="_on_sabor_pressed"]
+[connection signal="pressed" from="CanvasLayer/Controle principal/Vamo" to="." method="_on_vamo_pressed"]
+[connection signal="pressed" from="CanvasLayer/Controle principal/voltar" to="." method="_on_voltar_pressed"]

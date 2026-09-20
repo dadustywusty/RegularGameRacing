@@ -1,19 +1,13 @@
 extends Control
-signal fechou
 
-@onready var engrnagem = $Engrnagem
-@onready var slider_musica  = $VBoxContainer/HSliderMusica
-@onready var slider_efeitos = $VBoxContainer/HSliderEfeitos
-@onready var btn_voltar     = $VBoxContainer/Voltar
-@onready var som_menu       = get_node(^"/root/MainMenu/SomMenu")
-@onready var mat            = get_node(^"/root/MainMenu/CanvasLayer/BackGround").material
+@onready var engrnagem          = $Engrnagem
+@onready var slider_musica      = $VBoxContainer/HSliderMusica
+@onready var slider_efeitos     = $VBoxContainer/HSliderEfeitos
+@onready var btn_voltar         = $VBoxContainer/Voltar
+@onready var engrnagem_base_pos: Vector2 = engrnagem.position
+@onready var mat                = $BackGround.material
 
-const PAINEL_FORA   := Vector2(0, -1080)
-const PAINEL_DENTRO := Vector2(0, 0)
-const DURACAO       := 0.6
-const ESCALA_NORMAL  := Vector2(1.0, 1.0)
-const ESCALA_HOVER   := Vector2(1.15, 1.15)
-const DURACAO_BOTAO  := 0.25
+const PASSO_SLIDER := 5.0
 
 const CORES := {
 	"deep_purple": [Vector3(0.18, 0.03, 0.14), Vector3(0.40, 0.78, 0.72)],
@@ -21,31 +15,88 @@ const CORES := {
 	"orange_glow": [Vector3(0.91, 0.33, 0.12), Vector3(0.55, 0.90, 0.35)],
 }
 
-var tween_btn_voltar: Tween = null
-var _pos_base_engrnagem: Vector2
-
-func _animar_engrnagem() -> void:
-	var t = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	t.tween_property(engrnagem, "position", _pos_base_engrnagem + Vector2(0, 12), 1.8)
-	t.tween_property(engrnagem, "position", _pos_base_engrnagem, 1.8)
-	await t.finished
-	_animar_engrnagem()
+var focaveis := []
+var indice_foco := 0
+var _processando := false
 
 func _ready() -> void:
-	position = PAINEL_FORA
-	_pos_base_engrnagem = engrnagem.position
+	Transicao.rect.scale = Vector2.ONE
+	Transicao.rect.visible = true
+	Transicao._abrir()
 	_animar_engrnagem()
-	
-	# Configurar botão voltar com animações
-	btn_voltar.pivot_offset = btn_voltar.size / 2.0
-	btn_voltar.mouse_entered.connect(_animar_btn_voltar.bind(ESCALA_HOVER))
-	btn_voltar.mouse_exited.connect(_animar_btn_voltar.bind(ESCALA_NORMAL))
+	_aplicar_cores()
+
+	btn_voltar.focus_mode = Control.FOCUS_ALL
+	btn_voltar.focus_entered.connect(_on_foco_entrou)
+	btn_voltar.mouse_entered.connect(_on_mouse_entrou_btn)
 	btn_voltar.pressed.connect(_on_voltar)
-	
+
+	slider_musica.focus_mode  = Control.FOCUS_ALL
+	slider_efeitos.focus_mode = Control.FOCUS_ALL
+	slider_musica.focus_entered.connect(_on_foco_entrou)
+	slider_efeitos.focus_entered.connect(_on_foco_entrou)
+
+	focaveis = [slider_musica, slider_efeitos, btn_voltar]
+
 	slider_musica.value  = _db_para_slider(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Musica")))
 	slider_efeitos.value = _db_para_slider(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Efeitos")))
 	slider_musica.value_changed.connect(_on_musica_mudou)
 	slider_efeitos.value_changed.connect(_on_efeitos_mudou)
+
+	await get_tree().process_frame
+	slider_musica.grab_focus()
+
+func _aplicar_cores() -> void:
+	for param in CORES:
+		mat.set_shader_parameter(param, CORES[param][1])
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_echo():
+		return
+
+	if event.is_action_pressed("menu_cima"):
+		_mover_foco(-1)
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("menu_baixo"):
+		_mover_foco(1)
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("menu_confirmar"):
+		var focado = get_viewport().gui_get_focus_owner()
+		if focado == btn_voltar:
+			_ativar_voltar()
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("menu_esquerda"):
+		_ajustar_slider(-PASSO_SLIDER)
+	elif event.is_action_pressed("menu_direita"):
+		_ajustar_slider(PASSO_SLIDER)
+
+func _mover_foco(direcao: int) -> void:
+	var focado = get_viewport().gui_get_focus_owner()
+	var idx_atual = focaveis.find(focado)
+	if idx_atual != -1:
+		indice_foco = idx_atual
+	indice_foco = wrapi(indice_foco + direcao, 0, focaveis.size())
+	focaveis[indice_foco].grab_focus()
+
+func _ajustar_slider(delta: float) -> void:
+	var atual = get_viewport().gui_get_focus_owner()
+	if atual == slider_musica or atual == slider_efeitos:
+		atual.value = clamp(atual.value + delta, atual.min_value, atual.max_value)
+
+func _on_foco_entrou() -> void:
+	SomMenu.tocar_hover()
+
+func _on_mouse_entrou_btn() -> void:
+	if not btn_voltar.has_focus():
+		SomMenu.tocar_hover()
+
+func _ativar_voltar() -> void:
+	if _processando:
+		return
+	_processando = true
+	_on_voltar()
+	await get_tree().process_frame
+	_processando = false
 
 func _on_musica_mudou(valor: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Musica"), _slider_para_db(valor))
@@ -59,45 +110,13 @@ func _slider_para_db(valor: float) -> float:
 func _db_para_slider(db: float) -> float:
 	return db_to_linear(db) * 100.0
 
-func _tween(alvo, tipo_ease = Tween.EASE_OUT) -> Tween:
-	var t = create_tween().set_ease(tipo_ease).set_trans(Tween.TRANS_CUBIC)
-	t.tween_property(self, "position", alvo, DURACAO)
-	return t
-
-func _tween_botao(no, propriedade, alvo, duracao, tipo_ease = Tween.EASE_OUT, trans = Tween.TRANS_CUBIC) -> Tween:
-	var t = create_tween().set_ease(tipo_ease).set_trans(trans)
-	t.tween_property(no, propriedade, alvo, duracao)
-	return t
-
-func _animar_btn_voltar(escala_alvo: Vector2) -> void:
-	if escala_alvo == ESCALA_HOVER:
-		som_menu.tocar_hover()
-	
-	if tween_btn_voltar:
-		tween_btn_voltar.kill()
-	
-	tween_btn_voltar = _tween_botao(btn_voltar, "scale", escala_alvo, DURACAO_BOTAO, Tween.EASE_OUT, Tween.TRANS_BACK)
-	var escala_comp = Vector2(1.0 / escala_alvo.x, 1.0 / escala_alvo.y)
-	_tween_botao(btn_voltar.get_child(0), "scale", escala_comp, DURACAO_BOTAO, Tween.EASE_OUT, Tween.TRANS_BACK)
-
-func abrir() -> void:
-	_transicionar_shader(true)
-	_tween(PAINEL_DENTRO)
-
 func _on_voltar() -> void:
-	som_menu.tocar_click()
-	_transicionar_shader(false)
-	await _tween(PAINEL_FORA, Tween.EASE_IN).finished
-	emit_signal("fechou")
+	SomMenu.tocar_click()
+	Transicao.transicionar("res://preciso de terapia/dusty folder/Menu/main_menu.tscn")
 
-func _transicionar_shader(para_opcoes: bool) -> void:
-	var t = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR).set_parallel(true)
-	for param in CORES:
-		t.tween_method(
-			func(v: Vector3): mat.set_shader_parameter(param, v),
-			mat.get_shader_parameter(param),
-			CORES[param][1 if para_opcoes else 0],
-			DURACAO)
-
-func get_volume_musica() -> float: return slider_musica.value
-func get_volume_efeitos() -> float: return slider_efeitos.value
+func _animar_engrnagem() -> void:
+	var t = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	t.tween_property(engrnagem, "position", engrnagem_base_pos + Vector2(0, 12), 1.8)
+	t.tween_property(engrnagem, "position", engrnagem_base_pos, 1.8)
+	await t.finished
+	_animar_engrnagem()

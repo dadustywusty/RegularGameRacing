@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpvrs6h3xxfxd"
+uid="uid://fc7h8u5i3jau"
 path.s3tc="res://.godot/imported/carro_colormap.png-71eb579bfbf714e1cdb2984c7d988f25.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "611df30398ddade53b30132a6d84ae0a"
 }
 
 [deps]

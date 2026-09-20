@@ -440,7 +440,7 @@ _data = {
 font = ExtResource("24_tn6jm")
 font_size = 64
 
-[node name="gibus" type="CharacterBody3D" unique_id=818493968 groups=["player"]]
+[node name="PosiçaoComponente" type="CharacterBody3D" unique_id=818493968 groups=["player"]]
 floor_snap_length = 0.5
 script = ExtResource("1_wm3er")
 
@@ -503,29 +503,28 @@ mesh = SubResource("ArrayMesh_86kxw")
 [node name="Fumaça" type="GPUParticles3D" parent="carro(1)" unique_id=1472325435]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.040842056, 0.14192796, 1.3390901)
 material_override = SubResource("StandardMaterial3D_5b3dn")
-emitting = false
 amount = 30
-lifetime = 0.78
+lifetime = 1.02
 speed_scale = 2.0
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_pn5sl")
 draw_pass_1 = ExtResource("6_au0uo")
 
 [node name="ParticulaDriftL" type="GPUParticles3D" parent="carro(1)" unique_id=1415227943]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.608, -0.0035195947, 1.0291927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.608, -0.0035195947, 0.8814591)
 emitting = false
-amount = 12
-lifetime = 0.5
+amount = 40
+lifetime = 0.27
 speed_scale = 2.0
 local_coords = true
 process_material = ExtResource("14_s7ypg")
 draw_pass_1 = SubResource("SphereMesh_l0ubc")
 
 [node name="ParticulaDriftR" type="GPUParticles3D" parent="carro(1)" unique_id=1315190718]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.608, -0.0035195947, 1.0291927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.608, -0.0035195947, 0.8814591)
 emitting = false
-amount = 12
-lifetime = 0.5
+amount = 40
+lifetime = 0.27
 speed_scale = 2.0
 local_coords = true
 process_material = ExtResource("14_s7ypg")

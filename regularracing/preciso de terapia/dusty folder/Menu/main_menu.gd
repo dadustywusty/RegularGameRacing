@@ -1,72 +1,90 @@
 extends Node2D
 
-@onready var btn_jogar          = %Vamo
-@onready var btn_opcoes         = %"Opeçoes"
-@onready var btn_sair           = %"vou embora"
-@onready var som_menu           = $SomMenu
-@onready var painel_opcoes      = $CanvasLayer/"Menu de opções"
-@onready var controle_principal = $CanvasLayer/"Controle principal"
+@onready var btn_jogar  = %Vamo
+@onready var btn_opcoes = %"Opeçoes"
+@onready var btn_sair   = %"vou embora"
 
-const ESCALA_NORMAL  := Vector2(1.0, 1.0)
-const ESCALA_HOVER   := Vector2(1.15, 1.15)
-const POSICAO_NORMAL := Vector2(0, 0)
-const POSICAO_FORA   := Vector2(0, 1080)
-const DURACAO        := 0.25
-const DURACAO_MENU   := 0.6
-
-var tweens := {}
+var botoes := []
+var indice_foco := 0
+var _processando := false
 
 func _ready() -> void:
+	Transicao.rect.scale = Vector2.ONE
+	Transicao.rect.visible = true
+	Transicao._abrir()
 	_animar_gibus()
-	painel_opcoes.fechou.connect(_on_opcoes_fechou)
-	for btn in [btn_jogar, btn_opcoes, btn_sair]:
-		btn.pivot_offset = btn.size / 2.0
-		tweens[btn] = null
-		btn.mouse_entered.connect(_animar_btn.bind(btn, ESCALA_HOVER))
-		btn.mouse_exited.connect(_animar_btn.bind(btn, ESCALA_NORMAL))
-	btn_jogar.pressed.connect(_on_vamo_pressed)
-	btn_opcoes.pressed.connect(_on_opeçoes_pressed)
-	btn_sair.pressed.connect(_on_vou_embora_pressed)
 
-func _tween(no, propriedade, alvo, duracao, tipo_ease = Tween.EASE_OUT, trans = Tween.TRANS_CUBIC) -> Tween:
-	var t = create_tween().set_ease(tipo_ease).set_trans(trans)
-	t.tween_property(no, propriedade, alvo, duracao)
-	return t
+	botoes = [btn_jogar, btn_opcoes, btn_sair]
+	for btn in botoes:
+		btn.focus_mode = Control.FOCUS_ALL
+		btn.focus_entered.connect(_on_foco_entrou)
+		btn.mouse_entered.connect(_on_mouse_entrou.bind(btn))
+		btn.pressed.connect(_ativar_botao.bind(btn))
 
-func _animar_btn(no, escala_alvo: Vector2) -> void:
-	if escala_alvo == ESCALA_HOVER:
-		som_menu.tocar_hover()
-	if tweens[no]:
-		tweens[no].kill()
-	tweens[no] = _tween(no, "scale", escala_alvo, DURACAO, Tween.EASE_OUT, Tween.TRANS_BACK)
-	var escala_comp = Vector2(1.0 / escala_alvo.x, 1.0 / escala_alvo.y)
-	_tween(no.get_child(0), "scale", escala_comp, DURACAO, Tween.EASE_OUT, Tween.TRANS_BACK)
+	await get_tree().process_frame
+	btn_jogar.grab_focus()
 
-func _animar_painel(no, alvo, tipo_ease = Tween.EASE_OUT) -> Tween:
-	return _tween(no, "position", alvo, DURACAO_MENU, tipo_ease, Tween.TRANS_CUBIC)
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_echo():
+		return
 
-func _on_opcoes_fechou() -> void:
-	controle_principal.visible = true
-	controle_principal.position = POSICAO_FORA
-	_animar_painel(controle_principal, POSICAO_NORMAL)
+	if event.is_action_pressed("menu_cima"):
+		_mover_foco(-1)
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("menu_baixo"):
+		_mover_foco(1)
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("menu_confirmar"):
+		var btn_focado = get_viewport().gui_get_focus_owner()
+		if btn_focado and btn_focado in botoes:
+			_ativar_botao(btn_focado)
+		get_viewport().set_input_as_handled()
 
-func _on_opeçoes_pressed() -> void:
-	som_menu.tocar_click()
-	await _animar_painel(controle_principal, POSICAO_FORA, Tween.EASE_IN).finished
-	controle_principal.visible = false
-	painel_opcoes.abrir()
+func _mover_foco(direcao: int) -> void:
+	var btn_focado = get_viewport().gui_get_focus_owner()
+	var idx_atual = botoes.find(btn_focado)
+	if idx_atual != -1:
+		indice_foco = idx_atual
+	indice_foco = wrapi(indice_foco + direcao, 0, botoes.size())
+	botoes[indice_foco].grab_focus()
+
+func _on_foco_entrou() -> void:
+	SomMenu.tocar_hover()
+
+func _on_mouse_entrou(btn) -> void:
+	if not btn.has_focus():
+		SomMenu.tocar_hover()
+
+func _ativar_botao(btn) -> void:
+	if _processando:
+		return
+	_processando = true
+
+	SomMenu.tocar_click()
+
+	match btn.name:
+		"Vamo":
+			_on_vamo_pressed()
+		"Opeçoes":
+			_on_opeçoes_pressed()
+		"vou embora":
+			_on_vou_embora_pressed()
+		_:
+			print(">>> botão desconhecido: ", btn.name)
+
+	await get_tree().process_frame
+	_processando = false
 
 func _on_vamo_pressed() -> void:
-	som_menu.tocar_click()
 	Transicao.transicionar("res://dusty folder/Menu/mapas.tscn")
 
+func _on_opeçoes_pressed() -> void:
+	Transicao.transicionar("res://preciso de terapia/dusty folder/Menu/menu_de_opções.tscn")
+
 func _on_vou_embora_pressed() -> void:
-	som_menu.tocar_click()
+	await get_tree().create_timer(0.1).timeout
 	get_tree().quit()
 
-#67
-
-#animação que eu decidir fazer agora e eu to com precisa de arrumar
 @onready var gibus = $"CanvasLayer/Controle principal/VBoxContainer/Gibus"
 
 func _animar_gibus() -> void:

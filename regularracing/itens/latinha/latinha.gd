@@ -1,6 +1,7 @@
 extends Node3D
 
 var turbo: TurboComponente
+var player: CharacterBody3D
 var usos := 1
 
 @onready var modelo: Node3D = $AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZ
@@ -18,7 +19,8 @@ func _ready() -> void:
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_BACK)
 
-func configurar(player: CharacterBody3D) -> void:
+func configurar(p: CharacterBody3D) -> void:
+	player = p
 	turbo = player.turbo
 
 func usar() -> void:
@@ -27,10 +29,10 @@ func usar() -> void:
 	_usando = true
 	usos -= 1
 	
-	# ativa o turbo
+	# ativa o turbo (fumaça do escapamento fica roxa)
 	turbo.forca_turbo = 100
 	turbo.duracao_turbo = 1.0
-	turbo.ativar()
+	turbo.ativar(Color(0.7176471, 0, 1))
 	
 	# encolhe rapidinho
 	var tween = create_tween()
@@ -43,5 +45,5 @@ func usar() -> void:
 	)
 	# some quando o som acabar
 	som.finished.connect(func():
-		queue_free()
-	)
+		queue_free())
+	
