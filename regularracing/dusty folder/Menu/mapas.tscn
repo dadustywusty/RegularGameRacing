@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b032u2sliltvl"]
 
-[ext_resource type="Script" uid="uid://b60k4vlqye127" path="res://dusty folder/Menu/mapas.gd" id="1_jmc8g"]
+[ext_resource type="Script" uid="uid://b60k4vlqye127" path="res://preciso de terapia/dusty folder/Menu/mapas.gd" id="1_jmc8g"]
 [ext_resource type="Shader" uid="uid://ccfnggl2v4krc" path="res://preciso de terapia/dusty folder/Menu/main_menu.gdshader" id="2_lmyoj"]
 [ext_resource type="Texture2D" uid="uid://bk8ao2xikmy85" path="res://sla/regularcoiso.png" id="3_jmc8g"]
 [ext_resource type="Texture2D" uid="uid://bnlgmaogssdpp" path="res://preciso de terapia/dusty folder/BOTOES/ultimo.png" id="4_y1vme"]

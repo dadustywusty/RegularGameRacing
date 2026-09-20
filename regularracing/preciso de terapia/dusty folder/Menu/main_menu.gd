@@ -4,9 +4,13 @@ extends Node2D
 @onready var btn_opcoes = %"Opeçoes"
 @onready var btn_sair   = %"vou embora"
 
+const INPUT_DELAY  := 0.50
+const INPUT_REPEAT := 0.12
+
 var botoes := []
 var indice_foco := 0
 var _processando := false
+var _input_cooldown := 0.0
 
 func _ready() -> void:
 	Transicao.rect.scale = Vector2.ONE
@@ -24,17 +28,29 @@ func _ready() -> void:
 	await get_tree().process_frame
 	btn_jogar.grab_focus()
 
+func _process(delta: float) -> void:
+	if _input_cooldown > 0.0:
+		_input_cooldown -= delta
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo():
 		return
 
+	var direcao := 0
 	if event.is_action_pressed("menu_cima"):
-		_mover_foco(-1)
-		get_viewport().set_input_as_handled()
+		direcao = -1
 	elif event.is_action_pressed("menu_baixo"):
-		_mover_foco(1)
+		direcao = 1
+
+	if direcao != 0:
+		if _input_cooldown > 0.0:
+			return
+		_mover_foco(direcao)
+		_input_cooldown = INPUT_DELAY
 		get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("menu_confirmar"):
+		return
+
+	if event.is_action_pressed("menu_confirmar"):
 		var btn_focado = get_viewport().gui_get_focus_owner()
 		if btn_focado and btn_focado in botoes:
 			_ativar_botao(btn_focado)

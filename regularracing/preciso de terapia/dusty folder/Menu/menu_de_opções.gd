@@ -5,15 +5,8 @@ extends Control
 @onready var slider_efeitos     = $VBoxContainer/HSliderEfeitos
 @onready var btn_voltar         = $VBoxContainer/Voltar
 @onready var engrnagem_base_pos: Vector2 = engrnagem.position
-@onready var mat                = $BackGround.material
 
 const PASSO_SLIDER := 5.0
-
-const CORES := {
-	"deep_purple": [Vector3(0.18, 0.03, 0.14), Vector3(0.40, 0.78, 0.72)],
-	"aubergine":   [Vector3(0.46, 0.16, 0.32), Vector3(0.45, 0.82, 0.45)],
-	"orange_glow": [Vector3(0.91, 0.33, 0.12), Vector3(0.55, 0.90, 0.35)],
-}
 
 var focaveis := []
 var indice_foco := 0
@@ -24,7 +17,6 @@ func _ready() -> void:
 	Transicao.rect.visible = true
 	Transicao._abrir()
 	_animar_engrnagem()
-	_aplicar_cores()
 
 	btn_voltar.focus_mode = Control.FOCUS_ALL
 	btn_voltar.focus_entered.connect(_on_foco_entrou)
@@ -45,10 +37,6 @@ func _ready() -> void:
 
 	await get_tree().process_frame
 	slider_musica.grab_focus()
-
-func _aplicar_cores() -> void:
-	for param in CORES:
-		mat.set_shader_parameter(param, CORES[param][1])
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo():
