@@ -503,6 +503,7 @@ mesh = SubResource("ArrayMesh_86kxw")
 [node name="Fumaça" type="GPUParticles3D" parent="carro(1)" unique_id=1472325435]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.040842056, 0.14192796, 1.3390901)
 material_override = SubResource("StandardMaterial3D_5b3dn")
+emitting = false
 amount = 30
 lifetime = 1.02
 speed_scale = 2.0
