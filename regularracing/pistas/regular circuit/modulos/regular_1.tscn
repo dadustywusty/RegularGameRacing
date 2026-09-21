@@ -1,11 +1,7 @@
 [gd_scene format=4 uid="uid://74v6laavjv6a"]
 
-[ext_resource type="Script" uid="uid://cvwmed2gvpndg" path="res://addons/road-generator/nodes/road_manager.gd" id="1_8g74v"]
 [ext_resource type="Texture2D" uid="uid://da3crnsxkbuu0" path="res://pistas/regular circuit/nao sei/aqui o nao me mata pfv_0.png" id="1_m7s6b"]
-[ext_resource type="Script" uid="uid://bdqrd0uut8hq0" path="res://addons/road-generator/nodes/road_container.gd" id="2_17gs2"]
-[ext_resource type="Material" uid="uid://dpashsuk5lr4x" path="res://addons/road-generator/resources/road_texture.material" id="3_17gs2"]
-[ext_resource type="Script" uid="uid://cx3wjlcttn1ak" path="res://addons/road-generator/nodes/road_point.gd" id="3_jq0r0"]
-[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://itens/dado/dado.tscn" id="5_jq0r0"]
+[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://preciso de terapia/itens/dado/dado.tscn" id="5_jq0r0"]
 [ext_resource type="Texture2D" uid="uid://dgd76j8m1er60" path="res://pistas/regular circuit/nao sei/parece um teatro grego_0.png" id="7_fdkov"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_guibt"]
@@ -118,62 +114,6 @@ mesh = SubResource("ArrayMesh_4wviq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/blockbench_export2/regular_2_001/StaticBody3D" unique_id=1806935658]
 shape = SubResource("ConcavePolygonShape3D_guibt")
-
-[node name="RoadManager" type="Node3D" parent="." unique_id=832309782]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 64)
-visible = false
-script = ExtResource("1_8g74v")
-collision_layer = 0
-collision_mask = 0
-metadata/_custom_type_script = "uid://cvwmed2gvpndg"
-
-[node name="Road_001" type="Node3D" parent="RoadManager" unique_id=1945414650]
-script = ExtResource("2_17gs2")
-material_resource = ExtResource("3_17gs2")
-use_lowpoly_preview = true
-edge_containers = Array[NodePath]([NodePath(""), NodePath("")])
-edge_rp_targets = Array[NodePath]([NodePath(""), NodePath("")])
-edge_rp_target_dirs = Array[int]([-1, -1])
-edge_rp_locals = Array[NodePath]([NodePath("RP_003"), NodePath("RP_006")])
-edge_rp_local_dirs = Array[int]([1, 0])
-
-[node name="RP_002" type="Node3D" parent="RoadManager/Road_001" unique_id=1282358098]
-transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 10, 0)
-script = ExtResource("3_jq0r0")
-traffic_dir = Array[int]([2, 2, 2, 2, 1, 1, 1, 1])
-lanes = Array[int]([2, 3, 3, 4, 4, 3, 3, 2])
-prior_mag = 31.845768
-next_mag = 31.535032
-prior_pt_init = NodePath("../RP_003")
-next_pt_init = NodePath("../RP_007")
-
-[node name="RP_003" type="Node3D" parent="RoadManager/Road_001" unique_id=39513823]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -64)
-script = ExtResource("3_jq0r0")
-traffic_dir = Array[int]([2, 2, 2, 2, 1, 1, 1, 1])
-lanes = Array[int]([2, 3, 3, 4, 4, 3, 3, 2])
-prior_mag = 31.591389
-next_mag = 31.845768
-next_pt_init = NodePath("../RP_002")
-
-[node name="RP_006" type="Node3D" parent="RoadManager/Road_001" unique_id=1764861848]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 64, 0, -64)
-script = ExtResource("3_jq0r0")
-traffic_dir = Array[int]([2, 2, 2, 2, 1, 1, 1, 1])
-lanes = Array[int]([2, 3, 3, 4, 4, 3, 3, 2])
-prior_mag = 31.677256
-next_mag = 32.313847
-prior_pt_init = NodePath("../RP_007")
-
-[node name="RP_007" type="Node3D" parent="RoadManager/Road_001" unique_id=707027423]
-transform = Transform3D(-1, 2.990035e-08, 8.2150535e-08, 0, 0.9396926, -0.34202012, -8.742278e-08, -0.34202012, -0.9396926, 64, 10, 0)
-script = ExtResource("3_jq0r0")
-traffic_dir = Array[int]([2, 2, 2, 2, 1, 1, 1, 1])
-lanes = Array[int]([2, 3, 3, 4, 4, 3, 3, 2])
-prior_mag = 32.265465
-next_mag = 31.677256
-prior_pt_init = NodePath("../RP_002")
-next_pt_init = NodePath("../RP_006")
 
 [node name="marcadores" type="Node3D" parent="." unique_id=1447777375]
 visible = false

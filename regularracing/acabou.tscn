@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dui3l84e6b8j"]
+
+[ext_resource type="Script" uid="uid://ci1gd6vq854yc" path="res://acabou.gd" id="1_uju0a"]
+[ext_resource type="Shader" uid="uid://ccfnggl2v4krc" path="res://preciso de terapia/dusty folder/Menu/main_menu.gdshader" id="2_qag8k"]
+[ext_resource type="Texture2D" uid="uid://bnlgmaogssdpp" path="res://preciso de terapia/dusty folder/BOTOES/ultimo.png" id="3_ftmmv"]
+[ext_resource type="FontFile" uid="uid://cp2b6ulmb5y83" path="res://fonte de texto/upheavtt.ttf" id="4_jy3pa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ftmmv"]
+shader = ExtResource("2_qag8k")
+shader_parameter/deep_purple = Vector3(0.18, 0.03, 0.14)
+shader_parameter/aubergine = Vector3(0.46, 0.16, 0.32)
+shader_parameter/orange_glow = Vector3(0.91, 0.33, 0.12)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jy3pa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cq5ji"]
+texture = ExtResource("3_ftmmv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3nd20"]
+texture = ExtResource("3_ftmmv")
+
+[node name="Control" type="Control" unique_id=737391976]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uju0a")
+
+[node name="BackGround" type="ColorRect" parent="." unique_id=898443335]
+material = SubResource("ShaderMaterial_ftmmv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0.5254902, 0.25882354, 1, 1)
+
+[node name="Vamo" type="Button" parent="." unique_id=1153683970]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jy3pa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cq5ji")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3nd20")
+theme_override_styles/focus = SubResource("StyleBoxTexture_cq5ji")
+
+[node name="CenterContainer" type="CenterContainer" parent="Vamo" unique_id=1184437835]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Vamo/CenterContainer" unique_id=2000203176]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_jy3pa")
+theme_override_font_sizes/font_size = 50
+text = "Voltar"

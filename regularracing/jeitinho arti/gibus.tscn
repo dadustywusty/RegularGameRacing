@@ -28,6 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://bvgypiewnmvrx" path="res://jeitinho arti/componentes/icon_componente.tscn" id="23_nt7ve"]
 [ext_resource type="Texture2D" uid="uid://bikgts5i0hfo4" path="res://MAPA/pexe.png" id="24_k4gwq"]
 [ext_resource type="FontFile" uid="uid://cp2b6ulmb5y83" path="res://fonte de texto/upheavtt.ttf" id="24_tn6jm"]
+[ext_resource type="Texture2D" uid="uid://c10v36utx1p2" path="res://trick2.png" id="29_vgamw"]
+[ext_resource type="Texture2D" uid="uid://cuqfm1g2tsymh" path="res://trick3.png" id="30_3pr04"]
+[ext_resource type="Texture2D" uid="uid://cb82v4thaj3cx" path="res://trick4.png" id="31_ids35"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxa1w"]
 resource_name = "colormap.001"
@@ -691,6 +694,7 @@ alpha_cut = 1
 render_priority = 1
 texture = ExtResource("8_6iucu")
 script = ExtResource("9_0mqsq")
+texturas = Array[Texture2D]([ExtResource("8_6iucu"), ExtResource("29_vgamw"), ExtResource("30_3pr04"), ExtResource("31_ids35")])
 
 [connection signal="trick_pulo" from="TrickComponente" to="fisica" method="_on_trick_componente_trick_pulo"]
 [connection signal="body_entered" from="DanoComponente" to="DanoComponente" method="_on_body_entered"]

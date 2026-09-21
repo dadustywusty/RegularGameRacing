@@ -40,8 +40,7 @@ func usar() -> void:
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(func():
-		som.pitch_scale = randf_range(0.8, 1.2)
-		som.play()
+			som.play()
 	)
 	# some quando o som acabar
 	som.finished.connect(func():
