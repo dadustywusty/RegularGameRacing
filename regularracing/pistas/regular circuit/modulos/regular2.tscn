@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://t82f1ai8ssgo"]
 
 [ext_resource type="Texture2D" uid="uid://blhu4bhis5xel" path="res://pistas/regular circuit/export/2/2_rua textura.png" id="1_11giy"]
-[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://itens/dado/dado.tscn" id="2_ae5r5"]
+[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://preciso de terapia/itens/dado/dado.tscn" id="2_ae5r5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i18kd"]
 resource_name = "2"
@@ -234,16 +234,16 @@ gizmo_extents = 5.0
 transform = Transform3D(0.99441314, 0, -0.105558, 0, 1, 0, 0.105558, 0, 0.99441314, 20, 0.7114947, -48)
 
 [node name="Dado" parent="dados" unique_id=1665922199 instance=ExtResource("2_ae5r5")]
-transform = Transform3D(1.0000001, 0, -1.4901161e-08, 0, 1, 0, 1.4901161e-08, 0, 1.0000001, 203.03018, 13, 26.889366)
+transform = Transform3D(3, 0, -4.4703476e-08, 0, 3, 0, 4.4703476e-08, 0, 3, 203.03018, 13, 26.889366)
 
 [node name="Dado2" parent="dados" unique_id=880581338 instance=ExtResource("2_ae5r5")]
-transform = Transform3D(1.0000001, 0, -3.7252903e-08, 0, 1, 0, 3.7252903e-08, 0, 1.0000001, 210.9855, 14.5431, 26.0449)
+transform = Transform3D(3, 0, -1.11758695e-07, 0, 3, 0, 1.11758695e-07, 0, 3, 210.9855, 14.5431, 26.0449)
 
 [node name="Dado3" parent="dados" unique_id=1711388616 instance=ExtResource("2_ae5r5")]
-transform = Transform3D(1.0000001, 0, -3.7252903e-08, 0, 1, 0, 3.7252903e-08, 0, 1.0000001, 195.07489, 11.423876, 27.73383)
+transform = Transform3D(3, 0, -1.11758695e-07, 0, 3, 0, 1.11758695e-07, 0, 3, 195.07489, 11.423876, 27.73383)
 
 [node name="Dado4" parent="dados" unique_id=858497470 instance=ExtResource("2_ae5r5")]
-transform = Transform3D(1.0000001, 0, -4.4703484e-08, 0, 1, 0, 4.4703484e-08, 0, 1.0000001, 218.9408, 16, 25.20044)
+transform = Transform3D(3, 0, -1.3411044e-07, 0, 3, 0, 1.3411044e-07, 0, 3, 218.9408, 16, 25.20044)
 
 [node name="Dado5" parent="dados" unique_id=1050876475 instance=ExtResource("2_ae5r5")]
-transform = Transform3D(1.0000001, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1.0000001, 187.11957, 10, 28.57829)
+transform = Transform3D(3, 0, -8.940695e-08, 0, 3, 0, 8.940695e-08, 0, 3, 187.11957, 10, 28.57829)

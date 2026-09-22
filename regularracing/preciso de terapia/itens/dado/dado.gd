@@ -27,8 +27,7 @@ func _quebrar(player: CharacterBody3D) -> void:
 	_quebrado = true
 	area.set_deferred("monitoring", false)
 	particula.emitting = true
-	
-	# 🔊 evita som duplicado
+
 	if not som.playing:
 		som.play()
 
@@ -36,11 +35,9 @@ func _quebrar(player: CharacterBody3D) -> void:
 	tween.tween_property(dado, "scale", Vector3.ZERO, velocidade_quebra)
 	await tween.finished
 
-	# som de pegar item
 	if player.has_node("som_item"):
 		player.get_node("som_item").play()
 
-	# delay antes de dar o item
 	await get_tree().create_timer(1.5).timeout
 
 	if not player.tem_item:
@@ -54,7 +51,7 @@ func _quebrar(player: CharacterBody3D) -> void:
 func _respawnar() -> void:
 	_quebrado = false
 	dado.scale = Vector3.ZERO
-	
+
 	var tween = create_tween()
 	tween.tween_property(dado, "scale", _escala_original, velocidade_respawn)\
 		.set_ease(Tween.EASE_OUT)\

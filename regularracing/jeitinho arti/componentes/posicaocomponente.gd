@@ -15,7 +15,7 @@ var acabou := false
 @onready var checkpoints = get_tree().get_first_node_in_group("container checkpoints").get_children()
 @onready var total_checkpoints = checkpoints.size()
 
-@export var volta_final := 2
+@export var volta_final := 4
 @export var tempo_espera_mudanca_cena := 2.0
 @export var cena_resultado := "res://cenas/resultado_corrida.tscn"
 
@@ -82,7 +82,7 @@ func converter_tempo_pra_string(tempo: float) -> String:
 	var minutos: int = int(tempo / 60.0) % 60
 	var segundos: int = int(tempo) % 60
 	var milisegundos: int = int(tempo * 1000.0) % 1000
-	var string: String = "%02d.%03d, Lap %d/%d" % [segundos, milisegundos, volta, volta_final]
+	var string: String = "%02d.%03d, volta %d/%d" % [segundos, milisegundos, volta, volta_final]
 	if minutos > 0:
 		string = string.insert(0, ("%d:") % minutos)
 	return string

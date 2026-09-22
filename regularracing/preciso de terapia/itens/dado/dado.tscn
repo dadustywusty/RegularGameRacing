@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://kfn6l6hxch" path="res://preciso de terapia/itens/dado/dado textura 1.png" id="1_gncss"]
 [ext_resource type="Texture2D" uid="uid://dkoy76y32xyh" path="res://preciso de terapia/itens/dado/dado sheen.png" id="2_cib6f"]
 [ext_resource type="Texture2D" uid="uid://e73b0rworn8y" path="res://preciso de terapia/itens/dado/dado normal 2.png" id="3_rad6f"]
-[ext_resource type="Texture2D" uid="uid://n281wkdmgwkx" path="res://coisa antiga/textura.png" id="4_cib6f"]
+[ext_resource type="Texture2D" uid="uid://0arfurs031im" path="res://coisa antiga/textura.png" id="4_cib6f"]
 [ext_resource type="ArrayMesh" uid="uid://tf1sy1egdc5l" path="res://preciso de terapia/itens/dado/dado.obj" id="4_kdc0u"]
 [ext_resource type="Texture2D" uid="uid://dd57qx6bi0vn7" path="res://preciso de terapia/itens/dado/que_que.png" id="5_qbkbv"]
 [ext_resource type="Script" uid="uid://d4gqansst4ffe" path="res://preciso de terapia/itens/dado/dado.gd" id="6_csse1"]
@@ -128,6 +128,7 @@ material = SubResource("StandardMaterial3D_8wucq")
 size = Vector2(3, 3)
 
 [node name="Dado" type="Node3D" unique_id=1665922199]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("6_csse1")
 
 [node name="Dado" type="MeshInstance3D" parent="." unique_id=628714641]

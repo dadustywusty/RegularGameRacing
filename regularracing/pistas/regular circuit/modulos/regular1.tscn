@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b5ju7omacmpt4"]
 
 [ext_resource type="Texture2D" uid="uid://brs5k83vpmftt" path="res://pistas/regular circuit/export/1/1_rua textura.png" id="1_lgfj1"]
-[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://itens/dado/dado.tscn" id="2_og3gn"]
+[ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://preciso de terapia/itens/dado/dado.tscn" id="2_og3gn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dauc"]
 resource_name = "1"
@@ -137,16 +137,16 @@ gizmo_extents = 5.0
 [node name="dados" type="Node3D" parent="." unique_id=605675245]
 
 [node name="Dado" parent="dados" unique_id=1665922199 instance=ExtResource("2_og3gn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162, 27, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 162, 27, 0)
 
 [node name="Dado2" parent="dados" unique_id=165120869 instance=ExtResource("2_og3gn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170, 30, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 170, 30, 0)
 
 [node name="Dado3" parent="dados" unique_id=1430875747 instance=ExtResource("2_og3gn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, 24, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 154, 24, 0)
 
 [node name="Dado4" parent="dados" unique_id=2059836074 instance=ExtResource("2_og3gn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178, 33, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 178, 33, 0)
 
 [node name="Dado5" parent="dados" unique_id=821074325 instance=ExtResource("2_og3gn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 21, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 146, 21, 0)
