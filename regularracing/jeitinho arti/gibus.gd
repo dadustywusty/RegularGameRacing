@@ -22,6 +22,7 @@ class_name Player
 @export var inclinacao_max: float = 16.0
 @export var velocidade_inclinacao: float = 8.0
 @export var velocidade_minima_drift := 1.0
+@onready var superficie_componente: ShapeCast3D = %SuperfícieComponente
 
 var tem_item := false
 var pegou_direcao_particula := false
@@ -34,6 +35,10 @@ var pulo : bool
 var retrovisor : bool
 var item_input : bool
 var _levando_dano := false
+
+var mod_vel := 1.0
+var mod_acc := 1.0
+var mod_fri := 1.0
 
 func _ready() -> void:
 	_rotacao_base_peixe = peixe.rotation
@@ -89,8 +94,14 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
+	superficie_componente.tick()
+	movimento_componente.mod_vel = superficie_componente.multiplicador_velocidade
+	movimento_componente.mod_acc = superficie_componente.multiplicador_aceleraçao
+	movimento_componente.mod_fri = superficie_componente.multiplicador_fricçao
+
 	movimento_componente.tick(delta)
 	drift_componente.tick(delta)
+	drift_componente.drift = superficie_componente.pode_drift
 	fisica.no_chao = is_on_floor()
 	fisica.tick(delta)
 	camera.tick(delta, velocity.length())

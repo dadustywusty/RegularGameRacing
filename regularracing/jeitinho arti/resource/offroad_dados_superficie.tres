@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DadosDeSuperficie" format=3 uid="uid://bfglumigw61ed"]
+
+[ext_resource type="Script" uid="uid://cigstb7wxi8rx" path="res://jeitinho arti/resource/superficie.gd" id="1_oulum"]
+
+[resource]
+script = ExtResource("1_oulum")
+multiplicador_velocidade = 0.4
+pode_drift = false
+metadata/_custom_type_script = "uid://cigstb7wxi8rx"

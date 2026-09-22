@@ -1,10 +1,13 @@
 [gd_scene format=4 uid="uid://bbqghq57qnbya"]
 
 [ext_resource type="Script" uid="uid://csgiopn14c0g" path="res://pistas/regular circuit/regular circuit.gd" id="1_f7hsb"]
+[ext_resource type="Script" uid="uid://cjtnnycjs4w0n" path="res://jeitinho arti/informaçao_superficie.gd" id="2_f7hsb"]
 [ext_resource type="Texture2D" uid="uid://baax6w7pt406u" path="res://pistas/regular circuit/export/centro/centro pista_rua textura.png" id="2_rsj0f"]
+[ext_resource type="Resource" uid="uid://bfglumigw61ed" path="res://jeitinho arti/resource/offroad_dados_superficie.tres" id="3_rsj0f"]
 [ext_resource type="PackedScene" uid="uid://bj61xl7owjnc0" path="res://jeitinho arti/gibus.tscn" id="4_ip1xh"]
 [ext_resource type="PackedScene" uid="uid://b5ju7omacmpt4" path="res://pistas/regular circuit/modulos/regular1.tscn" id="4_k126a"]
 [ext_resource type="Script" uid="uid://8mvy4kebv538" path="res://jeitinho arti/componentes/gerenciadordepista.gd" id="5_ip1xh"]
+[ext_resource type="Resource" uid="uid://c7mhvs1st5cv0" path="res://jeitinho arti/resource/pista_dados_superficie.tres" id="5_k126a"]
 [ext_resource type="Script" uid="uid://djcucrqvseyd4" path="res://MAPA/minimap_cam.gd" id="9_rsj0f"]
 [ext_resource type="Script" uid="uid://dvm6afwjjb5xv" path="res://teste/sou_um_mapa.gd" id="12_3ssn1"]
 
@@ -307,6 +310,8 @@ transform = Transform3D(-1.1920929e-07, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 
 mesh = SubResource("ArrayMesh_jjc33")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="regular centro fundo" unique_id=204771085]
+script = ExtResource("2_f7hsb")
+dados = ExtResource("3_rsj0f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="regular centro fundo/StaticBody3D" unique_id=583883846]
 shape = SubResource("ConcavePolygonShape3D_m84js")
@@ -316,6 +321,8 @@ transform = Transform3D(-1.1920929e-07, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 
 mesh = SubResource("ArrayMesh_85hvx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="regular fundo" unique_id=484212092]
+script = ExtResource("2_f7hsb")
+dados = ExtResource("3_rsj0f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="regular fundo/StaticBody3D" unique_id=1894872124]
 shape = SubResource("ConcavePolygonShape3D_n51ra")
@@ -325,6 +332,8 @@ transform = Transform3D(-1.1920929e-07, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 
 mesh = SubResource("ArrayMesh_2l800")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="regular fundo_001" unique_id=102084580]
+script = ExtResource("2_f7hsb")
+dados = ExtResource("3_rsj0f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="regular fundo_001/StaticBody3D" unique_id=539306798]
 shape = SubResource("ConcavePolygonShape3D_uhef0")
@@ -334,6 +343,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -50)
 mesh = SubResource("ArrayMesh_8uw2u")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="regular centro pista_001" unique_id=165981672]
+script = ExtResource("2_f7hsb")
+dados = ExtResource("5_k126a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="regular centro pista_001/StaticBody3D" unique_id=2032486897]
 shape = SubResource("ConcavePolygonShape3D_c74a5")

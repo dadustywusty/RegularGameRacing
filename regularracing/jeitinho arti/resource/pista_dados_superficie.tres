@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DadosDeSuperficie" format=3 uid="uid://c7mhvs1st5cv0"]
+
+[ext_resource type="Script" uid="uid://cigstb7wxi8rx" path="res://jeitinho arti/resource/superficie.gd" id="1_72uj2"]
+
+[resource]
+script = ExtResource("1_72uj2")
+metadata/_custom_type_script = "uid://cigstb7wxi8rx"

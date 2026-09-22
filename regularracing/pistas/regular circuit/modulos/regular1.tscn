@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://b5ju7omacmpt4"]
 
 [ext_resource type="Texture2D" uid="uid://brs5k83vpmftt" path="res://pistas/regular circuit/export/1/1_rua textura.png" id="1_lgfj1"]
+[ext_resource type="Script" uid="uid://cjtnnycjs4w0n" path="res://jeitinho arti/informaçao_superficie.gd" id="2_cj7mn"]
 [ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://preciso de terapia/itens/dado/dado.tscn" id="2_og3gn"]
+[ext_resource type="Resource" uid="uid://c7mhvs1st5cv0" path="res://jeitinho arti/resource/pista_dados_superficie.tres" id="3_yq0pv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dauc"]
 resource_name = "1"
@@ -113,6 +115,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
 mesh = SubResource("ArrayMesh_kbom3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="regular 1 pista" unique_id=720998523]
+script = ExtResource("2_cj7mn")
+dados = ExtResource("3_yq0pv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="regular 1 pista/StaticBody3D" unique_id=1842144753]
 shape = SubResource("ConcavePolygonShape3D_76qsg")

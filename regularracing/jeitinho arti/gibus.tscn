@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://b6gpsgd3ubf8p" path="res://preciso de terapia/tu.wav" id="11_ps1wu"]
 [ext_resource type="Material" uid="uid://grmdou6sd7u2" path="res://preciso de terapia/dusty folder/texturas/drift3gradiente.tres" id="14_s7ypg"]
 [ext_resource type="AudioStream" uid="uid://u2e2eqvbtyin" path="res://preciso de terapia/dusty folder/sound effects/jet-set-radio-spray-1_4CFwPkb.mp3" id="17_y7ux3"]
+[ext_resource type="Script" uid="uid://c8dhyk2hqskcp" path="res://jeitinho arti/componentes/superficie_componente.gd" id="19_3pr04"]
 [ext_resource type="AudioStream" uid="uid://blmicmxg0e06u" path="res://itens/dado/sfx1.ogg" id="20_pn5sl"]
 [ext_resource type="AudioStream" uid="uid://ft4gbw0vhcke" path="res://itens/dado/item roleta.ogg" id="20_sy36w"]
 [ext_resource type="Script" uid="uid://bwn5qf6sn4bdw" path="res://jeitinho arti/payer_gui.gd" id="22_i8l2r"]
@@ -359,6 +360,9 @@ rings = 2
 radius = 0.84716797
 height = 2.725586
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1c56w"]
+size = Vector3(1.385, 0.325, 2.54)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5b3dn"]
 size = Vector3(1.8359375, 1.696228, 2.8017578)
 
@@ -445,7 +449,7 @@ _data = {
 font = ExtResource("24_tn6jm")
 font_size = 64
 
-[node name="PosiçaoComponente" type="CharacterBody3D" unique_id=818493968 groups=["player"]]
+[node name="gibus" type="CharacterBody3D" unique_id=818493968 groups=["player"]]
 floor_snap_length = 0.5
 script = ExtResource("1_wm3er")
 
@@ -597,6 +601,13 @@ corpo = NodePath("..")
 unique_name_in_owner = true
 script = ExtResource("11_l0ubc")
 metadata/_custom_type_script = "uid://r3go3f8v2idd"
+
+[node name="SuperfícieComponente" type="ShapeCast3D" parent="." unique_id=1262018229]
+unique_name_in_owner = true
+shape = SubResource("BoxShape3D_1c56w")
+target_position = Vector3(0, -0.035, 0)
+max_results = 1
+script = ExtResource("19_3pr04")
 
 [node name="DanoComponente" type="Area3D" parent="." unique_id=1954585976 node_paths=PackedStringArray("corpo")]
 script = ExtResource("11_5b3dn")
