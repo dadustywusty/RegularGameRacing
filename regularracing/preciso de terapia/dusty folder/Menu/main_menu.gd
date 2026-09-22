@@ -19,6 +19,7 @@ var tweens := {}
 var _mouse_ativo := false
 
 func _ready() -> void:
+	Musga.tocar_menu()
 	Transicao.rect.scale = Vector2.ONE
 	Transicao.rect.visible = true
 	Transicao._abrir()
@@ -29,7 +30,8 @@ func _ready() -> void:
 		btn.focus_mode = Control.FOCUS_ALL
 		btn.pivot_offset = btn.size / 2.0
 		tweens[btn] = null
-		btn.focus_entered.connect(_animar_btn.bind(btn, ESCALA_HOVER))
+		btn.focus_entered.connect(_on_foco_entrou)               # ← TOCA SOM
+		btn.focus_entered.connect(_animar_btn.bind(btn, ESCALA_HOVER))   # ← ANIMA
 		btn.focus_exited.connect(_animar_btn.bind(btn, ESCALA_NORMAL))
 		btn.mouse_entered.connect(_on_mouse_entrou.bind(btn))
 		btn.mouse_exited.connect(_on_mouse_saiu.bind(btn))

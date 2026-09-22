@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://ctgqtoxrv7dah"]
+[gd_scene format=4 uid="uid://bbqghq57qnbya"]
 
 [ext_resource type="Script" uid="uid://csgiopn14c0g" path="res://pistas/regular circuit/regular circuit.gd" id="1_f7hsb"]
 [ext_resource type="Texture2D" uid="uid://baax6w7pt406u" path="res://pistas/regular circuit/export/centro/centro pista_rua textura.png" id="2_rsj0f"]

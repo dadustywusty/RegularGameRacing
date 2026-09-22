@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://jte064jhvirl"]
 
 [ext_resource type="Texture2D" uid="uid://8k0eogrdk4cv" path="res://kenney_prototype-textures/PNG/Dark/texture_01.png" id="1_nfy3r"]
+[ext_resource type="Script" uid="uid://c41hohhif2kkt" path="res://teste/mapa_de_teste.gd" id="1_rn0op"]
 [ext_resource type="PackedScene" uid="uid://bj61xl7owjnc0" path="res://jeitinho arti/gibus.tscn" id="2_7jhma"]
 [ext_resource type="Texture2D" uid="uid://w0p3u7g0tg71" path="res://kenney_prototype-textures/PNG/Green/texture_01.png" id="4_0c4pu"]
 [ext_resource type="Texture2D" uid="uid://c1bsnaxgduf0e" path="res://kenney_prototype-textures/PNG/Purple/texture_01.png" id="4_36yuk"]
@@ -54,6 +55,7 @@ size = Vector3(49, 21, 1)
 size = Vector3(49, 21, 1)
 
 [node name="Node3D" type="Node3D" unique_id=1041812665]
+script = ExtResource("1_rn0op")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1817662258]
 environment = SubResource("Environment_i7wld")

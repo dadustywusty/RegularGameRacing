@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgnthe3g4avvo"
+path="res://.godot/imported/08 - In The End.mp3-690fb30efe05aae06f89bd8dada7e8bf.mp3str"
+
+[deps]
+
+source_file="res://dusty folder/MUSGA/08 - In The End.mp3"
+dest_files=["res://.godot/imported/08 - In The End.mp3-690fb30efe05aae06f89bd8dada7e8bf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
