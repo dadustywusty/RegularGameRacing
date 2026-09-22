@@ -78,7 +78,6 @@ func _on_escolha(body: Node3D, area: Area3D) -> void:
 
 	var idx: int = area.get_meta("spawn_index")
 	var modulo_escolhido: PackedScene = area.get_meta("modulo_escolhido")
-
 	# Desativa grupo imediatamente pra não triggar duas vezes
 	_desativar_grupo(grupos[idx])
 	_limpar_icones(grupos[idx])
@@ -111,6 +110,7 @@ func atualizar_checkpoints(idx: int, modulo: Node3D):
 		for i in range(lista_cp.size()):
 			var cp = lista_cp[i]
 			var marcador = marcadores[i]
+			cp.rotation = marcador.rotation
 			cp.global_transform = marcador.global_transform
 
 func _limpar_icones(grupo: Node) -> void:

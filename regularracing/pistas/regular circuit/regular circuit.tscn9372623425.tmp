@@ -1,12 +1,43 @@
 [gd_scene format=4 uid="uid://ctgqtoxrv7dah"]
 
-[ext_resource type="Script" uid="uid://csgiopn14c0g" path="res://pistas/regular circuit/regular circuit.gd" id="1_f7hsb"]
-[ext_resource type="Texture2D" uid="uid://baax6w7pt406u" path="res://pistas/regular circuit/export/centro/centro pista_rua textura.png" id="2_rsj0f"]
-[ext_resource type="PackedScene" uid="uid://bj61xl7owjnc0" path="res://jeitinho arti/gibus.tscn" id="4_ip1xh"]
-[ext_resource type="PackedScene" uid="uid://b5ju7omacmpt4" path="res://pistas/regular circuit/modulos/regular1.tscn" id="4_k126a"]
-[ext_resource type="Script" uid="uid://8mvy4kebv538" path="res://jeitinho arti/componentes/gerenciadordepista.gd" id="5_ip1xh"]
-[ext_resource type="Script" uid="uid://djcucrqvseyd4" path="res://MAPA/minimap_cam.gd" id="9_rsj0f"]
-[ext_resource type="Script" uid="uid://dvm6afwjjb5xv" path="res://teste/sou_um_mapa.gd" id="12_3ssn1"]
+[ext_resource type="Texture2D" uid="uid://baax6w7pt406u" path="res://pistas/regular circuit/export/centro/centro pista_rua textura.png" id="1_3mfnl"]
+[ext_resource type="Script" uid="uid://8mvy4kebv538" path="res://jeitinho arti/componentes/gerenciadordepista.gd" id="3_2l800"]
+[ext_resource type="Script" uid="uid://djcucrqvseyd4" path="res://MAPA/minimap_cam.gd" id="3_85hvx"]
+[ext_resource type="PackedScene" uid="uid://b5ju7omacmpt4" path="res://pistas/regular circuit/modulos/regular1.tscn" id="3_jjc33"]
+[ext_resource type="PackedScene" uid="uid://bj61xl7owjnc0" path="res://jeitinho arti/gibus.tscn" id="4_n51ra"]
+[ext_resource type="Script" uid="uid://dvm6afwjjb5xv" path="res://teste/sou_um_mapa.gd" id="5_2l800"]
+
+[sub_resource type="GDScript" id="GDScript_n51ra"]
+script/source = "extends Node3D
+
+var modulos := [
+	preload(\"uid://b5ju7omacmpt4\"), # regular 1
+	preload(\"uid://t82f1ai8ssgo\"), # regular 2
+	preload(\"uid://pdhjccy3hcpe\") # regular 3
+]
+var icones := {
+	preload(\"uid://b5ju7omacmpt4\"):  preload(\"res://pistas/regular circuit/regular1.png\"),
+	preload(\"uid://t82f1ai8ssgo\"): preload(\"res://pistas/regular circuit/regular2.png\"),
+	preload(\"uid://pdhjccy3hcpe\"): preload(\"res://pistas/regular circuit/regular3.png\"),
+}
+
+@onready var grupo_1_cp := [
+	$\"checkpoints/checkpoint 3\",
+	$\"checkpoints/checkpoint 4\",
+	$\"checkpoints/checkpoint 5\",
+	$\"checkpoints/checkpoint 6\",
+	$\"checkpoints/checkpoint 7\"
+]
+@onready var grupo_2_cp := [
+	$\"checkpoints/checkpoint 10\",
+	$\"checkpoints/checkpoint 11\",
+	$\"checkpoints/checkpoint 12\",
+	$\"checkpoints/checkpoint 13\",
+	$\"checkpoints/checkpoint 14\"
+]
+
+@onready var cp_modular := [grupo_1_cp, grupo_2_cp]
+"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3mfnl"]
 sky_top_color = Color(0.8117647, 0.2509804, 0.44705883, 1)
@@ -221,7 +252,7 @@ data = PackedVector3Array(-100, -0.5, 64, -100, 8.2595, 48, -100, -0.5, 48, -100
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrouq"]
 resource_name = "pista"
 cull_mode = 2
-albedo_texture = ExtResource("2_rsj0f")
+albedo_texture = ExtResource("1_3mfnl")
 roughness = 0.5
 texture_filter = 2
 metadata/_gltf_primary_texture_coord = 0
@@ -287,8 +318,8 @@ size = Vector3(49, 21, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mc0f3"]
 size = Vector3(49, 21, 1)
 
-[node name="regular circuit" type="Node3D" unique_id=723197304]
-script = ExtResource("1_f7hsb")
+[node name="regular" type="Node3D" unique_id=723197304]
+script = SubResource("GDScript_n51ra")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1336016878]
 environment = SubResource("Environment_jjc33")
@@ -336,7 +367,7 @@ mesh = SubResource("ArrayMesh_8uw2u")
 shape = SubResource("ConcavePolygonShape3D_c74a5")
 
 [node name="GerenciadorDePista" type="Node" parent="." unique_id=56691176]
-script = ExtResource("5_ip1xh")
+script = ExtResource("3_2l800")
 metadata/_custom_type_script = "uid://8mvy4kebv538"
 
 [node name="grupo1" type="Node" parent="GerenciadorDePista" unique_id=800007871]
@@ -392,11 +423,11 @@ shaded = true
 [node name="spawn a" type="Marker3D" parent="modulos" unique_id=464443694]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -64, 0, 0)
 
-[node name="regular1" parent="modulos/spawn a" unique_id=1740945358 instance=ExtResource("4_k126a")]
+[node name="regular1" parent="modulos/spawn a" unique_id=1740945358 instance=ExtResource("3_jjc33")]
 
 [node name="spawn b" type="Marker3D" parent="modulos" unique_id=1816056078]
 
-[node name="regular1" parent="modulos/spawn b" unique_id=1015556494 instance=ExtResource("4_k126a")]
+[node name="regular1" parent="modulos/spawn b" unique_id=1015556494 instance=ExtResource("3_jjc33")]
 
 [node name="checkpoints" type="Node" parent="." unique_id=187732664 groups=["container checkpoints"]]
 
@@ -541,10 +572,10 @@ keep_aspect = 0
 projection = 1
 current = true
 size = 100.0
-script = ExtResource("9_rsj0f")
+script = ExtResource("3_85hvx")
 
-[node name="gibus" parent="." unique_id=818493968 instance=ExtResource("4_ip1xh")]
+[node name="gibus" parent="." unique_id=818493968 instance=ExtResource("4_n51ra")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.874115, 1.1802051, 50.26982)
 
 [node name="sou um mapa" type="Node" parent="." unique_id=227215037]
-script = ExtResource("12_3ssn1")
+script = ExtResource("5_2l800")
