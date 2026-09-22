@@ -169,6 +169,12 @@ shadow_mesh = SubResource("ArrayMesh_btwl1")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0p6nv"]
 data = PackedVector3Array(1.5074999, 0, 9.3484, -3.0149999, 0, 9.3484, 1.5074999, 1.35, 9.3484, -3.0149999, 0, -9.3484, 1.5074999, 1.35, 9.3484, -3.0149999, 0, 9.3484, -3.0149999, 0, -9.3484, 1.5074999, 1.35, -9.3484, 1.5074999, 1.35, 9.3484, 1.5074999, 1.35, -9.3484, 1.5074999, 0, 9.3484, 1.5074999, 1.35, 9.3484, 1.5074999, 1.35, -9.3484, 1.5074999, 0, -9.3484, 1.5074999, 0, 9.3484, 1.5074999, 0, -9.3484, 1.5074999, 1.35, -9.3484, -3.0149999, 0, -9.3484)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_og3gn"]
+size = Vector3(43, 31, 32)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7u5tt"]
+size = Vector3(23, 15, 54)
+
 [node name="regular2" type="Node3D" unique_id=220333312]
 
 [node name="regular 2 complemento" type="MeshInstance3D" parent="." unique_id=1779899466]
@@ -211,11 +217,11 @@ shape = SubResource("ConcavePolygonShape3D_0p6nv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.36454, -2.2058487, -40.999084)
 
 [node name="1" type="Marker3D" parent="marcadores" unique_id=179355865]
-transform = Transform3D(0.25881904, 0, 0.96592593, 0, 1, 0, -0.96592593, 0, 0.25881904, 61, 3, -3)
+transform = Transform3D(-0.25881892, 0, -0.9659259, 0, 1, 0, 0.9659259, 0, -0.25881892, 61, 3, -3)
 gizmo_extents = 5.0
 
 [node name="2" type="Marker3D" parent="marcadores" unique_id=1877422007]
-transform = Transform3D(0.70710665, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.70710665, 153, 3, 83)
+transform = Transform3D(-0.70710653, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, -0.70710653, 153, 3, 83)
 gizmo_extents = 5.0
 
 [node name="3" type="Marker3D" parent="marcadores" unique_id=404474984]
@@ -223,11 +229,11 @@ transform = Transform3D(-4.2221956e-08, -0.25881898, 0.96592593, -1.1313339e-08,
 gizmo_extents = 5.0
 
 [node name="4" type="Marker3D" parent="marcadores" unique_id=263665970]
-transform = Transform3D(0.86602545, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, 0.86602545, 138, 28, 16)
+transform = Transform3D(-0.8660254, 0, 0.5000001, 0, 1, 0, -0.5000001, 0, -0.8660254, 138, 28, 16)
 gizmo_extents = 5.0
 
 [node name="5" type="Marker3D" parent="marcadores" unique_id=457021503]
-transform = Transform3D(0.25881904, 0, -0.96592593, 0, 1, 0, 0.96592593, 0, 0.25881904, 61, 6, 84)
+transform = Transform3D(-0.25881892, 0, 0.9659259, 0, 1, 0, -0.9659259, 0, -0.25881892, 61, 6, 84)
 gizmo_extents = 5.0
 
 [node name="dados" type="Node3D" parent="." unique_id=1513574158]
@@ -247,3 +253,31 @@ transform = Transform3D(3, 0, -1.3411044e-07, 0, 3, 0, 1.3411044e-07, 0, 3, 218.
 
 [node name="Dado5" parent="dados" unique_id=1050876475 instance=ExtResource("2_ae5r5")]
 transform = Transform3D(3, 0, -8.940695e-08, 0, 3, 0, 8.940695e-08, 0, 3, 187.11957, 10, 28.57829)
+
+[node name="planos morte" type="Node3D" parent="." unique_id=577772997]
+
+[node name="Area3D" type="Area3D" parent="planos morte" unique_id=187396910 groups=["plano morte"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="planos morte/Area3D" unique_id=1988078239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 10.5, 84)
+shape = SubResource("BoxShape3D_og3gn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="planos morte/Area3D" unique_id=1547155461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 242, 6.5, 73.5)
+shape = SubResource("BoxShape3D_7u5tt")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="planos morte/Area3D" unique_id=1103408049]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 204, 6.5, 88.5)
+shape = SubResource("BoxShape3D_7u5tt")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="planos morte/Area3D" unique_id=771839706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244, 6.5, -73.5)
+shape = SubResource("BoxShape3D_7u5tt")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="planos morte/Area3D" unique_id=557535238]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 206, 6.5, -89.5)
+shape = SubResource("BoxShape3D_7u5tt")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="planos morte/Area3D" unique_id=46310878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113, 6.5, -77.5)
+shape = SubResource("BoxShape3D_7u5tt")

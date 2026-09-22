@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://brmng6fma70ax"]
 
-[ext_resource type="Script" uid="uid://cuyuxebwet18s" path="res://dusty folder/Menu/musga.gd" id="1_5triw"]
+[ext_resource type="Script" uid="uid://cuyuxebwet18s" path="res://preciso de terapia/dusty folder/Menu/musga.gd" id="1_5triw"]
 [ext_resource type="AudioStream" uid="uid://bjbfhcbfl2byo" path="res://preciso de terapia/dusty folder/MUSGA/corrida menu.ogg" id="2_5jtsw"]
 
 [node name="Musga" type="Node" unique_id=1262231364]
