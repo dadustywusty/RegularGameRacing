@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c1bsnaxgduf0e" path="res://kenney_prototype-textures/PNG/Purple/texture_01.png" id="4_36yuk"]
 [ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://preciso de terapia/itens/dado/dado.tscn" id="6_lcd4u"]
 [ext_resource type="Script" uid="uid://dvm6afwjjb5xv" path="res://teste/sou_um_mapa.gd" id="8_rn0op"]
+[ext_resource type="PackedScene" uid="uid://5000uul1t5b1" path="res://pause_menu.tscn" id="9_07oyd"]
 [ext_resource type="Script" uid="uid://djcucrqvseyd4" path="res://MAPA/minimap_cam.gd" id="9_a57v5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l3rou"]
@@ -295,3 +296,5 @@ shape = SubResource("BoxShape3D_07oyd")
 
 [node name="Dado2" parent="." unique_id=1665922199 instance=ExtResource("6_lcd4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.70367, 11.6173315, 325.21182)
+
+[node name="PauseMenu" parent="." unique_id=983787397 instance=ExtResource("9_07oyd")]

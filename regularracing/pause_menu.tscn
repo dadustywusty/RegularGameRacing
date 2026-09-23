@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://5000uul1t5b1"]
+
+[ext_resource type="Script" uid="uid://bfipg6r4wya3a" path="res://pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="FontFile" uid="uid://cp2b6ulmb5y83" path="res://fonte de texto/upheavtt.ttf" id="2_d3xb4"]
+[ext_resource type="Texture2D" uid="uid://cxdkll87xdfgb" path="res://dusty folder/BOTOES/quando jogar for selecionado.png" id="3_mxa3g"]
+[ext_resource type="Texture2D" uid="uid://bnlgmaogssdpp" path="res://dusty folder/BOTOES/ultimo.png" id="5_q2yj1"]
+[ext_resource type="Texture2D" uid="uid://cxl4krs1qjc1n" path="res://preciso de terapia/dusty folder/BOTOES/ultimo - Copia.png" id="6_a32ks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i4fbt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b5sgv"]
+texture = ExtResource("3_mxa3g")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dg8eg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1shbr"]
+texture = ExtResource("5_q2yj1")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8e0id"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_idl8l"]
+texture = ExtResource("6_a32ks")
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=983787397]
+script = ExtResource("1_hdmo1")
+
+[node name="Fundo" type="ColorRect" parent="." unique_id=515267559]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 0.43529412)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1115725865]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -131.5
+offset_right = 150.0
+offset_bottom = 131.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Titulo" type="Label" parent="VBoxContainer" unique_id=274621147]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_d3xb4")
+theme_override_font_sizes/font_size = 50
+text = "Pausado..."
+horizontal_alignment = 1
+
+[node name="BtnContinuar" type="Button" parent="VBoxContainer" unique_id=1348627189]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_d3xb4")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i4fbt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b5sgv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b5sgv")
+theme_override_styles/focus = SubResource("StyleBoxTexture_b5sgv")
+text = "Continue"
+
+[node name="BtnReiniciar" type="Button" parent="VBoxContainer" unique_id=409874913]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_d3xb4")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dg8eg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1shbr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1shbr")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1shbr")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1shbr")
+text = "Reiniciar"
+
+[node name="BtnSair" type="Button" parent="VBoxContainer" unique_id=26935546]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_d3xb4")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8e0id")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_idl8l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_idl8l")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_idl8l")
+theme_override_styles/focus = SubResource("StyleBoxTexture_idl8l")
+text = "Sair"

@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://8mvy4kebv538" path="res://jeitinho arti/componentes/gerenciadordepista.gd" id="5_ip1xh"]
 [ext_resource type="Resource" uid="uid://c7mhvs1st5cv0" path="res://jeitinho arti/resource/pista_dados_superficie.tres" id="5_k126a"]
 [ext_resource type="Script" uid="uid://djcucrqvseyd4" path="res://MAPA/minimap_cam.gd" id="9_rsj0f"]
+[ext_resource type="PackedScene" uid="uid://5000uul1t5b1" path="res://pause_menu.tscn" id="11_cd2dj"]
 [ext_resource type="Script" uid="uid://dvm6afwjjb5xv" path="res://teste/sou_um_mapa.gd" id="12_3ssn1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3mfnl"]
@@ -294,6 +295,7 @@ size = Vector3(49, 21, 1)
 size = Vector3(711, 74, 67)
 
 [node name="regular circuit" type="Node3D" unique_id=723197304]
+process_mode = 1
 script = ExtResource("1_f7hsb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1336016878]
@@ -609,3 +611,5 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.87
 
 [node name="sou um mapa" type="Node" parent="." unique_id=227215037]
 script = ExtResource("12_3ssn1")
+
+[node name="PauseMenu" parent="." unique_id=983787397 instance=ExtResource("11_cd2dj")]

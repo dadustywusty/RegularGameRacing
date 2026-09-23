@@ -62,6 +62,7 @@ _data = {
 }
 
 [node name="ColorRect" type="ColorRect" unique_id=448895712]
+process_mode = 3
 offset_right = 1201.0
 offset_bottom = 687.0
 color = Color(0.09803922, 0, 0.18431373, 1)

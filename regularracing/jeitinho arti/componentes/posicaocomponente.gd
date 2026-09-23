@@ -5,7 +5,7 @@ signal termino
 signal corrida_finalizada(tempo_total: float)
 
 var posicao : int
-var volta := 1
+var volta := 0
 var ultimo_cp_idx := -1
 var progresso := 0.0
 var cp_passados := 0
@@ -15,7 +15,7 @@ var acabou := false
 @onready var checkpoints = get_tree().get_first_node_in_group("container checkpoints").get_children()
 @onready var total_checkpoints = checkpoints.size()
 
-@export var volta_final := 4
+@export var volta_final := 3
 @export var tempo_espera_mudanca_cena := 2.0
 @export var cena_resultado := "res://cenas/resultado_corrida.tscn"
 
@@ -61,15 +61,18 @@ func _finalizar_corrida() -> void:
 	ja_terminou = true
 	acabou = true
 	
-	# ✅ Carro NÃO para — continua andando naturalmente
+	# Para o carro
+	var carro = get_parent()
+	if carro and carro.has_method("parar"):
+		carro.parar()
 	
-	print("✓ Corrida finalizada! Tempo total: %s" % converter_tempo_pra_string(tempo_atual))
+	
+	DadosCorrida.salvar(tempo_atual, volta, volta_final)
 	
 	termino.emit()
 	corrida_finalizada.emit(tempo_atual)
 
 func _mudar_para_cena_resultado() -> void:
-	print("🎬 Mudando para cena de resultado...")
 	if Transicao:
 		Transicao.transicionar("res://acabou.tscn")
 	else:

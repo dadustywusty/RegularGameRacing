@@ -13,5 +13,3 @@ bus = &"Musica"
 
 [node name="Intro" type="AudioStreamPlayer" parent="." unique_id=1095519712]
 volume_db = -15.0
-
-[node name="LoopB" type="AudioStreamPlayer" parent="." unique_id=477536054]
