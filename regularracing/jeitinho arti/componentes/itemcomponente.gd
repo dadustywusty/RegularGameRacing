@@ -7,9 +7,9 @@ var item_input : bool
 
 var itens: Dictionary = {
 	"latinha": preload("uid://buu6imckneitw"),
-	"latinhas triplas": preload("uid://jhdftpvqvih3"),
+	#"latinhas triplas": preload("uid://jhdftpvqvih3"),
 	"molinha": preload("uid://bpspel1hunwcc"),
-	"pedra": preload("res://itens/pedra/pedra.tscn")
+	#"pedra": preload("res://itens/pedra/pedra.tscn")
 }
 
 func tick() -> void:

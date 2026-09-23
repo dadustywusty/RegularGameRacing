@@ -28,8 +28,8 @@ var icones := {
 
 @onready var cp_modular := [grupo_1_cp, grupo_2_cp]
 
-const MUSICA_INTRO := preload("res://dusty folder/MUSGA/Project_54.ogg")
-const MUSICA_LOOP  := preload("res://dusty folder/MUSGA/Project_54 intro.ogg")
+const MUSICA_INTRO := preload("res://dusty folder/MUSGA/Project_54 intro.ogg")
+const MUSICA_LOOP  := preload("res://dusty folder/MUSGA/Project_54.ogg")
 
 
 func _ready() -> void:

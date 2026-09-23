@@ -4,6 +4,7 @@ class_name RespawnComponente
 signal checkpoint_passado(id: int)
 
 @onready var estatica = preload("uid://b5tj4m701bprn")
+@onready var noise = preload("uid://buixv2j72y5ot")
 
 @export var corpo : CharacterBody3D
 var checkpoint_atual : Area3D
@@ -24,8 +25,17 @@ func _on_area_entered(area: Area3D) -> void:
 
 func animacao_respawn() -> void:
 	var new = estatica.instantiate()
+	var som = AudioStreamPlayer.new()
+	
 	new.modulate.a = 1.00
+	som.stream = noise
+	
 	get_tree().root.add_child(new)
+	get_tree().root.add_child(som)
+	
+	som.finished.connect(som.queue_free)
+	som.play()
+	
 	var tween = get_tree().create_tween()
 	tween.tween_property(new, "modulate:a", 0.0, 0.5)
 	tween.tween_callback(new.queue_free)

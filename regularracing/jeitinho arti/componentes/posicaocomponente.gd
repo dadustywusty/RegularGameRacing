@@ -5,7 +5,7 @@ signal termino
 signal corrida_finalizada(tempo_total: float)
 
 var posicao : int
-var volta := 0
+var volta := 1
 var ultimo_cp_idx := -1
 var progresso := 0.0
 var cp_passados := 0
@@ -49,7 +49,7 @@ func passou_checkpoint(checkpoint_id: int) -> void:
 		return
 	if checkpoint_id > ultimo_cp_idx or (ultimo_cp_idx == total_checkpoints - 1 and checkpoint_id == 0):
 		if checkpoint_id == 0 and ultimo_cp_idx != -1:
-			if cp_passados >= total_checkpoints * 0.8:
+			if cp_passados >= total_checkpoints * 0.5:
 				volta += 1
 				cp_passados = 0
 				print("Completou volta %d/%d" % [volta, volta_final])
