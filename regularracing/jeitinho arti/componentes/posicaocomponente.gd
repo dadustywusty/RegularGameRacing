@@ -5,7 +5,7 @@ signal termino
 signal corrida_finalizada(tempo_total: float)
 
 var posicao : int
-var volta := 1
+var volta := 0
 var ultimo_cp_idx := -1
 var progresso := 0.0
 var cp_passados := 0

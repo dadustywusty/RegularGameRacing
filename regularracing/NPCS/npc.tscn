@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bmkyn3yhow6hb"]
+
+[ext_resource type="Script" uid="uid://bt42gq3ub3g7" path="res://NPCS/npc script.gd" id="1_7f6nw"]
+[ext_resource type="Texture2D" uid="uid://cs3ahpejcl2b7" path="res://NPCS/textura/611b7d8f-7468-45b9-bdf3-865b9d8f14d8.png" id="1_xmfe3"]
+
+[node name="Node2D" type="Sprite3D" unique_id=701508573]
+pixel_size = 0.025
+texture = ExtResource("1_xmfe3")
+script = ExtResource("1_7f6nw")

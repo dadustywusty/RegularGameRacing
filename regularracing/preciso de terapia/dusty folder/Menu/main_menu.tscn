@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bmvlafgkc7wjf" path="res://preciso de terapia/dusty folder/Menu/main_menu.gd" id="1_1xk4r"]
 [ext_resource type="Shader" uid="uid://ccfnggl2v4krc" path="res://preciso de terapia/dusty folder/Menu/main_menu.gdshader" id="2_ixhn6"]
 [ext_resource type="Texture2D" uid="uid://8fw23hug4koh" path="res://preciso de terapia/dusty folder/Menu/GIBUS.png" id="3_2v7eo"]
+[ext_resource type="Texture2D" uid="uid://br1qri58tvgty" path="res://sla/title.png" id="4_lhuqd"]
 [ext_resource type="Texture2D" uid="uid://bnlgmaogssdpp" path="res://preciso de terapia/dusty folder/BOTOES/ultimo.png" id="4_pdifu"]
 [ext_resource type="Texture2D" uid="uid://cxdkll87xdfgb" path="res://preciso de terapia/dusty folder/BOTOES/quando jogar for selecionado.png" id="5_qld25"]
 [ext_resource type="FontFile" uid="uid://cp2b6ulmb5y83" path="res://fonte de texto/upheavtt.ttf" id="6_b5g2a"]
@@ -78,6 +79,11 @@ grow_vertical = 2
 position = Vector2(150, 154)
 scale = Vector2(0.59999996, 0.6)
 texture = ExtResource("3_2v7eo")
+
+[node name="Title" type="Sprite2D" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=916776160]
+position = Vector2(145.99998, -90.00001)
+scale = Vector2(0.18229173, 0.18229175)
+texture = ExtResource("4_lhuqd")
 
 [node name="Vamo" type="Button" parent="CanvasLayer/Controle principal/VBoxContainer" unique_id=35680117]
 unique_name_in_owner = true
