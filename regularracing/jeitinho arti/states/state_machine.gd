@@ -6,7 +6,8 @@ var state_atual : State
 var states : Dictionary = {}
 
 func _ready() -> void:
-	for i in get_children():
+	var container = get_tree().get_first_node_in_group("container states")
+	for i in container.get_children():
 		if i is State:
 			states[i.name.to_lower()] = i
 			i.transicionou.connect(transicionou)

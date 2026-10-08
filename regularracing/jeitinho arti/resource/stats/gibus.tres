@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Stats" format=3 uid="uid://cv31sugictmbn"]
+
+[ext_resource type="Script" uid="uid://d044oknln3wba" path="res://jeitinho arti/resource/stats/stats.gd" id="1_jp0v5"]
+
+[sub_resource type="Curve" id="Curve_jp0v5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2962963, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.50769234), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[resource]
+script = ExtResource("1_jp0v5")
+velocidade = 280.0
+aceleracao = 6.0
+angulo_virada = 4.0
+friccao = 4.0
+fator_drift = 3.0
+elasticidade = 2.0
+peso = 10.0
+fator_virada = SubResource("Curve_jp0v5")
+metadata/_custom_type_script = "uid://d044oknln3wba"

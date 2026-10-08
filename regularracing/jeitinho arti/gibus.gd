@@ -4,7 +4,7 @@ class_name Player
 @onready var som_item: AudioStreamPlayer = $SomRoleta
 @onready var som_item_aparece: AudioStreamPlayer = $som_item
 
-@onready var movimento_componente: MovimentoComponente = $MovimentoComponente
+@onready var movimento_componente: MovimentoComponente = %MovimentoComponente
 @onready var drift_componente: DriftComponente = %DriftComponente
 @onready var fisica = %fisica
 @onready var camera: CameraComponente = $SpringArm3D

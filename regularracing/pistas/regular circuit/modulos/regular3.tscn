@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ly23hgtsr0i4" path="res://pistas/regular circuit/export/3/3_rua textura.png" id="1_28igc"]
 [ext_resource type="Script" uid="uid://cjtnnycjs4w0n" path="res://jeitinho arti/informaçao_superficie.gd" id="2_3ur0a"]
 [ext_resource type="PackedScene" uid="uid://ct64i8jtx528t" path="res://preciso de terapia/itens/dado/dado.tscn" id="2_bb34k"]
-[ext_resource type="Resource" uid="uid://c7mhvs1st5cv0" path="res://jeitinho arti/resource/pista_dados_superficie.tres" id="3_pvwbp"]
+[ext_resource type="Resource" uid="uid://c7mhvs1st5cv0" path="res://jeitinho arti/resource/dados de superficie/pista_dados_superficie.tres" id="3_pvwbp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh6j8"]
 resource_name = "3"

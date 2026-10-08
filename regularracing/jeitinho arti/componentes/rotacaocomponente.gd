@@ -4,6 +4,9 @@ class_name RotacaoComponente
 @export var corpo : CharacterBody3D
 
 func tick(delta) -> void:
+	# código pra rotacionar esse raycast pra fazer com que ele
+	# sempre aponte diretamente pra baixo
+	
 	if not is_colliding():
 		return
 	
